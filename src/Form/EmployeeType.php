@@ -1,0 +1,38 @@
+<?php
+
+namespace App\Form;
+
+use App\Entity\Employee;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+
+class EmployeeType extends AbstractType
+{
+    public function buildForm(FormBuilderInterface $builder, array $options): void
+    {
+        $builder
+            ->add('name')
+            ->add('lastname')
+            ->add('email')
+            ->add('roles')
+            ->add('identifying')
+            ->add('position')
+            ->add('area')
+            ->add('school')
+            ->add('start_date')
+            ->add('finish_date')
+            ->add('type_of_contract')
+            ->add('manager')
+            ->add('photo')
+            ->add('calendars')
+        ;
+    }
+
+    public function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver->setDefaults([
+            'data_class' => Employee::class,
+        ]);
+    }
+}

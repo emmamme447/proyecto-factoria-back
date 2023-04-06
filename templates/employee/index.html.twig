@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Employee index{% endblock %}
+
+{% block body %}
+    <h1>Employee index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Rol</th>
+                <th>Identifying</th>
+                <th>Team</th>
+                <th>Position</th>
+                <th>Area</th>
+                <th>TypeOfContract</th>
+                <th>StartDate</th>
+                <th>FinishDate</th>
+                <th>Manager</th>
+                <th>Photo</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for employee in employees %}
+            <tr>
+                <td>{{ employee.id }}</td>
+                <td>{{ employee.name }}</td>
+                <td>{{ employee.lastname }}</td>
+                <td>{{ employee.email }}</td>
+                <td>{{ employee.rol }}</td>
+                <td>{{ employee.identifying }}</td>
+                <td>{{ employee.team }}</td>
+                <td>{{ employee.position }}</td>
+                <td>{{ employee.area }}</td>
+                <td>{{ employee.typeOfContact }}</td>
+                <td>{{ employee.startDate ? employee.startDate|date('Y-m-d') : '' }}</td>
+                <td>{{ employee.finishDate ? employee.finishDate|date('Y-m-d') : '' }}</td>
+                <td>{{ employee.manager }}</td>
+                <td>{{ employee.photo }}</td>
+                <td>{{ employee.status }}</td>
+
+                <td>
+                    <a href="{{ path('app_employee_show', {'id': employee.id}) }}">show</a>
+                    <a href="{{ path('app_employee_edit', {'id': employee.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_employee_new') }}">Create new</a>
+{% endblock %}

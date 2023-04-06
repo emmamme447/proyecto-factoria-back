@@ -2,27 +2,24 @@
 
 namespace App\Form;
 
-use App\Entity\Comment;
+use App\Entity\Rol;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class CommentType extends AbstractType
+class RolType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
-            ->add('position')
-            ->add('comment')
-            ->add('date')      
+            ->add('title')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Comment::class,
+            'data_class' => Rol::class,
         ]);
     }
 }

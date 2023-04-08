@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EmailController!{% endblock %}
+
+{% block body %}
+
+{{ form_start(form) }}
+    {{ form_row(form.email)}}
+    {{ form_row(form.send_email)}}
+  {{ form_end(form) }}
+
+
+
+
+{% endblock %}
+
+
+

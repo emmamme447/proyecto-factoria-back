@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PasswordchangeuserController!{% endblock %}
+
+{% block body %}
+<h1>Cambiar contraseña</h1>
+
+    {% if error is defined %}
+        <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+
+    {{ form_start(form) }}
+        {{ form_row(form.currentPassword) }}
+        {{ form_row(form.newPassword) }}
+        {{ form_row(form.confirmPassword) }}
+        <button type="submit" class="btn btn-primary">Cambiar contraseña</button>
+    {{ form_end(form) }}
+{% endblock %}

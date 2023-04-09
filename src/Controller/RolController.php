@@ -6,6 +6,7 @@ use App\Entity\Rol;
 use App\Form\RolType;
 use App\Repository\RolRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -39,6 +40,31 @@ class RolController extends AbstractController
             'form' => $form,
         ]);
     }
+
+    #[Route('/list', name: 'app_rol_list', methods: ['GET'])]
+    public function listRol(Request $request, RolRepository $rolRepository): JsonResponse
+    { 
+
+        // Obtenemos todos los datos del repositorio de area
+        $listRol = $rolRepository->findAll(); 
+
+        $data = [];
+        
+        // Recorre cada uno de los registros del repositorio de area
+        foreach ($listRol as $item) {
+            // Guardamos los campos de cada registro en un array
+            $data[] = [
+
+                'id' => $item->getId(),
+                'title' => $item->getTitle(),
+            ];
+        }
+        // Retornamos una respuesta tipo JSON donde enviamos la data construida
+        // status 200 para indicar que todo esta correcto
+        // headers Access-Control-Allow-Origin para permitir que cualquier sitio acceda al recurso e interaccione entre diferentes sitios web
+        return $this->json($data, $status = 200, $headers = ['Access-Control-Allow-Origin'=>'*']);
+    }
+    
 
     #[Route('/{id}', name: 'app_rol_show', methods: ['GET'])]
     public function show(Rol $rol): Response

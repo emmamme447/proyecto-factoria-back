@@ -6,6 +6,7 @@ use App\Entity\Team;
 use App\Form\TeamType;
 use App\Repository\TeamRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -38,6 +39,30 @@ class TeamController extends AbstractController
             'team' => $team,
             'form' => $form,
         ]);
+    }
+
+    #[Route('/list', name: 'app_team_list', methods: ['GET'])]
+    public function listTeam(Request $request, TeamRepository $teamRepository): JsonResponse
+    { 
+
+        // Obtenemos todos los datos del repositorio de area
+        $listTeam = $teamRepository->findAll(); 
+
+        $data = [];
+        
+        // Recorre cada uno de los registros del repositorio de area
+        foreach ($listTeam as $item) {
+            // Guardamos los campos de cada registro en un array
+            $data[] = [
+
+                'id' => $item->getId(),
+                'title' => $item->getTitle(),
+            ];
+        }
+        // Retornamos una respuesta tipo JSON donde enviamos la data construida
+        // status 200 para indicar que todo esta correcto
+        // headers Access-Control-Allow-Origin para permitir que cualquier sitio acceda al recurso e interaccione entre diferentes sitios web
+        return $this->json($data, $status = 200, $headers = ['Access-Control-Allow-Origin'=>'*']);
     }
 
     #[Route('/{id}', name: 'app_team_show', methods: ['GET'])]

@@ -60,6 +60,7 @@ class EmailController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
+            
             $transport = Transport::fromDsn('smtp://emmarentero@gmail.com:tsqqgksxiyoiyijx@smtp.gmail.com:587');
 
             $mailer = new Mailer($transport);
@@ -76,17 +77,14 @@ class EmailController extends AbstractController
             ->subject('Email de bienvenida a FactoríaF5')
             ->text('
 
-            <div style="color: #020100; background-color: #ffa37f; width: 100%; padding: 16px 0; text-align: center; ">
-
             <h1>¡¡¡¡Bienvenida compañer@!!!!</h1>
 
             <H5>TU CONTRASEÑA ES:{{ $password }} </H5>
             
             <h4>Por favor, procede a modificar tu contraseña accediendo al enlace que te indicamos a continuación:</h4>
-
-        </div>
             
-            ');
+            ')
+            ->html('style="color: #020100; background-color: #ffa37f; width: 100%; padding: 16px 0; text-align: center');
 
         $mailer->send($email);
 

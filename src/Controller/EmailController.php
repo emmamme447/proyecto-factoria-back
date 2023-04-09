@@ -13,33 +13,56 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\Transport;
 use Symfony\Component\Mailer\Mailer;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
 
 
 class EmailController extends AbstractController
 {
     #[Route('/email', name: 'email')]
 
-    public function generatePassword($length = 12)
+    /**
+    * @param string $username
+    * @param string $email
+    */
+    public function getAutoPass($username, $email)
     {
-    $bytes = random_bytes($length / 2);
-    $password = substr(bin2hex($bytes), 0, $length);
-    return $this->render('email/email.html.twig', ['password' => $password]);
+        $autopass = strtolower(chr(64 + rand(1, 26)) . strtolower($username[2] . $email[1] . rand(1, 99) . $username[1] . $email[0]));
+        return $autopass;
     }
 
-    public function index(Request $request, MailerInterface $mailer): Response
+    /**
+    * @Route("/email", name="email")
+    * @param Request $request
+    * @param MailerInterface $mailer
+    * @param UserPasswordHasherInterface $userPasswordHasher
+    * @param ManagerRegistry $managerRegistry
+    */
+    public function index(Request $request, MailerInterface $mailer, UserPasswordHasherInterface $userPasswordHasher, ManagerRegistry $managerRegistry): Response
     {
+        
         $form = $this->createForm(EmailtoType::class);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+            $data = $form->getData();
+            $username = $data->getUsername();
+            $email = $data->getEmail();
+            
+            $password = $this->getAutoPass($username, $email);
+
+            $user = new User();
+            $user->setEmail($email);
+            $user->setPassword($userPasswordHasher->hashPassword($user, $password));
+
+            $entityManager = $managerRegistry->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+
             $transport = Transport::fromDsn('smtp://emmarentero@gmail.com:tsqqgksxiyoiyijx@smtp.gmail.com:587');
 
             $mailer = new Mailer($transport);
-
-            list($password) = $this->generatePassword();
 
             $email = (new Email())
 
@@ -51,11 +74,17 @@ class EmailController extends AbstractController
             //->replyTo('fabien@example.com')
             //->priority(Email::PRIORITY_HIGH)
             ->subject('Email de bienvenida a FactoríaF5')
-            ->text('<h1>¡¡¡¡Bienvenida compañer@!!!!</h1>
+            ->text('
 
-            <H5>TU CONTRASEÑA ES:{{ password }} </H5>
+            <div style="color: #020100; background-color: #ffa37f; width: 100%; padding: 16px 0; text-align: center; ">
+
+            <h1>¡¡¡¡Bienvenida compañer@!!!!</h1>
+
+            <H5>TU CONTRASEÑA ES:{{ $password }} </H5>
             
             <h4>Por favor, procede a modificar tu contraseña accediendo al enlace que te indicamos a continuación:</h4>
+
+        </div>
             
             ');
 
@@ -65,17 +94,13 @@ class EmailController extends AbstractController
 
         return $this->renderForm('email/index.html.twig', [
             'form' => $form,
-        ]);
-        
-    }
+        ]); 
 
-    public function HashPassword($password, UserPasswordHasherInterface $passwordHasher, EntityManagerInterface $entityManager)
-    {
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-    $entityManager->persist();
-    $entityManager->flush();
-    return $hashedPassword;
     }
 
 }
+
+    
+
+
         

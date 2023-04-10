@@ -14,43 +14,28 @@ class Comment
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $name = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $position = null;
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $date = null;
 
     #[ORM\Column(length: 255)]
     private ?string $comment = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $date = null;
-    
+    #[ORM\ManyToOne]
+    private ?Employee $employee = null;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getDate(): ?\DateTimeInterface
     {
-        return $this->name;
+        return $this->date;
     }
 
-    public function setName(string $name): self
+    public function setDate(\DateTimeInterface $date): self
     {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    public function getPosition(): ?string
-    {
-        return $this->position;
-    }
-
-    public function setPosition(string $position): self
-    {
-        $this->position = $position;
+        $this->date = $date;
 
         return $this;
     }
@@ -67,20 +52,15 @@ class Comment
         return $this;
     }
 
-    public function __toString()
+    public function getEmployee(): ?Employee
     {
-        return $this->getComment();
+        return $this->employee;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function setEmployee(?Employee $employee): self
     {
-        return $this->date;
-    }
-
-    public function setDate(\DateTimeInterface $date): self
-    {
-        $this->date = $date;
+        $this->employee = $employee;
 
         return $this;
-    } 
+    }
 }

@@ -1,9 +1,9 @@
-<?php 
+<?php
 
 namespace App\Controller;
 
 use App\Entity\Calendar;
-use App\Form\CalendarType;
+use App\Form\Calendar1Type;
 use App\Repository\CalendarRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,7 +25,7 @@ class CalendarController extends AbstractController
     public function new(Request $request, CalendarRepository $calendarRepository): Response
     {
         $calendar = new Calendar();
-        $form = $this->createForm(CalendarType::class, $calendar);
+        $form = $this->createForm(Calendar1Type::class, $calendar);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -51,7 +51,7 @@ class CalendarController extends AbstractController
     #[Route('/{id}/edit', name: 'app_calendar_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Calendar $calendar, CalendarRepository $calendarRepository): Response
     {
-        $form = $this->createForm(CalendarType::class, $calendar);
+        $form = $this->createForm(Calendar1Type::class, $calendar);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

@@ -25,8 +25,6 @@ class ApiCommentController extends AbstractController
         foreach ($comment as $p) {
             $data[] = [
                 'id' => $p->getId(),
-                'title' => $p->getName(),
-                'position' => $p->getPosition(),
                 'comment' => $p->getComment(),
                 'date' => $p->getDate(),
             ];
@@ -39,13 +37,9 @@ class ApiCommentController extends AbstractController
 	public function create(Request $request, EntityManagerInterface $entityManager): JsonResponse
 	{
     $comment = new Comment();
-    $name = $request->request->get('name');
-    $position = $request->request->get('position');
     $comment = $request->files->get('comment');
     $date = $request->files->get('date');
     // // $date = $request->request->get('date');
-    $comment->setName($name);
-    $comment->setPosition($position);
     $comment->setComment($comment);
     $comment->setDate($date);
     // // $proyect->setImage($image);

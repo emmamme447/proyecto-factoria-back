@@ -16,24 +16,16 @@
                 <td>{{ calendar.title }}</td>
             </tr>
             <tr>
-                <th>Subject</th>
-                <td>{{ calendar.subject }}</td>
+                <th>StartDate</th>
+                <td>{{ calendar.startDate ? calendar.startDate|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>Recipient_name</th>
-                <td>{{ calendar.recipientName }}</td>
+                <th>FinishDate</th>
+                <td>{{ calendar.finishDate ? calendar.finishDate|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>Recipient_email</th>
-                <td>{{ calendar.recipientEmail }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ calendar.date ? calendar.date|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Status</th>
-                <td>{{ calendar.status }}</td>
+                <th>Recipient</th>
+                <td>{{ calendar.recipient }}</td>
             </tr>
         </tbody>
     </table>

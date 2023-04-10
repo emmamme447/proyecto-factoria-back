@@ -26,11 +26,9 @@ class ApiCalendarController extends AbstractController
             $data[] = [
                 'id' => $p->getId(),
                 'title' => $p->getTitle(),
-                'subject' => $p->getSubject(),
-                'recipientName' => $p->getRecipientName(),
-                'reciepientEmail' => $p->getRecipientEmail(),
-                'date' => $p->getDate(),
-                'status' => $p->getStatus(),
+                'startDate' => $p->getStartDate(),
+                'finishDate' => $p->getFinishDate(),
+                'recipient' => $p->getRecipient(),
             ];
         }
 
@@ -42,18 +40,17 @@ class ApiCalendarController extends AbstractController
 	{
     $calendar = new Calendar();
     $title = $request->request->get('title');
-    $subject = $request->request->get('subject');
-    $recipient_name = $request->files->get('recipient_name');
-    $recipient_email = $request->files->get('recipient_email');
-    $date = $request->files->get('date');
-    $status = $request->files->get('status');
+    $startDate = $request->request->get('startDate');
+    $finishDate = $request->files->get('finishDate');
+    $recipient = $request->files->get('recipient');
+
     // // $date = $request->request->get('date');
     $calendar->setTitle($title);
-    $calendar->setSubject($subject);
-    $calendar->setRecipientName($recipient_name);
-    $calendar->setRecipientEmail($recipient_email);
-    $calendar->setDate($date);
-    $calendar->setStatus($status);
+    $calendar->setStartDate($startDate);
+    $calendar->setFinishDate($finishDate);
+    $calendar->setRecipient($recipient);
+
+
     // // $proyect->setImage($image);
     // // $proyect->setDate($date);
     $entityManager->persist($calendar);
@@ -63,4 +60,3 @@ class ApiCalendarController extends AbstractController
 }
 
 }
-

@@ -17,20 +17,14 @@ class Calendar
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $subject = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $recipient_name = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $recipient_email = null;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $startDate = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $date = null;
+    private ?\DateTimeInterface $finishDate = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $status = null;
+    private ?string $recipient = null;
 
     public function getId(): ?int
     {
@@ -49,62 +43,38 @@ class Calendar
         return $this;
     }
 
-    public function getSubject(): ?string
+    public function getStartDate(): ?\DateTimeInterface
     {
-        return $this->subject;
+        return $this->startDate;
     }
 
-    public function setSubject(string $subject): self
+    public function setStartDate(\DateTimeInterface $startDate): self
     {
-        $this->subject = $subject;
+        $this->startDate = $startDate;
 
         return $this;
     }
 
-    public function getRecipientName(): ?string
+    public function getFinishDate(): ?\DateTimeInterface
     {
-        return $this->recipient_name;
+        return $this->finishDate;
     }
 
-    public function setRecipientName(string $recipient_name): self
+    public function setFinishDate(\DateTimeInterface $finishDate): self
     {
-        $this->recipient_name = $recipient_name;
+        $this->finishDate = $finishDate;
 
         return $this;
     }
 
-    public function getRecipientEmail(): ?string
+    public function getRecipient(): ?string
     {
-        return $this->recipient_email;
+        return $this->recipient;
     }
 
-    public function setRecipientEmail(string $recipient_email): self
+    public function setRecipient(string $recipient): self
     {
-        $this->recipient_email = $recipient_email;
-
-        return $this;
-    }
-
-    public function getDate(): ?\DateTimeInterface
-    {
-        return $this->date;
-    }
-
-    public function setDate(\DateTimeInterface $date): self
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    public function getStatus(): ?string
-    {
-        return $this->status;
-    }
-
-    public function setStatus(string $status): self
-    {
-        $this->status = $status;
+        $this->recipient = $recipient;
 
         return $this;
     }

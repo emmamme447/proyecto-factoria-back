@@ -2,42 +2,22 @@
 
 namespace App\Controller;
 
-use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Mime\Email;
 use App\Form\EmailtoType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\Transport;
 use Symfony\Component\Mailer\Mailer;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Mime\Email;
 
 
 class EmailController extends AbstractController
 {
     #[Route('/email', name: 'email')]
 
-    /**
-    * @param string $username
-    * @param string $email
-    */
-    public function getAutoPass($username, $email)
-    {
-        $autopass = strtolower(chr(64 + rand(1, 26)) . strtolower($username[2] . $email[1] . rand(1, 99) . $username[1] . $email[0]));
-        return $autopass;
-    }
-
-    /**
-    * @Route("/email", name="email")
-    * @param Request $request
-    * @param MailerInterface $mailer
-    * @param UserPasswordHasherInterface $userPasswordHasher
-    * @param ManagerRegistry $managerRegistry
-    */
-    public function index(Request $request, MailerInterface $mailer, UserPasswordHasherInterface $userPasswordHasher, ManagerRegistry $managerRegistry): Response
+    public function index(Request $request, MailerInterface $mailer): Response
     {
         
         $form = $this->createForm(EmailtoType::class);
@@ -45,25 +25,11 @@ class EmailController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-            $data = $form->getData();
-            $username = $data->getUsername();
-            $email = $data->getEmail();
-            
-            $password = $this->getAutoPass($username, $email);
-
-            $user = new User();
-            $user->setEmail($email);
-            $user->setPassword($userPasswordHasher->hashPassword($user, $password));
-
-            $entityManager = $managerRegistry->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
-
             
             $transport = Transport::fromDsn('smtp://emmarentero@gmail.com:tsqqgksxiyoiyijx@smtp.gmail.com:587');
 
             $mailer = new Mailer($transport);
+
 
             $email = (new Email())
 
@@ -75,18 +41,45 @@ class EmailController extends AbstractController
             //->replyTo('fabien@example.com')
             //->priority(Email::PRIORITY_HIGH)
             ->subject('Email de bienvenida a FactoríaF5')
-            ->text('
 
-            <h1>¡¡¡¡Bienvenida compañer@!!!!</h1>
+            ->text('¡Bienvenido compañer@!
 
-            <H5>TU CONTRASEÑA ES:{{ $password }} </H5>
-            
-            <h4>Por favor, procede a modificar tu contraseña accediendo al enlace que te indicamos a continuación:</h4>
-            
+            Te remitimos el link para que procedas a completar tu autoevaluación:
+                
+            Por favor, recuerda que en el formulario al que te lleva este link solo debes rellenar las partes: Información general del evaluado y el evaluador, Valoración de los valores F5, Valoración competencias transversales, Valoración cualitativa y Despedida y agradecimiento.que son las correspondientes a tu autoevaluación.
+
+            Cualquier duda, por favor, consulta con RRHH o con tu responsable
+
+            Un saludo
+
+            FACTORIA F5
+
             ')
-            ->html('style="color: #020100; background-color: #ffa37f; width: 100%; padding: 16px 0; text-align: center');
+
+            ->html('
+            
+            <div style="color: #020100; background-color: #FFA37F; width: 100%; padding: 16px 0; text-align: center; color-padding: #FD3903">
+  
+                <h1>¡Bienvenido compañer@!</h1>
+  
+                <h4>Te remitimos el link para que procedas a completar tu autoevaluación:</h4>
+  
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScOhrA7xLvpODBWUUEx5_A1-B079SDHxNSX9hqDMdjzTGyknQ/viewform">Enlace al formulario de autoevaluación</a>
+                  
+                <h2>Por favor, recuerda que en el formulario al que te lleva este link solo debes rellenar las partes: Información general del evaluado y el evaluador, Valoración de los valores F5, Valoración competencias transversales, Valoración cualitativa y Despedida y agradecimiento, que son las correspondientes a tu autoevaluación.</h2>
+  
+                <h4>Cualquier duda, por favor, consulta con RRHH o con tu responsable.</h4>
+  
+                <h4>Un saludo</H4>
+  
+                <h2> FACTORIA F5</H2>
+  
+                    <img src="/public/assets/image_1.png" alt="FactoriaF5"/>
+            ');
 
         $mailer->send($email);
+
+        $this->addFlash('success', 'El correo electrónico se ha enviado correctamente.');
 
         }
 

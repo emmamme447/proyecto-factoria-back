@@ -18,9 +18,15 @@
                 <th>Position</th>
                 <th>Area</th>
                 <th>TypeOfContract</th>
+                <th>Manager</th>
                 <th>StartDate</th>
                 <th>FinishDate</th>
-                <th>Manager</th>
+                <th>FirstPeriod</th>
+                <th>SecondPeriod</th>
+                <th>ThirdPeriod</th>
+                <th>FourthPeriod</th>
+                <th>FifthPeriod</th>
+                <th>Period</th>
                 <th>Photo</th>
                 <th>Status</th>
                 <th>actions</th>
@@ -39,9 +45,15 @@
                 <td>{{ employee.position }}</td>
                 <td>{{ employee.area }}</td>
                 <td>{{ employee.typeOfContact }}</td>
+                <td>{{ employee.manager }}</td>
                 <td>{{ employee.startDate ? employee.startDate|date('Y-m-d') : '' }}</td>
                 <td>{{ employee.finishDate ? employee.finishDate|date('Y-m-d') : '' }}</td>
-                <td>{{ employee.manager }}</td>
+                <td>{{ employee.firstPeriod ? employee.firstPeriod|date('Y-m-d') : '' }}</td>
+                <td>{{ employee.secondPeriod ? employee.secondPeriod|date('Y-m-d') : '' }}</td>
+                <td>{{ employee.thirdPeriod ? employee.thirdPeriod|date('Y-m-d') : '' }}</td>
+                <td>{{ employee.fourthPeriod ? employee.fourthPeriod|date('Y-m-d') : '' }}</td>
+                <td>{{ employee.fifthPeriod ? employee.fifthPeriod|date('Y-m-d') : '' }}</td>
+                <td>{{ employee.period }}</td>
                 <td>{{ employee.photo }}</td>
                 <td>{{ employee.status }}</td>
 

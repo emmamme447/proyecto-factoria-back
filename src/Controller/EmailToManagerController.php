@@ -6,21 +6,19 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Mailer\MailerInterface;
-use App\Form\EmailtoType;
+use App\Form\EmailToManagerType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\Transport;
 use Symfony\Component\Mailer\Mailer;
 use Symfony\Component\Mime\Email;
 
-
-class EmailController extends AbstractController
+class EmailToManagerController extends AbstractController
 {
-    #[Route('/email', name: 'email')]
-
+    #[Route('/email/to/manager', name: 'app_email_to_manager')]
     public function index(Request $request, MailerInterface $mailer): Response
     {
         
-        $form = $this->createForm(EmailtoType::class);
+        $form = $this->createForm(EmailToManagerType::class);
 
         $form->handleRequest($request);
 
@@ -40,15 +38,15 @@ class EmailController extends AbstractController
             //->bcc('bcc@example.com')
             //->replyTo('fabien@example.com')
             //->priority(Email::PRIORITY_HIGH)
-            ->subject('Autoevaluación de FactoríaF5')
+            ->subject('Evaluación final de empleado en periodo de prueba')
 
             ->text('Hola, ¿cómo estás, compañer@?
 
-            Te remitimos el link para que procedas a completar tu autoevaluación:
+            Te remito el link para que procedas a completar la evaluación final:
                 
             Por favor, recuerda que en el formulario al que te lleva este link solo debes rellenar las partes: Información general del evaluado y el evaluador, Valoración de los valores F5, Valoración competencias transversales, Valoración cualitativa y Despedida y agradecimiento.que son las correspondientes a tu autoevaluación.
 
-            Cualquier duda, por favor, consulta con RRHH o con tu responsable.
+            Cualquier duda, por favor, consulta de nuevo con RRHH.
 
             Un saludo
 
@@ -62,13 +60,13 @@ class EmailController extends AbstractController
   
                 <h1>Hola, ¿cómo estás, compañer@?</h1>
   
-                <h4>Te remitimos el link para que procedas a completar tu autoevaluación:</h4>
+                <h4>Te remito el link para que procedas a completar la evaluación final:</h4>
   
-                    <a href="https://forms.gle/xuiYspLRaWWTxcWi9">Enlace al formulario de autoevaluación</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScOhrA7xLvpODBWUUEx5_A1-B079SDHxNSX9hqDMdjzTGyknQ/viewform">Enlace al formulario de autoevaluación</a>
                   
                 <h2>Por favor, recuerda que en el formulario al que te lleva este link solo debes rellenar las partes: Información general del evaluado y el evaluador, Valoración de los valores F5, Valoración competencias transversales, Valoración cualitativa y Despedida y agradecimiento, que son las correspondientes a tu autoevaluación.</h2>
   
-                <h4>Cualquier duda, por favor, consulta con RRHH o con tu responsable.</h4>
+                <h4>Cualquier duda, por favor, consulta de nuevo con RRHH.</h4>
   
                 <h4>Un saludo</H4>
   
@@ -83,15 +81,10 @@ class EmailController extends AbstractController
 
         }
 
-        return $this->renderForm('email/index.html.twig', [
+        return $this->renderForm('email_to_manager/index.html.twig', [
             'form' => $form,
         ]); 
 
     }
 
 }
-
-    
-
-
-        

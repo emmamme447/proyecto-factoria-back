@@ -35,27 +35,25 @@ class ApiCalendarController extends AbstractController
         return $this->json($data, $status = 200, $headers = ['Access-Control-Allow-Origin'=>'*']);
     }
 
-    #[Route('/new', name: 'app_apicalendar_create', methods: ['POST'])]
+    #[Route('/calendar/new', name: 'app_apicalendar_create', methods: ['POST'])]
 	public function create(Request $request, EntityManagerInterface $entityManager): JsonResponse
 	{
     $calendar = new Calendar();
-    $title = $request->request->get('title');
-    $startDate = $request->request->get('startDate');
-    $finishDate = $request->files->get('finishDate');
-    $recipient = $request->files->get('recipient');
-
-    // // $date = $request->request->get('date');
-    $calendar->setTitle($title);
+    //para obtener el contenido del cuerpo de la solicitud en forma de cadena
+    $content = $request->getContent();
+    //para convertirlo en un arreglo asociativo
+    $data = json_decode($content);
+    // Buscar los valores decodificados en data
+    $calendar->setTitle($data->title);
+    $startDate = new \DateTime($data->startDate);
     $calendar->setStartDate($startDate);
+    $finishDate = new \DateTime($data->finishDate);
     $calendar->setFinishDate($finishDate);
-    $calendar->setRecipient($recipient);
-
-
-    // // $proyect->setImage($image);
-    // // $proyect->setDate($date);
+    $calendar->setRecipient($data->recipient);
+    //Guardar el objeto calendar en base de datos 
     $entityManager->persist($calendar);
     $entityManager->flush();
-
+    //retorna un mensaje cuando el calendario ha sido creado
     return $this->json(['message' => 'Calendar created'], 201, ['Access-Control-Allow-Origin' => '*']);
 }
 

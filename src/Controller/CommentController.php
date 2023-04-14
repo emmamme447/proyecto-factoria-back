@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/comment')]
 class CommentController extends AbstractController
 {
-    #[Route('/', name: 'app_comment_index', methods: ['GET'])]
+    #[Route('/', name: 'comment_index', methods: ['GET'])]
     public function index(CommentRepository $commentRepository): Response
     {
         return $this->render('comment/index.html.twig', [

@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 #[Route('/api')]
 class ApiCommentController extends AbstractController
 {
-    #[Route('/comment', name: 'app_apicomment_index', methods: ['GET'])]
+    #[Route('/comment', name: 'apicomment_index', methods: ['GET'])]
     public function index(CommentRepository $commentRepository): Response
     {
         $comment = $commentRepository->findAll();

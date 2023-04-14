@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/area')]
 class AreaController extends AbstractController
 {
-    #[Route('/', name: 'app_area_index', methods: ['GET'])]
+    #[Route('/', name: 'area_index', methods: ['GET'])]
     public function index(AreaRepository $areaRepository): Response
     {
         return $this->render('area/index.html.twig', [

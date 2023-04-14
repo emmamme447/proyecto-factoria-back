@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/calendar')]
 class CalendarController extends AbstractController
 {
-    #[Route('/', name: 'app_calendar_index', methods: ['GET'])]
+    #[Route('/', name: 'calendar_index', methods: ['GET'])]
     public function index(CalendarRepository $calendarRepository): Response
     {
         return $this->render('calendar/index.html.twig', [

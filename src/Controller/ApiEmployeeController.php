@@ -23,7 +23,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 #[Route('/api')]
 class ApiEmployeeController extends AbstractController
 {
-    #[Route('/employee', name: 'app_apiemployee_index', methods: ['GET'])]
+    #[Route('/employee', name: 'apiemployee_index', methods: ['GET'])]
     public function index(EmployeeRepository $employeeRepository): Response
     {   
         $employee = $employeeRepository->findAll();

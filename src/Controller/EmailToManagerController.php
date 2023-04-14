@@ -14,7 +14,7 @@ use Symfony\Component\Mime\Email;
 
 class EmailToManagerController extends AbstractController
 {
-    #[Route('/email/to/manager', name: 'app_email_to_manager')]
+    #[Route('/email/to/manager', name: 'email_to_manager')]
     public function index(Request $request, MailerInterface $mailer): Response
     {
         

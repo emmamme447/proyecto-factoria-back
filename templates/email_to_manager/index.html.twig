@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Envío de evaluación final al Responsable{% endblock %}
+
+{% block body %}
+
+{{ form_start(form) }}
+    {{ form_row(form.email)}}
+    {{ form_row(form.send_email)}}
+
+    {% for label, messages in app.flashes %}
+      {% for message in messages %}
+          <div class="alert alert-{{ label }}">
+              {{ message }}
+          </div>
+      {% endfor %}
+    {% endfor %}
+
+{{ form_end(form) }}
+
+{% endblock %}
+
+
+

@@ -6,6 +6,7 @@ use App\Entity\Period;
 use App\Form\PeriodType;
 use App\Repository\PeriodRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -38,6 +39,30 @@ class PeriodController extends AbstractController
             'period' => $period,
             'form' => $form,
         ]);
+    }
+
+    #[Route('/list', name: 'app_period_list', methods: ['GET'])]
+    public function listPeriod(Request $request, PeriodRepository $periodRepository): JsonResponse
+    { 
+
+        // Obtenemos todos los datos del repositorio de area
+        $listPeriod = $periodRepository->findAll(); 
+
+        $data = [];
+        
+        // Recorre cada uno de los registros del repositorio de area
+        foreach ($listPeriod as $item) {
+            // Guardamos los campos de cada registro en un array
+            $data[] = [
+
+                'id' => $item->getId(),
+                'title' => $item->getTitle(),
+            ];
+        }
+        // Retornamos una respuesta tipo JSON donde enviamos la data construida
+        // status 200 para indicar que todo esta correcto
+        // headers Access-Control-Allow-Origin para permitir que cualquier sitio acceda al recurso e interaccione entre diferentes sitios web
+        return $this->json($data, $status = 200, $headers = ['Access-Control-Allow-Origin'=>'*']);
     }
 
     #[Route('/{id}', name: 'app_period_show', methods: ['GET'])]

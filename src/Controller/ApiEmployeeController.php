@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Employee;
-use App\Form\EmployeeType;
 use App\Repository\AreaRepository;
 use App\Repository\ContractRepository;
 use App\Repository\EmployeeRepository;
@@ -11,6 +10,8 @@ use App\Repository\PositionRepository;
 use App\Repository\RolRepository;
 use App\Repository\StatusRepository;
 use App\Repository\TeamRepository;
+use App\Repository\ManagerRepository;
+use App\Repository\PeriodRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,8 +24,8 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 #[Route('/api')]
 class ApiEmployeeController extends AbstractController
 {
-    #[Route('/employee', name: 'apiemployee_index', methods: ['GET'])]
-    public function index(EmployeeRepository $employeeRepository): Response
+    #[Route('/employee', name: 'app_apiemployee_index', methods: ['GET'])]
+    public function index(EmployeeRepository $employeeRepository): JsonResponse
     {   
         $employee = $employeeRepository->findAll();
 
@@ -46,7 +47,13 @@ class ApiEmployeeController extends AbstractController
                 'typeOfContract' => $c->getTypeOfContract()->getTitle(),
                 'startDate' => $c->getStartDate(),
                 'finishDate' => $c->getFinishDate(),
-                'manager' => $c->getManager(),
+                'manager' => $c->getManager()->getTitle(),
+                'period' => $c->getPeriod()->getTitle(),
+                'firstPeriod' => $c->getFirstPeriod(),
+                'secondPeriod' => $c->getSecondPeriod(),
+                'thirdPeriod' => $c->getThirdPeriod(),
+                'fourthPeriod' => $c->getFourthPeriod(),
+                'fifthPeriod' => $c->getFifthPeriod(),
                 'photo' => '/uploads/photos/'.$c->getPhoto(),
                 'status' => $c->getStatus()->getTitle(),
             ];
@@ -60,7 +67,7 @@ class ApiEmployeeController extends AbstractController
     } 
 
     #[Route('/employee/{id}/photo', name: 'app_apiemployee_create', methods: ['GET'])]
-        public function index2(Request $request, EntityManagerInterface $entityManager, LoggerInterface $logger, Employee $employee): Response 
+        public function findPhoto(Request $request, EntityManagerInterface $entityManager, LoggerInterface $logger, Employee $employee): Response 
         {
         // Devuelve la representación JSON del objeto enviado en la solicitud POST
         // $json = $request->getContent();
@@ -135,7 +142,7 @@ class ApiEmployeeController extends AbstractController
     }
 
     #[Route('/create/employee', name: 'app_apiemployeecreate_index', methods: ['POST'])]
-    public function create(Request $request, EntityManagerInterface $entityManager, PositionRepository $positionRepository, TeamRepository $teamRepository, RolRepository $rolRepository, AreaRepository $areaRepository, ContractRepository $contractRepository, StatusRepository $statusRepository ): JsonResponse
+    public function create(Request $request, EntityManagerInterface $entityManager, PositionRepository $positionRepository, TeamRepository $teamRepository, RolRepository $rolRepository, AreaRepository $areaRepository, ContractRepository $contractRepository, StatusRepository $statusRepository, ManagerRepository $managerRepository, PeriodRepository $periodRepository ): JsonResponse
     {   
         
         // Creamos una instancia a la entidad Employee
@@ -147,6 +154,7 @@ class ApiEmployeeController extends AbstractController
         // Convertir el objeto JSON en un objeto PHP
         $data = json_decode($jsonData);
         // dump("data ", $data);
+        // die;
         
         // Obtener la imagen cargada
         $photo = $request->files->get('photo');
@@ -200,8 +208,27 @@ class ApiEmployeeController extends AbstractController
         // Convertir la cadena de texto en un objeto DateTime
         $finishDate = new \DateTime($data->finishDate);
         $employee->setFinishDate($finishDate);
+        // Convertir la cadena de texto en un objeto DateTime
+        $firstPeriod = new \DateTime($data->firstPeriod);
+        $employee->setFirstPeriod($firstPeriod);
+        // Convertir la cadena de texto en un objeto DateTime
+        $secondPeriod = new \DateTime($data->secondPeriod);
+        $employee->setSecondPeriod($secondPeriod);
+        // Convertir la cadena de texto en un objeto DateTime
+        $thirdPeriod = new \DateTime($data->thirdPeriod);
+        $employee->setThirdPeriod($thirdPeriod);
+        // Convertir la cadena de texto en un objeto DateTime
+        $fourthPeriod = new \DateTime($data->fourthPeriod);
+        $employee->setFourthPeriod($fourthPeriod);
+        // Convertir la cadena de texto en un objeto DateTime
+        $fifthPeriod = new \DateTime($data->fifthPeriod);
+        $employee->setFifthPeriod($fifthPeriod);
         // Almacenamos el manager
-        $employee->setManager($data->manager);
+        $period = $periodRepository->find($data->period);
+        $employee->setPeriod($period);
+        // Almacenamos el manager
+        $manager = $managerRepository->find($data->manager);
+        $employee->setManager($manager);
         // Almacenamos el estado
         $status = $statusRepository->find($data->status);
         $employee->setStatus($status);
@@ -213,9 +240,33 @@ class ApiEmployeeController extends AbstractController
         $entityManager->persist($employee);
         $entityManager->flush();
         // Retornamos el id del usuario
-        $id = $employee->getId();
+        // $id = $employee->getId();
+        //creando un objeto que envie los datos
+        $result[] = [
+            'id' => $employee->getId(),
+            'name' => $employee->getName(),
+            'lastname' => $employee->getLastName(),
+            'email' => $employee->getEmail(),
+            'rol' => $employee->getRol()->getTitle(),
+            'identifying' => $employee->getIdentifying(),
+            'team' => $employee->getTeam()->getTitle(),
+            'position' => $employee->getPosition()->getTitle(),
+            'area' => $employee->getArea()->getTitle(),
+            'typeOfContract' => $employee->getTypeOfContract()->getTitle(),
+            'startDate' => $employee->getStartDate(),
+            'finishDate' => $employee->getFinishDate(),
+            'manager' => $employee->getManager()->getTitle(),
+            'period' => $employee->getPeriod()->getTitle(),
+            'firstPeriod' => $employee->getFirstPeriod(),
+            'secondPeriod' => $employee->getSecondPeriod(),
+            'thirdPeriod' => $employee->getThirdPeriod(),
+            'fourthPeriod' => $employee->getFourthPeriod(),
+            'fifthPeriod' => $employee->getFifthPeriod(),
+            'photo' => $employee->getPhoto(),
+            'status' => $employee->getStatus()->getTitle(),
+        ];
 
-        return $this->json($id, $status = 200, $headers = ['Access-Control-Allow-Origin'=>'*']);
+        return $this->json($result, $status = 200, $headers = ['Access-Control-Allow-Origin'=>'*']);
 
     } 
 

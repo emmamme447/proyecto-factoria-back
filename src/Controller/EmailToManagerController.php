@@ -14,15 +14,15 @@ use Symfony\Component\Mime\Email;
 
 class EmailToManagerController extends AbstractController
 {
-    #[Route('/email/to/manager', name: 'app_email_to_manager')]
+    #[Route('/email/to/manager', name: 'email_to_manager')]
     public function index(Request $request, MailerInterface $mailer): Response
     {
         
-        $form = $this->createForm(EmailToManagerType::class);
+        $form_manager = $this->createForm(EmailToManagerType::class);
 
-        $form->handleRequest($request);
+        $form_manager->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form_manager->isSubmitted() && $form_manager->isValid()) {
             
             $transport = Transport::fromDsn('smtp://emmarentero@gmail.com:gdmjziwrhmmsrbkd@smtp.gmail.com:587');
 
@@ -73,8 +73,8 @@ class EmailToManagerController extends AbstractController
 
         }
 
-        return $this->renderForm('email_to_manager/index.html.twig', [
-            'form' => $form,
+        return $this->renderForm('email/index.html.twig', [
+            'form' => $form_manager,
         ]); 
 
     }

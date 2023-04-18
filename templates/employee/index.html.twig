@@ -4,6 +4,8 @@
 
 {% block body %}
 
+{{ parent() }}
+
     <h1>Employee index</h1>
 
     <table class="table table-hover">
@@ -55,7 +57,9 @@
                 <td>{{ employee.fourthPeriod ? employee.fourthPeriod|date('Y-m-d') : '' }}</td>
                 <td>{{ employee.fifthPeriod ? employee.fifthPeriod|date('Y-m-d') : '' }}</td>
                 <td>{{ employee.period }}</td>
-                <td>{{ employee.photo }}</td>
+                <td>
+                    <img src={{ asset('uploads/photos'~ employee.photo) }} alt={{ employee.name }} width='80'>
+                </td>
                 <td>{{ employee.status }}</td>
 
                 <td>

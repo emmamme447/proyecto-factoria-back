@@ -40,7 +40,7 @@ class EmailController extends AbstractController
             //->bcc('bcc@example.com')
             //->replyTo('fabien@example.com')
             //->priority(Email::PRIORITY_HIGH)
-            ->subject('Autoevaluación de FactoríaF5')
+            ->subject('Autoevaluación FactoríaF5')
 
             ->text('¡Hola Bienvenid@!
 
@@ -70,8 +70,8 @@ class EmailController extends AbstractController
   
                 <h2>People & Culture</H2>
   
-                    <img src"../../public/assets/image_1.png">
-            ');
+                <img src"https://i.postimg.cc/j5hZZqy1/logo-sinfondo.png" alt="logo">
+        ');
 
         $mailer->send($email);
 

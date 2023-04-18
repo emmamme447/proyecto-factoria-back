@@ -46,6 +46,7 @@ security:
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
+<<<<<<< HEAD
     role_hierarchy:
         ROLE_SUPERADMIN: [ROLE_ADMIN, ROLE_USER]
         ROLE_ADMIN: [ROLE_USER]
@@ -57,6 +58,10 @@ security:
         - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api,       roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/dashboard,       roles: ROLE_USER }
+=======
+    
+
+>>>>>>> b55fb37accf018efc415f302932c6940a6328f31
 
 when@test:
     security:

@@ -3,9 +3,12 @@
 {% block title %}Employee index{% endblock %}
 
 {% block body %}
+
+{{ parent() }}
+
     <h1>Employee index</h1>
 
-    <table class="table">
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>Id</th>
@@ -54,12 +57,16 @@
                 <td>{{ employee.fourthPeriod ? employee.fourthPeriod|date('Y-m-d') : '' }}</td>
                 <td>{{ employee.fifthPeriod ? employee.fifthPeriod|date('Y-m-d') : '' }}</td>
                 <td>{{ employee.period }}</td>
-                <td>{{ employee.photo }}</td>
+                <td>
+                    <img src={{ asset('uploads/photos'~ employee.photo) }} alt={{ employee.name }} width='80'>
+                </td>
                 <td>{{ employee.status }}</td>
 
                 <td>
-                    <a href="{{ path('app_employee_show', {'id': employee.id}) }}">show</a>
-                    <a href="{{ path('app_employee_edit', {'id': employee.id}) }}">edit</a>
+                    <a href="{{ path('app_employee_show', {'id': employee.id}) }}" class="btn btn-outline-primary"
+                    style="--bs-btn-padding-y: .15rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size">show</a>
+                    <a href="{{ path('app_employee_edit', {'id': employee.id})  }}"  class="btn btn-outline-primary"
+                    style="--bs-btn-padding-y: .15rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -70,5 +77,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_employee_new') }}">Create new</a>
+    <a href="{{ path('app_employee_new') }}" class="btn btn-outline-primary"
+                    style="--bs-btn-padding-y: .15rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size">Create new</a>
 {% endblock %}

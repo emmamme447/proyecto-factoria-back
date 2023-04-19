@@ -4,6 +4,7 @@
 
 {% block body %}
 
+<<<<<<< HEAD
 {{ form_start(form) }}
     {{ form_row(form.email)}}
     {{ form_row(form.send_email)}}
@@ -17,6 +18,59 @@
     {% endfor %}
 
 {{ form_end(form) }}
+=======
+{{ parent() }}
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">CORREO DE AUTOEVALUACIÓN PARA TRABAJADOR</h5>
+                    <p class="card-text">Por favor, introduce la dirección de correo electrónico para enviar un correo al trabajador con un link a su autoevaluación:</p>
+
+                        {{ form_start(form) }}
+
+                            {{ form_row(form.email)}}
+                            {{ form_row(form.send_email)}}
+
+                                {% for label, messages in app.flashes %}
+                                    {% for message in messages %}
+                                        <div class="alert alert-{{ label }}">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                {% endfor %}
+
+                            {{ form_end(form) }}
+
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6-">
+        <div class="card-">
+            <div class="card-body">
+                <h5 class="card-title">EVALUACIÓN FINAL RESPONSABLE</h5>
+                    <p class="card-text">Por favor, introduce la dirección de correo electrónico para enviar un correo al responsable con un link para la evaluación final:</p>
+                        
+                        {{ form_start(form) }}
+
+                            {{ form_row(form.email)}}
+                            {{ form_row(form.send_email)}}
+
+                                {% for label, messages in app.flashes %}
+                                    {% for message in messages %}
+                                        <div class="alert alert-{{ label }}">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                {% endfor %}
+
+                        {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>
+>>>>>>> feature/emma
 
 {% endblock %}
 

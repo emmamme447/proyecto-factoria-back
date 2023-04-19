@@ -46,48 +46,7 @@ security:
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
-    role_hierarchy:
-        ROLE_SUPERADMIN: [ROLE_ADMIN, ROLE_USER]
-        ROLE_ADMIN: [ROLE_USER]
-    access_control:
-        #API
-        - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api,       roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/calendar, roles: ROLE_ADMIN }
-        - { path: ^/api/comment, roles: ROLE_ADMIN }
-        - { path: ^/api/employee, roles: ROLE_ADMIN }
-        
-        
-        # - { path: ^/profile, roles: ROLE_USER }
-        #PUBLIC ACCESS
-        - { path: ^/register, roles: PUBLIC_ACCESS }
-        - { path: ^/api/login, roles: PUBLIC_ACCESS }
-        
-        
-         
-        #SUPERADMIN
-        - { path: ^/email,       roles: ROLE_SUPER_ADMIN }
-        - { path: ^/email/to/manager,       roles: ROLE_SUPER_ADMIN }
-
-
-        #ADMIN
-        - { path: ^/admin, roles: ROLE_ADMIN }
-        - { path: ^/api/test, roles: ROLE_ADMIN }
-        - { path: ^/dashboard,       roles: ROLE_ADMIN }
-        - { path: ^/dashboard,       roles: IS_AUTHENTICATED_FULLY }
-        - { path: ^/,       roles: ROLE_ADMIN }
-
-        - { path: ^/area,       roles: ROLE_ADMIN }
-        - { path: ^/calendar,       roles: ROLE_ADMIN }
-        - { path: ^/comment,       roles: ROLE_ADMIN }
-        - { path: ^/contract,       roles: ROLE_ADMIN }
-        - { path: ^/employee,       roles: ROLE_ADMIN }
-        - { path: ^/position,       roles: ROLE_ADMIN }
-        - { path: ^/rol,       roles: ROLE_ADMIN }
-        - { path: ^/status,       roles: ROLE_ADMIN }
-        - { path: ^/team,       roles: ROLE_ADMIN }
-
-        #EMPLOYEE
+    
 
 
 when@test:

@@ -12,33 +12,42 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-#[Route('/api')]
+#[Route('/api/comment')]
 class ApiCommentController extends AbstractController
 {
-    #[Route('/comment', name: 'app_apicomment_index', methods: ['GET'])]
-    public function index(CommentRepository $commentRepository): Response
+    #[Route('/list', name: 'app_apicomment_index', methods: ['GET'])]
+    public function index(CommentRepository $commentRepository): JsonResponse
     {
+        //la variable $comment guarda todos los registros de la variable ($commentRepository) que es el repositorio de comentarios
         $comment = $commentRepository->findAll();
-
+        //declaramos un variable data con un array vacio
         $data = [];
-
+        // recorremos cada uno de los registros de la variable comment 
         foreach ($comment as $p) {
+        //la variable data iremos almacenando los registros de los campos que iremos consultando
+        //para obtener estos datos usamos los metodos get con su respectivos campos
             $data[] = [
                 'id' => $p->getId(),
                 'comment' => $p->getComment(),
                 'date' => $p->getDate(),
             ];
         }
+        //retornamos estos registros en una respuesta tipo json, con estatus 200 que significa que todo esta correcto 
+        //las headers se utiliza para permitir que cualquier origen pueda acceder a los recursos de tu servidor
 
         return $this->json($data, $status = 200, $headers = ['Access-Control-Allow-Origin'=>'*']);
     }
 
-    #[Route('/list', name: 'app_apicomment_create', methods: ['POST'])]
+    #[Route('/create', name: 'app_apicomment_create', methods: ['POST'])]
 	public function create(Request $request, EntityManagerInterface $entityManager): JsonResponse
 	{
+    //la variable comentario se le asigna una nueva clase comentario
     $comment = new Comment();
-    $comment = $request->files->get('comment');
-    $date = $request->files->get('date');
+
+    
+    //
+    $comment = $request->get('comment');
+    $date = $request->get('date');
     // // $date = $request->request->get('date');
     $comment->setComment($comment);
     $comment->setDate($date);

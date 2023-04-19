@@ -26,7 +26,7 @@ class EmailController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             
-            $transport = Transport::fromDsn('smtp://emmarentero@gmail.com:tsqqgksxiyoiyijx@smtp.gmail.com:587');
+            $transport = Transport::fromDsn('smtp://emmarentero@gmail.com:gdmjziwrhmmsrbkd@smtp.gmail.com:587');
 
             $mailer = new Mailer($transport);
 
@@ -40,17 +40,15 @@ class EmailController extends AbstractController
             //->bcc('bcc@example.com')
             //->replyTo('fabien@example.com')
             //->priority(Email::PRIORITY_HIGH)
-            ->subject('Autoevaluación de FactoríaF5')
+            ->subject('Autoevaluación FactoríaF5')
 
-            ->text('Hola, ¿cómo estás, compañer@?
+            ->text('¡Hola Bienvenid@!
 
-            Te remitimos el link para que procedas a completar tu autoevaluación:
+            Estamos muy content@s que seas parte del equipo de Factoría F5, contigo seguimos creciendo y creando oportunidades a nuestr@s Coders.
                 
-            Por favor, recuerda que en el formulario al que te lleva este link solo debes rellenar las partes: Información general del evaluado y el evaluador, Valoración de los valores F5, Valoración competencias transversales, Valoración cualitativa y Despedida y agradecimiento.que son las correspondientes a tu autoevaluación.
+            Verás que te adjuntamos un link con una autoevaluación. Para nosotr@s es muy importante tener tu feedback durante tu periodo de prueba. Confiamos que para llegar lejos debemos ser capaces de ser críticos con nosotros mismos y tener espacios para seguir creciendo y aprendiendo.
 
-            Cualquier duda, por favor, consulta con RRHH o con tu responsable.
-
-            Un saludo
+            En caso de cualquier duda, estamos a tu disposición.
 
             FACTORIA F5
 
@@ -60,22 +58,20 @@ class EmailController extends AbstractController
             
             <div style="color: #020100; background-color: #FFA37F; width: 100%; padding: 16px 0; text-align: center; color-padding: #FD3903">
   
-                <h1>Hola, ¿cómo estás, compañer@?</h1>
+                <h1>¡Hola Bienvenid@!</h1>
   
-                <h4>Te remitimos el link para que procedas a completar tu autoevaluación:</h4>
-  
+                <h4>Estamos muy content@s que seas parte del equipo de Factoría F5, contigo seguimos creciendo y creando oportunidades a nuestr@s Coders.</h4>
+
+                <h4>Verás que te adjuntamos un link con una autoevaluación. Para nosotr@s es muy importante tener tu feedback durante tu periodo de prueba. Confiamos que para llegar lejos debemos ser capaces de ser críticos con nosotros mismos y tener espacios para seguir creciendo y aprendiendo.</h4>
+
                     <a href="https://forms.gle/xuiYspLRaWWTxcWi9">Enlace al formulario de autoevaluación</a>
-                  
-                <h2>Por favor, recuerda que en el formulario al que te lleva este link solo debes rellenar las partes: Información general del evaluado y el evaluador, Valoración de los valores F5, Valoración competencias transversales, Valoración cualitativa y Despedida y agradecimiento, que son las correspondientes a tu autoevaluación.</h2>
   
-                <h4>Cualquier duda, por favor, consulta con RRHH o con tu responsable.</h4>
+                <h4>En caso de cualquier duda, estamos a tu disposición.</h4>
   
-                <h4>Un saludo</H4>
+                <h2>People & Culture</H2>
   
-                <h2> FACTORIA F5</H2>
-  
-                    <img src"../../public/assets/image_1.png">
-            ');
+                <img src"https://i.postimg.cc/j5hZZqy1/logo-sinfondo.png" alt="logo">
+        ');
 
         $mailer->send($email);
 

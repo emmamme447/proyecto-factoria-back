@@ -48,13 +48,31 @@ class Employee
     private ?\DateTimeInterface $finishDate = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $manager = null;
-
-    #[ORM\Column(length: 255)]
     private ?string $photo = null;
 
     #[ORM\ManyToOne]
     private ?Status $status = null;
+
+    #[ORM\ManyToOne]
+    private ?Manager $manager = null;
+
+    #[ORM\ManyToOne]
+    private ?Period $period = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $firstPeriod = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $secondPeriod = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $thirdPeriod = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $fourthPeriod = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $fifthPeriod = null;
 
     public function getId(): ?int
     {
@@ -198,18 +216,6 @@ class Employee
         return $this;
     }
 
-    public function getManager(): ?string
-    {
-        return $this->manager;
-    }
-
-    public function setManager(string $manager): self
-    {
-        $this->manager = $manager;
-
-        return $this;
-    }
-
     public function getPhoto(): ?string
     {
         return $this->photo;
@@ -230,6 +236,90 @@ class Employee
     public function setStatus(?Status $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getManager(): ?Manager
+    {
+        return $this->manager;
+    }
+
+    public function setManager(?Manager $manager): self
+    {
+        $this->manager = $manager;
+
+        return $this;
+    }
+
+    public function getPeriod(): ?Period
+    {
+        return $this->period;
+    }
+
+    public function setPeriod(?Period $period): self
+    {
+        $this->period = $period;
+
+        return $this;
+    }
+
+    public function getFirstPeriod(): ?\DateTimeInterface
+    {
+        return $this->firstPeriod;
+    }
+
+    public function setFirstPeriod(?\DateTimeInterface $firstPeriod): self
+    {
+        $this->firstPeriod = $firstPeriod;
+
+        return $this;
+    }
+
+    public function getSecondPeriod(): ?\DateTimeInterface
+    {
+        return $this->secondPeriod;
+    }
+
+    public function setSecondPeriod(?\DateTimeInterface $secondPeriod): self
+    {
+        $this->secondPeriod = $secondPeriod;
+
+        return $this;
+    }
+
+    public function getThirdPeriod(): ?\DateTimeInterface
+    {
+        return $this->thirdPeriod;
+    }
+
+    public function setThirdPeriod(?\DateTimeInterface $thirdPeriod): self
+    {
+        $this->thirdPeriod = $thirdPeriod;
+
+        return $this;
+    }
+
+    public function getFourthPeriod(): ?\DateTimeInterface
+    {
+        return $this->fourthPeriod;
+    }
+
+    public function setFourthPeriod(?\DateTimeInterface $fourthPeriod): self
+    {
+        $this->fourthPeriod = $fourthPeriod;
+
+        return $this;
+    }
+
+    public function getFifthPeriod(): ?\DateTimeInterface
+    {
+        return $this->fifthPeriod;
+    }
+
+    public function setFifthPeriod(?\DateTimeInterface $fifthPeriod): self
+    {
+        $this->fifthPeriod = $fifthPeriod;
 
         return $this;
     }

@@ -8,6 +8,8 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
+use App\Form\StringToFileTransformer;
+
 
 class EmployeeType extends AbstractType
 {
@@ -23,13 +25,20 @@ class EmployeeType extends AbstractType
             ->add('manager')
             ->add('rol')
             ->add('team')
-            ->add('position')
             ->add('area')
+            ->add('position')
+            ->add('period')
+            ->add('manager')
+            ->add('firstPeriod')
+            ->add('secondPeriod')
+            ->add('thirdPeriod')
+            ->add('fourthPeriod')
+            ->add('fifthPeriod')
             ->add('typeOfContract')
             ->add('status')
             ->add('photo', FileType::class, [
                 'label' => 'Seleccione una imagen',
-            
+                'data_class' => null,           
                 // unmapped means that this field is not associated to any entity property
                 'mapped' => true,
 
@@ -49,9 +58,9 @@ class EmployeeType extends AbstractType
                         'mimeTypesMessage' => 'Por favor, sube un archivo de imagen válido (JPEG, PNG)',
                     ])
                 ],
-            ])
-            // ...
-        ;
+            ]) ;
+
+    //         $builder->get('photo')->addViewTransformer(new StringToFileTransformer());
     }
 
 

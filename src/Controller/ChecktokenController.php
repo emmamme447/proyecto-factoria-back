@@ -18,10 +18,9 @@ use Symfony\Component\Security\Http\Attribute\CurrentUser;
 
 class ChecktokenController extends AbstractController
 {
-    /**
-    * @Route("/checktoken", name="check_token")
-    */
-    public function checktoken(Request $request, UserRepository $userRepository): Response
+    #[Route('/checktoken', name:'check_token')]
+
+    public function index(Request $request, UserRepository $userRepository): Response
     {
 
         //$em = $this->getDoctrine()->getManager();
@@ -38,38 +37,35 @@ class ChecktokenController extends AbstractController
         $jwtHeader = json_decode($tokenHeader);
         $jwtPayload = json_decode($tokenPayload);
 
-        //dump($jwtPayload);die;
+        dump($jwtPayload);die;
     
         $user = $userRepository->findOneByEmail($jwtPayload->username);
-        
-        //dump($user);die;
-        $userRepository->remove($user);
 
-        //dump($user->getRoles());die;
+        // dump($user->getRoles());die;
+
         if(!$user) {
             return $this->redirectToRoute('login');
         }
 
         $response = new Response();
         $response->setContent(json_encode([
-            'auth' => 'Logado',
-            'email' => $user->getEmail()
+            'auth' => 'ok',
+            'email' => $user->getEmail(),
+            'rol' => $user->getRol()
         ]));
         $response->headers->set('Content-Type', 'application/json');
         $response->headers->set('Access-Control-Allow-Origin', '*');
         $response->headers->set('pass', 'ok');
         $response->headers->set('email', $user->getEmail());
-        
-        // TODO: Revisar cookie
+        // ¿Una vez con esto la vista puede logarse?
         $response->headers->setCookie(new Cookie('Authorization', $token));
         $response->headers->setCookie(new Cookie('BEARER', $token));
         
         return $response; 
     }
 
-    /**
-    * @Route("/api/test", name="check_api")
-    */
+
+    #[Route('/api/test', name:'check_api')]
     public function checktoken2(Request $request, UserRepository $userRepository): Response
     {
         return $this->json(['pass'=> 'Acceso permitido por token'], $status = 200, $headers = ['Access-Control-Allow-Origin'=>'*']);

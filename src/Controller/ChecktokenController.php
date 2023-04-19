@@ -20,7 +20,7 @@ class ChecktokenController extends AbstractController
 {
     #[Route('/checktoken', name:'check_token')]
 
-    public function index(Request $request, UserRepository $userRepository): Response
+    public function index(Request $request, UserRepository $userRepository, EmployeeRepository $employeeRepository): Response
     {
 
         //$em = $this->getDoctrine()->getManager();
@@ -46,12 +46,13 @@ class ChecktokenController extends AbstractController
         if(!$user) {
             return $this->redirectToRoute('login');
         }
-
+        $employee = $employeeRepository->findOneByEmail($jwtPayload->username);
         $response = new Response();
         $response->setContent(json_encode([
             'auth' => 'ok',
             'email' => $user->getEmail(),
-            'rol' => $user->getRol()
+            'rol' => $user->getRol(), 
+            'id' => $employee->getId(),
         ]));
         $response->headers->set('Content-Type', 'application/json');
         $response->headers->set('Access-Control-Allow-Origin', '*');

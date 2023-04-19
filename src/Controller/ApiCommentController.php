@@ -15,13 +15,8 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 #[Route('/api/comment')]
 class ApiCommentController extends AbstractController
 {
-<<<<<<< HEAD
-    #[Route('/comment', name: 'apicomment_index', methods: ['GET'])]
-    public function index(CommentRepository $commentRepository): Response
-=======
     #[Route('/list', name: 'app_apicomment_index', methods: ['GET'])]
     public function index(CommentRepository $commentRepository): JsonResponse
->>>>>>> feature/andrea
     {
         //la variable $comment guarda todos los registros de la variable ($commentRepository) que es el repositorio de comentarios
         $comment = $commentRepository->findAll();

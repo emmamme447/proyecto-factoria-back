@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use App\Repository\UserRepository;
 use App\Entity\User;
+use App\Repository\EmployeeRepository;
 use Symfony\Component\Security\Http\Attribute\CurrentUser;
 
 
@@ -20,8 +21,11 @@ class ChecktokenController extends AbstractController
 {
     #[Route('/checktoken', name:'check_token')]
 
-    public function index(Request $request, UserRepository $userRepository): Response
+    public function index(Request $request, UserRepository $userRepository, EmployeeRepository $employeeRepository): Response
     {
+
+        dump('holaaherntakjhgfdfyuiopojhgfdghjklñlknbvcdfrtyuikmnbvfdrtyui');
+        die;
 
         //$em = $this->getDoctrine()->getManager();
 
@@ -37,7 +41,7 @@ class ChecktokenController extends AbstractController
         $jwtHeader = json_decode($tokenHeader);
         $jwtPayload = json_decode($tokenPayload);
 
-        dump($jwtPayload);die;
+        // dump($jwtPayload);die;
     
         $user = $userRepository->findOneByEmail($jwtPayload->username);
 
@@ -46,12 +50,13 @@ class ChecktokenController extends AbstractController
         if(!$user) {
             return $this->redirectToRoute('login');
         }
-
+        $employee = $employeeRepository->findOneByEmail($jwtPayload->username);
         $response = new Response();
         $response->setContent(json_encode([
             'auth' => 'ok',
             'email' => $user->getEmail(),
-            'rol' => $user->getRol()
+            'rol' => $user->getRol(), 
+            'id' => $employee->getId(),
         ]));
         $response->headers->set('Content-Type', 'application/json');
         $response->headers->set('Access-Control-Allow-Origin', '*');

@@ -9,7 +9,6 @@ On this website there will be two possible accesses, one for HR who will have ac
 <ul>
   <li>As an HR manager, I want to be able to create a user account for employees in their probationary period, so that they can access the platform and view their evaluations and comments.</li>
   <li>As an HR manager, I want to be able to add employees to the list of people in their probationary period, so that I can track their progress and ensure they receive a fair and objective evaluation.</li>
-  <li>As an HR manager, I want to be able to add comments and evaluations for employees in their probationary period, so that I can keep a record of their strengths and weaknesses, and help them improve in their work.</li>
   <li>As an HR manager, I want to be able to generate reports and statistics on the progress and performance of employees in their probationary period, so that I can identify trends and areas for improvement.</li>
 </ul>
 

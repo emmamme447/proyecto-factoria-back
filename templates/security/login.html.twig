@@ -1,37 +1,53 @@
 {% extends 'base.html.twig' %}
 
+<<<<<<< HEAD
 {% block title %}Login!{% endblock %}
+=======
+{% block title %}Iniciar sesión{% endblock %}
+>>>>>>> e3bdd05aee7f488654bdf86aa935bf51e2fd858a
 
 {% block body %}
 <form method="post">
+
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
     {% if app.user %}
         <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('logout') }}">Logout</a>
+            Estás conectad@ como {{ app.user.userIdentifier }}, <a href="{{ path('logout') }}">Cerrar sesión</a>
         </div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+    <img src={{ asset('assets/logo_sinfondo.png')}} height="150" width="190" alt="logo" loading="lazy" class="text-center ms-50"/>
 
-    <input type="hidden" name="_csrf_token"
-        value="{{ csrf_token('authenticate') }}"
-    >
+    <div class="position-absolute top-50 start-50 translate-middle">
 
-    <div class="checkbox mb-3">
-        <label for="remember_me">
-            <input type="checkbox" id="remember_me" name="_remember_me" checked/> Remember me
-        </label>
-    </div>
+        <h1 class="h3 mb-3 font-weight-normal">Bienvenida a la web de Factoria F5 para RRHH.</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Por favor, introduce tus claves:</h1>
+        <label for="inputEmail">Email</label>
+        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+        <label for="inputPassword">Contraseña</label>
+        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+        <input type="hidden" name="_csrf_token"
+            value="{{ csrf_token('authenticate') }}"
+        >
+
+        <div class="checkbox mb-3">
+            <label for="remember_me">
+                <input type="checkbox" id="remember_me" name="_remember_me" checked/> Remember me
+            </label>
+        </div>
+
+        <button class="btn btn-lg btn-#020100 border border-dark" type="submit">
+        Entra
+        </button>
+
+        <h3 class="h6 mt-5 mb-3 font-weight-normal">Si no estás registrad@, por favor, pulsa aquí:</h3>
+        <a href="http://127.0.0.1:8000/register" target="_blank" rel="noopener noreferrer" class="btn mb-3 btn-#020100 stretched-link border border-dark">Registro</a>
     
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
+    </div>
+
 </form>
 {% endblock %}

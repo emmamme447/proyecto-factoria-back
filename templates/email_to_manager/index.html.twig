@@ -1,21 +1,21 @@
-{# {% extends 'base.html.twig' %} 
+{% extends 'base.html.twig' %} 
 
 {% block title %}Envío de evaluación final al Responsable{% endblock %}
 
 {% block body %}
 
-{# {{ parent() }} #}
+{{ parent() }}
 
-    {# <div class="col-sm-6-">
-        <div class="card-">
+    <div class="col-sm-6-">
+        <div class="card position-absolute top-50 start-50 translate-middle">
             <div class="card-body">
                 <h5 class="card-title">EVALUACIÓN FINAL RESPONSABLE</h5>
                     <p class="card-text">Por favor, introduce la dirección de correo electrónico para enviar un correo al responsable con un link para la evaluación final:</p>
                         
-                        {{ form_start(formto) }}
+                        {{ form_start(form) }}
 
-                            {{ form_row(formto.email)}}
-                            {{ form_row(formto.send_email)}}
+                            {{ form_row(form.email)}}
+                            {{ form_row(form.send_email)}}
 
                                 {% for label, messages in app.flashes %}
                                     {% for message in messages %}
@@ -25,12 +25,12 @@
                                     {% endfor %}
                                 {% endfor %}
 
-                        {{ form_end(formto) }}
+                        {{ form_end(form) }}
             </div>
         </div>
     </div>
 
-{% endblock %}  #}
+{% endblock %}  
 
 
 

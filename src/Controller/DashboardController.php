@@ -12,7 +12,7 @@ class DashboardController extends AbstractController
     public function index(): Response
     {
         return $this->render('dashboard/index.html.twig', [
-            'controller_name' => 'Dashboard de Factoria F5',
+            'controller_name' => 'Bienvenid@ a la página principal de Factoría F5',
         ]);
     }
 }

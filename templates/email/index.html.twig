@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Envío de autoevaluación del trabajador{% endblock %}
+{% block title %}Envío correos electrónicos{% endblock %}
 
 {% block body %}
 
@@ -8,7 +8,7 @@
 
 <div class="row">
     <div class="col-sm-6">
-        <div class="card">
+        <div class="card position-absolute top-50 start-50 translate-middle">
             <div class="card-body">
                 <h5 class="card-title">CORREO DE AUTOEVALUACIÓN PARA TRABAJADOR</h5>
                     <p class="card-text">Por favor, introduce la dirección de correo electrónico para enviar un correo al trabajador con un link a su autoevaluación:</p>
@@ -27,36 +27,8 @@
                                 {% endfor %}
 
                             {{ form_end(form) }}
-
             </div>
         </div>
     </div>
-    <div class="col-sm-6-">
-        <div class="card-">
-            <div class="card-body">
-                <h5 class="card-title">EVALUACIÓN FINAL RESPONSABLE</h5>
-                    <p class="card-text">Por favor, introduce la dirección de correo electrónico para enviar un correo al responsable con un link para la evaluación final:</p>
-                        
-                        {{ form_start(form) }}
-
-                            {{ form_row(form.email)}}
-                            {{ form_row(form.send_email)}}
-
-                                {% for label, messages in app.flashes %}
-                                    {% for message in messages %}
-                                        <div class="alert alert-{{ label }}">
-                                            {{ message }}
-                                        </div>
-                                    {% endfor %}
-                                {% endfor %}
-
-                        {{ form_end(form) }}
-            </div>
-        </div>
-    </div>
-</div>
 
 {% endblock %}
-
-
-

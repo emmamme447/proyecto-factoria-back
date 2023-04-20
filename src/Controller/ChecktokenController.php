@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use App\Repository\UserRepository;
 use App\Entity\User;
+
 use App\Repository\EmployeeRepository;
 use Symfony\Component\Security\Http\Attribute\CurrentUser;
 class ChecktokenController extends AbstractController
@@ -27,19 +28,21 @@ class ChecktokenController extends AbstractController
         }else {
             return $this->redirectToRoute('login');
         }
-
         $tokenParts = explode(".", $token);
         $tokenHeader = base64_decode($tokenParts[0]);
         $tokenPayload = base64_decode($tokenParts[1]);
         $jwtHeader = json_decode($tokenHeader);
         $jwtPayload = json_decode($tokenPayload);
-        // dump($jwtPayload);die;
+
+        //dump($jwtPayload);die;
+
         $user = $userRepository->findOneByEmail($jwtPayload->username);
+
         // dump($user->getRoles());die;
+
         if(!$user) {
             return $this->redirectToRoute('login');
         }
-
         $employee = $employeeRepository->findOneByEmail($jwtPayload->username);
         $response = new Response();
         $response->setContent(json_encode([

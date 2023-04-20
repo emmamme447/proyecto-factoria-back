@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&display=swap');
 
 body {
-    background-color: #ffa37f;
+    /* background-color: #dad6d5;  */
     font-family: Poppins;
     /*background-image: url(../assets/home.png);*/
 }
@@ -23,11 +23,10 @@ h1,h2,h3,h4,h5,h6{
     position: fixed;
     top: 0;
     bottom: 0;
-    left: 0;
-    padding: 58px 0 0; /* Height of navbar */
+    left: -17;
+    padding: 25px 0 0; /* Height of navbar */
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
-    width: 240px;
-    z-index: 600;
+    width: 200px;
 }
   
 @media (max-width: 991.98px) {
@@ -49,5 +48,25 @@ h1,h2,h3,h4,h5,h6{
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
 }
+
+/* Table Employee */
+.container-employee{
+  padding-left: 100px;
+  margin: 100px auto;
+}
+
+label {
+  display: block;
+  font-weight: 200;
+  margin-bottom: 5px;
+}
+
+td{
+  font-size: small;
+}
+
+
+
+
 
 

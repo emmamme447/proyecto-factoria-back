@@ -2,81 +2,58 @@
 
 {% block title %}Employee index{% endblock %}
 
+
 {% block body %}
 
-{{ parent() }}
+<header>
+   {{ parent() }}
+</header>
 
-    <h1>Employee index</h1>
 
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Lastname</th>
-                <th>Email</th>
-                <th>Rol</th>
-                <th>Identifying</th>
-                <th>Team</th>
-                <th>Position</th>
-                <th>Area</th>
-                <th>TypeOfContract</th>
-                <th>Manager</th>
-                <th>StartDate</th>
-                <th>FinishDate</th>
-                <th>FirstPeriod</th>
-                <th>SecondPeriod</th>
-                <th>ThirdPeriod</th>
-                <th>FourthPeriod</th>
-                <th>FifthPeriod</th>
-                <th>Period</th>
-                <th>Photo</th>
-                <th>Status</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for employee in employees %}
-            <tr>
-                <td>{{ employee.id }}</td>
-                <td>{{ employee.name }}</td>
-                <td>{{ employee.lastname }}</td>
-                <td>{{ employee.email }}</td>
-                <td>{{ employee.rol }}</td>
-                <td>{{ employee.identifying }}</td>
-                <td>{{ employee.team }}</td>
-                <td>{{ employee.position }}</td>
-                <td>{{ employee.area }}</td>
-                <td>{{ employee.typeOfContact }}</td>
-                <td>{{ employee.manager }}</td>
-                <td>{{ employee.startDate ? employee.startDate|date('Y-m-d') : '' }}</td>
-                <td>{{ employee.finishDate ? employee.finishDate|date('Y-m-d') : '' }}</td>
-                <td>{{ employee.firstPeriod ? employee.firstPeriod|date('Y-m-d') : '' }}</td>
-                <td>{{ employee.secondPeriod ? employee.secondPeriod|date('Y-m-d') : '' }}</td>
-                <td>{{ employee.thirdPeriod ? employee.thirdPeriod|date('Y-m-d') : '' }}</td>
-                <td>{{ employee.fourthPeriod ? employee.fourthPeriod|date('Y-m-d') : '' }}</td>
-                <td>{{ employee.fifthPeriod ? employee.fifthPeriod|date('Y-m-d') : '' }}</td>
-                <td>{{ employee.period }}</td>
-                <td>
-                    <img src={{ asset('uploads/photos'~ employee.photo) }} alt={{ employee.name }} width='80'>
-                </td>
-                <td>{{ employee.status }}</td>
 
-                <td>
-                    <a href="{{ path('app_employee_show', {'id': employee.id}) }}" class="btn btn-outline-primary"
-                    style="--bs-btn-padding-y: .15rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size">show</a>
-                    <a href="{{ path('app_employee_edit', {'id': employee.id})  }}"  class="btn btn-outline-primary"
-                    style="--bs-btn-padding-y: .15rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="10">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    {# <h1>Empleados</h1> #}
+    <section class="seccion-employee">
+        <div class="container-employee" style="margin-top: 40px, margin-right: 60px">
+        <table class="table table-hover table-sm ">
+            <thead "table-dark">
+                <tr>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>Lastname</th>
+                    {# <th>Email</th> #}
+                    <th>Identifying</th>
+                    <th>Rol</th>
+                    <th>Status</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for employee in employees %}
+                <tr>
+                    <td>
+                        <img src={{ asset('uploads/photos'~ employee.photo) }} alt={{ employee.name }} width='80'>
+                    </td>
+                    <td>{{ employee.name }}</td>
+                    <td>{{ employee.lastname }}</td>
+                    {# <td>{{ employee.email }}</td> #}
+                    <td>{{ employee.identifying }}</td>
+                    <td>{{ employee.rol }}</td>
+                    <td>{{ employee.status }}</td>
 
-    <a href="{{ path('app_employee_new') }}" class="btn btn-outline-primary"
-                    style="--bs-btn-padding-y: .15rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size">Create new</a>
+                    <td>
+                        <a href="{{ path('app_employee_show', {'id': employee.id}) }}" class="btn btn-primary btn-sm">show</a>
+                        <a href="{{ path('app_employee_edit', {'id': employee.id})  }}"  class="btn btn-primary btn-sm">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="10">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            </table>
+
+            <a href="{{ path('app_employee_new') }}" class="btn btn-primary btn-sm">Create new</a>
+        </div>
+    </section>
 {% endblock %}

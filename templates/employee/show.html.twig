@@ -2,11 +2,25 @@
 
 {% block title %}Employee{% endblock %}
 
+
 {% block body %}
+
+		<header>
+			{{ parent() }}
+		</header>
+
     <h1>Employee</h1>
+		<section class="body-page">
+      <div class="content-page">
+				<div>
+					<h2>{{ employee.name }}</h2>
+					<img src="{{ employee.photo }}" alt="{{ employee.name }} Photo">
+					<p>{{ employee.description }}</p>
+				</div>
 
     <table class="table ">
-        <tbody>
+      <tbody>
+				<div>
             <tr>
                 <th scope="col">Id</th>
                 <td>{{ employee.id }}</td>
@@ -67,6 +81,7 @@
                 <th scope="col">Status</th>
                 <td>{{ employee.status }}</td>
             </tr>
+					</div>
         </tbody>
     </table>
 
@@ -75,4 +90,5 @@
     <a href="{{ path('app_employee_edit', {'id': employee.id}) }}" class="btn btn-outline-primary" style="--bs-btn-padding-y: .15rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size; margin-bottom: 20px">edit</a>
 
     {{ include('employee/_delete_form.html.twig') }}
+	</div>
 {% endblock %}

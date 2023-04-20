@@ -12,10 +12,7 @@
         "doctrine/orm": "^2.14",
         "lexik/jwt-authentication-bundle": "*",
         "nelmio/cors-bundle": "^2.3",
-<<<<<<< HEAD
         "sensio/framework-extra-bundle": "^6.2",
-=======
->>>>>>> b55fb37accf018efc415f302932c6940a6328f31
         "symfony/amazon-mailer": "5.4.*",
         "symfony/asset": "5.4.*",
         "symfony/console": "5.4.*",

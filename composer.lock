@@ -4,15 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
     "content-hash": "684dae6e63a5f97b0df27a8081954bb1",
-=======
-    "content-hash": "e438b1945ddf5a705805193cdd181510",
->>>>>>> f50b1ac1ed53c30611e6455583199115aaa00bf8
-=======
-    "content-hash": "684dae6e63a5f97b0df27a8081954bb1",
->>>>>>> b55fb37accf018efc415f302932c6940a6328f31
     "packages": [
         {
             "name": "async-aws/core",
@@ -7218,10 +7210,6 @@
             "time": "2023-01-04T12:46:15+00:00"
         },
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b55fb37accf018efc415f302932c6940a6328f31
             "name": "twbs/bootstrap",
             "version": "v5.3.0-alpha3",
             "source": {
@@ -7272,11 +7260,6 @@
             "time": "2023-04-03T07:26:50+00:00"
         },
         {
-<<<<<<< HEAD
-=======
->>>>>>> f50b1ac1ed53c30611e6455583199115aaa00bf8
-=======
->>>>>>> b55fb37accf018efc415f302932c6940a6328f31
             "name": "twig/twig",
             "version": "v3.5.1",
             "source": {
@@ -7355,11 +7338,6 @@
     ],
     "packages-dev": [
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> b55fb37accf018efc415f302932c6940a6328f31
             "name": "dbrekelmans/bdi",
             "version": "1.0.4",
             "source": {
@@ -9477,10 +9455,6 @@
             "time": "2023-03-06T21:29:33+00:00"
         },
         {
-<<<<<<< HEAD
->>>>>>> f50b1ac1ed53c30611e6455583199115aaa00bf8
-=======
->>>>>>> b55fb37accf018efc415f302932c6940a6328f31
             "name": "symfony/web-profiler-bundle",
             "version": "v5.4.21",
             "source": {
@@ -9559,11 +9533,6 @@
                 }
             ],
             "time": "2023-02-17T16:59:45+00:00"
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> b55fb37accf018efc415f302932c6940a6328f31
         },
         {
             "name": "theseer/tokenizer",
@@ -9614,27 +9583,13 @@
                 }
             ],
             "time": "2021-07-28T10:34:58+00:00"
-<<<<<<< HEAD
->>>>>>> f50b1ac1ed53c30611e6455583199115aaa00bf8
-=======
->>>>>>> b55fb37accf018efc415f302932c6940a6328f31
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
-<<<<<<< HEAD
-<<<<<<< HEAD
     "stability-flags": {
         "twbs/bootstrap": 15
     },
-=======
-    "stability-flags": [],
->>>>>>> f50b1ac1ed53c30611e6455583199115aaa00bf8
-=======
-    "stability-flags": {
-        "twbs/bootstrap": 15
-    },
->>>>>>> b55fb37accf018efc415f302932c6940a6328f31
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

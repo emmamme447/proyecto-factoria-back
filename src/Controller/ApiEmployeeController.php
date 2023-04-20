@@ -54,7 +54,7 @@ class ApiEmployeeController extends AbstractController
                 'thirdPeriod' => $c->getThirdPeriod(),
                 'fourthPeriod' => $c->getFourthPeriod(),
                 'fifthPeriod' => $c->getFifthPeriod(),
-                'photo' => '/uploads/photos/'.$c->getPhoto(),
+                'photo' => '/uploads/photo/'.$c->getPhoto(),
                 'status' => $c->getStatus()->getTitle(),
             ];
         }

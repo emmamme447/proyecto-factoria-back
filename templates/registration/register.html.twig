@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Registro{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -8,7 +8,7 @@
         /* Estilos personalizados para esta plantilla */
         h1 {
             margin-top: 20px;
-            margin-left:200px;
+            margin-left:385px;
             font-size: 2rem;
             padding:40px;
         }
@@ -16,6 +16,7 @@
         form {
             max-width: 500px;
             margin: 0 auto;
+            
         }
 
         .form-group {
@@ -49,9 +50,8 @@
             padding: 0.5rem 1rem;
             font-size: 1rem;
             border-radius: 4px;
-            background-color: #020100;
-            color: white;
-            border: none;
+            background-color: none;
+            border: 1px solid #020100;
             cursor: pointer;
         }
 
@@ -70,6 +70,7 @@
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
+    <img src={{ asset('assets/logo_sinfondo.png')}} height="150" width="190" alt="logo" loading="lazy" class="text-center ms-50"/>
 
     <h1>Register</h1>
 

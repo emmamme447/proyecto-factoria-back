@@ -63,7 +63,6 @@ class EmailToManagerController extends AbstractController
 
                 <h2>People & Culture</H2>
 
-                    <img src"cid:image_1.png">
             ');
 
         $mailer->send($email);

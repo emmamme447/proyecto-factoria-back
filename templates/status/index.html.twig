@@ -3,14 +3,15 @@
 {% block title %}Status index{% endblock %}
 
 {% block body %}
-    <h1>Status index</h1>
+    <h1 style="text-align: center;margin-top:50px;">Status index</h1>
 
-    <table class="table">
+    <table class="table" style="margin: 0 auto;">
         <thead>
-            <tr>
+            <tr style="background-color:#9C9C9C;
+            ">
                 <th>Id</th>
                 <th>Title</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -19,17 +20,56 @@
                 <td>{{ status.id }}</td>
                 <td>{{ status.title }}</td>
                 <td>
-                    <a href="{{ path('app_status_show', {'id': status.id}) }}">show</a>
-                    <a href="{{ path('app_status_edit', {'id': status.id}) }}">edit</a>
+                    <a href="{{ path('app_status_show', {'id': status.id}) }}">Show</a>
+                    <a href="{{ path('app_status_edit', {'id': status.id}) }}">Edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3" style="text-align: center;">No records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_status_new') }}">Create new</a>
+    <div style="text-align: center; margin-top: 20px;
+    width:100px;margin-left:450px;
+    background-color:whitesmoke;">
+        <a href="{{ path('app_status_new') }}">Create new</a>
+    </div>
+    
+  <style>
+    .table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 0 auto;
+      max-width: 800px;
+      background-color:whitesmoke;
+      
+    }
+    th,
+    td {
+      padding: 0.5rem;
+      border: 2px solid orange;
+      text-align: center;
+    }
+    th {
+      background-color: none;
+    }
+    tr:nth-child(even) {
+      background-color: none;
+    }
+    tr:hover {
+      background-color:none;
+    }
+    a {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      margin: 0.25rem;
+      border: 1px solid orange;
+      border-radius: 4px;
+      color: #333;
+      text-decoration: none;
+    }
+  </style>
 {% endblock %}

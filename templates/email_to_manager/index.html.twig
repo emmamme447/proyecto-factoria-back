@@ -1,10 +1,39 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+{% extends 'base.html.twig' %}
+=======
+{# {% extends 'base.html.twig' %} 
+>>>>>>> feature/emma
+=======
 {% extends 'base.html.twig' %} 
+>>>>>>> dc1d1634116b997d494b45b961dda408cc64138b
 
 {% block title %}Envío de evaluación final al Responsable{% endblock %}
 
 {% block body %}
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+{{ form_start(form) }}
+    {{ form_row(form.email)}}
+    {{ form_row(form.send_email)}}
+
+    {% for label, messages in app.flashes %}
+      {% for message in messages %}
+          <div class="alert alert-{{ label }}">
+              {{ message }}
+          </div>
+      {% endfor %}
+    {% endfor %}
+
+{{ form_end(form) }}
+
+{% endblock %}
+=======
+{# {{ parent() }} #}
+=======
 {{ parent() }}
+>>>>>>> dc1d1634116b997d494b45b961dda408cc64138b
 
     <div class="col-sm-6-">
         <div class="card position-absolute top-50 start-50 translate-middle">
@@ -30,7 +59,12 @@
         </div>
     </div>
 
+<<<<<<< HEAD
+{% endblock %}  #}
+>>>>>>> feature/emma
+=======
 {% endblock %}  
+>>>>>>> dc1d1634116b997d494b45b961dda408cc64138b
 
 
 

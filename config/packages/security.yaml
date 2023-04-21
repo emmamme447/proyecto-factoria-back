@@ -19,7 +19,7 @@ security:
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
         api:
-            pattern:   ^/dashboard
+            pattern:   ^/api
             stateless: true
             jwt: ~
         dev:
@@ -37,27 +37,27 @@ security:
                 secret:   '%kernel.secret%'
                 lifetime: 604800
                 path: /
-
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
-
             # https://symfony.com/doc/current/security/impersonating_user.html
             # switch_user: true
-
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
-    
-
-
 when@test:
     security:
         role_hierarchy:
             ROLE_ADMIN: [ROLE_USER]
+<<<<<<< HEAD
         
         access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/user, roles: ROLE_USER }
 
+=======
+        access_control:
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/user, roles: ROLE_USER }
+>>>>>>> dc1d1634116b997d494b45b961dda408cc64138b
         password_hashers:
             # By default, password hashers are resource intensive and take time. This is
             # important to generate secure password hashes. In tests however, secure hashes

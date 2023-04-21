@@ -70,7 +70,6 @@ class EmailController extends AbstractController
   
                 <h2>People & Culture</H2>
   
-                <img src"https://i.postimg.cc/j5hZZqy1/logo-sinfondo.png" alt="logo">
         ');
 
         $mailer->send($email);

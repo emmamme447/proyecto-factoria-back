@@ -37,7 +37,7 @@ class ChecktokenController extends AbstractController
         $jwtHeader = json_decode($tokenHeader);
         $jwtPayload = json_decode($tokenPayload);
 
-        dump($jwtPayload);die;
+        // dump($jwtPayload);die;
     
         $user = $userRepository->findOneByEmail($jwtPayload->username);
 

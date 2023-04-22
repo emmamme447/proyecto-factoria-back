@@ -54,7 +54,7 @@ class ApiCalendarController extends AbstractController
         $entityManager->persist($calendar);
         $entityManager->flush();
         //retorna un mensaje cuando el calendario ha sido creado
-        return $this->json(['message' => 'Calendar created'], 201, ['Access-Control-Allow-Origin' => '*']);
+        return $this->json(['message' => 'Event created'], 201, ['Access-Control-Allow-Origin' => '*']);
     }
 
     #[Route('/{id}/delete', name: 'app_apicalendar_delete', methods: ["DELETE"])]

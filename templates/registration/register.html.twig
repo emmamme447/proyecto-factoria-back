@@ -1,94 +1,56 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Registro{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
-    <style>
-        /* Estilos personalizados para esta plantilla */
-        h1 {
-            margin-top: 20px;
-            margin-left:250px;
-            font-size: 2rem;
-            padding:40px;
-        }
-
-        form {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-
-        input[type="email"],
-        
-        input[type="password"] {
-            width: 100%;
-            padding: 0.5rem;
-            font-size: 1rem;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            
-        }
-
-        input[type="checkbox"] {
-            margin-right: 0.5rem;
-        }
-
-        button[type="submit"] {
-            display: block;
-            margin: 1rem 0 0;
-            padding: 0.5rem 1rem;
-            font-size: 1rem;
-            border-radius: 4px;
-            background-color: black;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        .alert-danger {
-            margin-bottom: 1rem;
-            padding: 0.5rem;
-            border-radius: 4px;
-            background-color: #f8d7da;
-            border-color: #f5c6cb;
-            color: #721c24;
-        }
-    </style>
+    
 {% endblock %}
 
 {% block body %}
+
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
+    <img src={{ asset('assets/logo_sinfondo.svg')}} height="150" width="190" alt="logo" loading="lazy" class="text-center ms-50"/>
+
+    
 
     {{ form_start(registrationForm) }}
+
+    <div class="position-absolute top-50 start-50 translate-middle p-5 rounded" style="background-color: #ffa37f;">
+
+        <h3 class="h3 mb-3 font-weight-normal">Registro para empleados en periodo de prueba y sus responsables</h3>
+
         <div class="form-group">
-            {{ form_label(registrationForm.email) }}
+            {{ form_label(registrationForm.email, 'Email') }}
             {{ form_widget(registrationForm.email) }}
         </div>
 
         <div class="form-group">
-            {{ form_label(registrationForm.plainPassword, 'Password') }}
+            {{ form_label(registrationForm.plainPassword, 'Contraseña') }}
             {{ form_widget(registrationForm.plainPassword) }}
         </div>
 
         <div class="form-group">
-            {{ form_widget(registrationForm.agreeTerms) }}
             {{ form_label(registrationForm.agreeTerms) }}
+            {{ form_widget(registrationForm.agreeTerms) }}
         </div>
 
-        <button type="submit" class="btn">Register</button>
+        <button type="submit" class="btn btn btn-rounded" style="background-color: #020100; color: #ffffff">Regístrate</button>
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+{% endfor %}
+    </div>    
+
+    <div class="position-absolute bottom-0 start-50">
+        <h4 class="h6 mt-5 mb-3 font-weight-normal">Si estás registrad@, por favor, accede a la página de Inicio:</h4>
+        <a href="http://127.0.0.1:8000/" target="_blank" rel="noopener noreferrer" class="btn mb-3" style="background-color: #020100; color: #ffffff">Registro</a>
+    </div>
+
     {{ form_end(registrationForm) }}
+
 {% endblock %}

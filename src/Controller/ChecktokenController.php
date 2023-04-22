@@ -43,7 +43,6 @@ class ChecktokenController extends AbstractController
         if(!$user) {
             return $this->redirectToRoute('login');
         }
-
         $employee = $employeeRepository->findOneByEmail($jwtPayload->username);
         $response = new Response();
         $response->setContent(json_encode([

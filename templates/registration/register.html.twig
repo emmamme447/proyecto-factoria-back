@@ -40,7 +40,7 @@
 
         <button type="submit" class="btn btn btn-rounded" style="background-color: #020100; color: #ffffff">Regístrate</button>
             {% for message in app.flashes('success') %}
-                <div class="alert alert-success">
+                <div class="flash-success">
                     {{ message }}
                 </div>
 {% endfor %}

@@ -3,9 +3,8 @@
 {% block title %}New Area{% endblock %}
 
 {% block body %}
-    <h1>Create new Area</h1>
 
     {{ include('area/_form.html.twig') }}
 
-    <a href="{{ path('app_area_index') }}">back to list</a>
+    <a href="{{ path('app_area_index') }}"  class="btn btn-md" style="background-color: #020100; color: #ffffff">volver a la lista</a>
 {% endblock %}

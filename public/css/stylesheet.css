@@ -6,17 +6,84 @@ body {
     /*background-image: url(../assets/home.png);*/
 }
 
+
 h1,h2,h3,h4,h5,h6{
     font-family: Poppins;
     color: #020100;
 }
 
-@media (min-width: 991.98px) {
-    main {
-      padding-left: 240px;
-    }
+table-employee > th{
+  font-size: smaller;
+}
+
+/* Show */
+
+.caption{
+  background-color: #FFA37F;
 }
 
 
+
+/* Form */
+
+.container-md {
+  padding: 20px;
+}
+
+.container-md > div:first-child {
+  display: flex;
+  justify-content: space-around;
+}
+
+.container-md > div > div{
+  width: 40%;
+}
+
+.container-md > div > fieldset {
+  width: 40%;
+}
+
+form {
+  padding: 20px;
+}
+
+form >input{
+  width: 30%;
+}
+
+legend {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+
+}
+
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+form > div
+{
+  /* display: flex; */
+  flex-wrap: wrap;
+  /* align-content: center; */
+  /* justify-content: space-between; */
+  /* align-items: flex-start; */
+}
+
+/* form .btn{
+  padding: .15em .5em;
+} */
+
+/* Details employee */
+.detailForm {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
 
 

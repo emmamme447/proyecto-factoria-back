@@ -1,4 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <header>
+        {{ parent() }}
+    </header>
+
+    <h5> Editar rol</h5>
+
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <button class="btn btn-md" style="background-color: #020100; color: #ffffff">{{ button_label|default('Guardar') }}</button>
 {{ form_end(form) }}
+{% endblock %}

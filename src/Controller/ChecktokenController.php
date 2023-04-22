@@ -1,5 +1,7 @@
 <?php
 namespace App\Controller;
+
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
@@ -53,12 +55,9 @@ class ChecktokenController extends AbstractController
         $response->headers->set('Access-Control-Allow-Origin', '*');
         $response->headers->set('pass', 'ok');
         $response->headers->set('email', $user->getEmail());
-
         // ¿Una vez con esto la vista puede logarse?
-
         $response->headers->setCookie(new Cookie('Authorization', $token));
         $response->headers->setCookie(new Cookie('BEARER', $token));
-
         return $response;
     }
     

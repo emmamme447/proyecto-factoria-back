@@ -16,6 +16,9 @@ class Manager
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $identifying = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -36,5 +39,17 @@ class Manager
     public function __toString()
     {
         return $this->getTitle();
+    }
+
+    public function getIdentifying(): ?string
+    {
+        return $this->identifying;
+    }
+
+    public function setIdentifying(string $identifying): self
+    {
+        $this->identifying = $identifying;
+
+        return $this;
     }
 }

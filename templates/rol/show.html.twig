@@ -3,24 +3,27 @@
 {% block title %}Rol{% endblock %}
 
 {% block body %}
-    <h1>Rol</h1>
+<body >
+    <header>
+    {{ parent() }}
+    </header>
+    <div class="container-fluid" style="padding:60px" >
+    <h5>Rol</h5>
 
-    <table class="table">
+    <table class="table table-bordered" style="border: 2px solid #E8550F">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ rol.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
+                <th style="background-color:#FFA37E">Tipo de Rol</th>
                 <td>{{ rol.title }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_rol_index') }}">back to list</a>
 
-    <a href="{{ path('app_rol_edit', {'id': rol.id}) }}">edit</a>
+    <a href="{{ path('app_rol_index') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">volver a la lista</a>
+
+    <a href="{{ path('app_rol_edit', {'id': rol.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">editar</a>
 
     {{ include('rol/_delete_form.html.twig') }}
+</div>
 {% endblock %}

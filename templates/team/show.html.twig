@@ -3,24 +3,26 @@
 {% block title %}Team{% endblock %}
 
 {% block body %}
-    <h1>Team</h1>
+<body >
+    <header>
+    {{ parent() }}
+    </header>
+    <div class="container-fluid" style="padding:60px" >
+        <h5>Equipos</h5>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ team.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ team.title }}</td>
-            </tr>
-        </tbody>
-    </table>
+        <table class="table table-bordered" style="border: 2px solid #E8550F">
+            <tbody>
+                <tr>
+                    <th style="background-color: #FFA37E">Título</th>
+                    <td>{{ team.title }}</td>
+                </tr>
+            </tbody>
+        </table>
 
-    <a href="{{ path('app_team_index') }}">back to list</a>
+        <a href="{{ path('app_team_index') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff" >Volver a la lista</a>
 
-    <a href="{{ path('app_team_edit', {'id': team.id}) }}">edit</a>
+        <a href="{{ path('app_team_edit', {'id': team.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">editar</a>
 
-    {{ include('team/_delete_form.html.twig') }}
+        {{ include('team/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

@@ -1,72 +1,88 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&display=swap');
 
 body {
-    /* background-color: #dad6d5;  */
-    font-family: Poppins;
-    /*background-image: url(../assets/home.png);*/
+  background-color: white; 
+  font-family: Poppins;
 }
+
 
 h1,h2,h3,h4,h5,h6{
     font-family: Poppins;
     color: #020100;
 }
 
-@media (min-width: 991.98px) {
-    main {
-      padding-left: 240px;
-    }
-}
-  
-  /* Sidebar */
-
-.sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: -17;
-    padding: 25px 0 0; /* Height of navbar */
-    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
-    width: 200px;
-}
-  
-@media (max-width: 991.98px) {
-    .sidebar {
-      width: 100%;
-    }
+table-employee > th{
+  font-size: smaller;
 }
 
-.sidebar .active {
-    border-radius: 5px;
-    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
-}
-  
-.sidebar-sticky {
-    position: relative;
-    top: 0;
-    height: calc(100vh - 48px);
-    padding-top: 0.5rem;
-    overflow-x: hidden;
-    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+/* Show */
+
+.caption{
+  background-color: #FFA37F;
 }
 
-/* Table Employee */
-.container-employee{
-  padding-left: 100px;
-  margin: 100px auto;
+
+
+/* Form */
+
+.container-md {
+  padding: 20px;
 }
+
+.container-md > div:first-child {
+  display: flex;
+  justify-content: space-around;
+}
+
+.container-md > div > div{
+  width: 40%;
+}
+
+.container-md > div > fieldset {
+  width: 40%;
+}
+
+form {
+  padding: 20px;
+}
+
+form >input{
+  width: 30%;
+}
+
+legend {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+
+}
+
 
 label {
   display: block;
-  font-weight: 200;
+  font-weight: bold;
   margin-bottom: 5px;
 }
 
-td{
-  font-size: small;
+form > div
+{
+  /* display: flex; */
+  flex-wrap: wrap;
+  /* align-content: center; */
+  /* justify-content: space-between; */
+  /* align-items: flex-start; */
 }
 
+/* form .btn{
+  padding: .15em .5em;
+} */
 
-
-
+/* Details employee */
+.detailForm {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
 
 

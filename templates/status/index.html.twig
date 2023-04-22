@@ -3,24 +3,27 @@
 {% block title %}Status index{% endblock %}
 
 {% block body %}
-    <h1>Status index</h1>
+<body >
+    <header>
+    {{ parent() }}
+    </header>
+    <div class="container-fluid" style="padding:60px" >
+    <h5>Status </h5>
 
-    <table class="table">
+    <table class="table table-bordered table-sm" style="border: 2px solid #E8550F">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>actions</th>
+            <tr class="table" style="background-color: #FFA37E; border: 2px solid #E8550F">
+                <th>Estado</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
         {% for status in statuses %}
             <tr>
-                <td>{{ status.id }}</td>
                 <td>{{ status.title }}</td>
                 <td>
-                    <a href="{{ path('app_status_show', {'id': status.id}) }}">show</a>
-                    <a href="{{ path('app_status_edit', {'id': status.id}) }}">edit</a>
+                    <a href="{{ path('app_status_show', {'id': status.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff"  >mostrar</a>
+                    <a href="{{ path('app_status_edit', {'id': status.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff"  >editar</a>
                 </td>
             </tr>
         {% else %}
@@ -31,5 +34,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_status_new') }}">Create new</a>
+    <a href="{{ path('app_status_new') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff" >Crear nuevo</a>
 {% endblock %}

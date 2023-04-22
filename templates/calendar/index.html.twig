@@ -3,39 +3,43 @@
 {% block title %}Calendar index{% endblock %}
 
 {% block body %}
-    <h1>Calendar index</h1>
+<header>
+   {{ parent() }}
+</header>
+    <section style="padding:60px">
+        <div class="container-fluid" >
+            <h5>Eventos del calendario</h5>
+                <table class="table table-bordered table-sm" style="border: 2px solid #E8550F">
+                    <thead>
+                        <tr class="table" style="background-color: #FFA37E; border: 2px solid #E8550F">
+                            <th>Título</th>
+                            <th>Fecha de Inicio</th>
+                            <th>Fecha fin</th>
+                            <th>Destinatario</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for calendar in calendars %}
+                        <tr style="border: 2px solid #E8550F">
+                            <td>{{ calendar.title }}</td>
+                            <td>{{ calendar.startDate ? calendar.startDate|date('Y-m-d H:i:s') : '' }}</td>
+                            <td>{{ calendar.finishDate ? calendar.finishDate|date('Y-m-d H:i:s') : '' }}</td>
+                            <td>{{ calendar.recipient }}</td>
+                            <td>
+                                <a href="{{ path('app_calendar_show', {'id': calendar.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">mostrar</a>
+                                <a href="{{ path('app_calendar_edit', {'id': calendar.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">editar</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="6">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>StartDate</th>
-                <th>FinishDate</th>
-                <th>Recipient</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for calendar in calendars %}
-            <tr>
-                <td>{{ calendar.id }}</td>
-                <td>{{ calendar.title }}</td>
-                <td>{{ calendar.startDate ? calendar.startDate|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ calendar.finishDate ? calendar.finishDate|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ calendar.recipient }}</td>
-                <td>
-                    <a href="{{ path('app_calendar_show', {'id': calendar.id}) }}">show</a>
-                    <a href="{{ path('app_calendar_edit', {'id': calendar.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_calendar_new') }}">Create new</a>
+            <a href="{{ path('app_calendar_new') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff" >Crear nuevo</a>
+        </div>
+     </section>   
 {% endblock %}

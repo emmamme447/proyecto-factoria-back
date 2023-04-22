@@ -3,24 +3,27 @@
 {% block title %}Period index{% endblock %}
 
 {% block body %}
-    <h1>Period index</h1>
+   <header>
+        {{ parent() }}
+    </header>
+    <div class="container-fluid" style="padding:60px" >
+    <h5>Periodo</h5>
+    
 
-    <table class="table">
+    <table class="table table-bordered table-sm" style="border: 2px solid #E8550F">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>actions</th>
+            <tr class="table" style="background-color: #FFA37E; border: 2px solid #E8550F">
+                <th>Duración del período</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
         {% for period in periods %}
             <tr>
-                <td>{{ period.id }}</td>
                 <td>{{ period.title }}</td>
                 <td>
-                    <a href="{{ path('app_period_show', {'id': period.id}) }}">show</a>
-                    <a href="{{ path('app_period_edit', {'id': period.id}) }}">edit</a>
+                    <a href="{{ path('app_period_show', {'id': period.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">mostrar</a>
+                    <a href="{{ path('app_period_edit', {'id': period.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">editar</a>
                 </td>
             </tr>
         {% else %}
@@ -31,5 +34,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_period_new') }}">Create new</a>
+    <a href="{{ path('app_period_new') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">Crear nuevo</a>
 {% endblock %}

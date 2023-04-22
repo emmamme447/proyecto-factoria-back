@@ -3,33 +3,38 @@
 {% block title %}Manager index{% endblock %}
 
 {% block body %}
-    <h1>Manager index</h1>
+    <header>
+       {{ parent() }}
+    </header>		
+		<div class="container-fluid" style="padding:60px" >
+			<h5>Tabla de Responsables</h5>
+			<table class="table table-bordered table-sm" >
+				<thead>
+					<tr class="table" style="background-color: #FFA37F">
+						<th>Nombre</th>
+						<th>Nº de identificador</th>
+						<th>actions</th>
+					</tr>
+				</thead>
+				<tbody>
+				{% for manager in managers %}
+						<tr class="bg-white">
+							<td>{{ manager.title }}</td>
+							<td>{{ manager.identifying }}</td>
+							<td>
+									<a href="{{ path('app_manager_show', {'id': manager.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">mostrar</a>
+									<a href="{{ path('app_manager_edit', {'id': manager.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">editar</a>
+							</td>
+					</tr>
+				{% else %}
+						<tr>
+							<td colspan="3">no records found</td>
+						</tr>
+				{% endfor %}
+				</tbody>
+			</table>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for manager in managers %}
-            <tr>
-                <td>{{ manager.id }}</td>
-                <td>{{ manager.title }}</td>
-                <td>
-                    <a href="{{ path('app_manager_show', {'id': manager.id}) }}">show</a>
-                    <a href="{{ path('app_manager_edit', {'id': manager.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_manager_new') }}">Create new</a>
+				<a href="{{ path('app_manager_new') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">Crear nuevo</a>
+		</div>
+</body>
 {% endblock %}

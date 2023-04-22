@@ -3,33 +3,36 @@
 {% block title %}Area index{% endblock %}
 
 {% block body %}
-    <h1>Area index</h1>
+<body >
+    <header>
+        {{ parent() }}
+    </header>
+    <div class="container-fluid" style="padding:60px" >
+        <h5>Áreas</h5>
+        <table class="table table-bordered table-md" style="border: 2px solid #E8550F">
+            <thead>
+                <tr class="table" style="background-color: #FFA37E; border: 2px solid #E8550F">
+                    <th>Título</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for area in areas %}
+                <tr>
+                    <td>{{ area.title }}</td>
+                    <td>
+                        <a href="{{ path('app_area_show', {'id': area.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">mostrar</a>
+                        <a href="{{ path('app_area_edit', {'id': area.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">editar</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for area in areas %}
-            <tr>
-                <td>{{ area.id }}</td>
-                <td>{{ area.title }}</td>
-                <td>
-                    <a href="{{ path('app_area_show', {'id': area.id}) }}">show</a>
-                    <a href="{{ path('app_area_edit', {'id': area.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_area_new') }}">Create new</a>
+    <a href="{{ path('app_area_new') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">Crear nuevo</a>
 {% endblock %}

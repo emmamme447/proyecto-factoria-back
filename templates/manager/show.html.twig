@@ -3,24 +3,29 @@
 {% block title %}Manager{% endblock %}
 
 {% block body %}
-    <h1>Manager</h1>
+   <body >
+    <header>
+    {{ parent() }}
+    </header>
+    <div class="container-fluid" style="padding:60px" >
+    <h5>Manager</h5>
 
-    <table class="table">
+    <table class="table table-bordered" style="border: 2px solid #E8550F">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ manager.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
+                <th style="background-color: #FFA37E">Nombre</th>
                 <td>{{ manager.title }}</td>
+            </tr>
+             <tr>
+                <th style="background-color: #FFA37E">Nº de identificador</th>
+                <td>{{ manager.identifying }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_manager_index') }}">back to list</a>
+    <a href="{{ path('app_manager_index') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">volver a la lista</a>
 
-    <a href="{{ path('app_manager_edit', {'id': manager.id}) }}">edit</a>
+    <a href="{{ path('app_manager_edit', {'id': manager.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">editar</a>
 
     {{ include('manager/_delete_form.html.twig') }}
 {% endblock %}

@@ -3,11 +3,16 @@
 {% block title %}Contract index{% endblock %}
 
 {% block body %}
-    <h1>Contract index</h1>
+   <header>
+        {{ parent() }}
+    </header>
+        <div class="container-fluid" style="padding:60px" >
+         <h5>Tipo de Contrato</h5>
+    
 
-    <table class="table">
+    <table class="table table-bordered table-sm" style="border: 2px solid #E8550F">
         <thead>
-            <tr>
+            <tr class="table" style="background-color: #FFA37E; border: 2px solid #E8550F">
                 <th>Id</th>
                 <th>Title</th>
                 <th>actions</th>
@@ -19,8 +24,8 @@
                 <td>{{ contract.id }}</td>
                 <td>{{ contract.title }}</td>
                 <td>
-                    <a href="{{ path('app_contract_show', {'id': contract.id}) }}">show</a>
-                    <a href="{{ path('app_contract_edit', {'id': contract.id}) }}">edit</a>
+                    <a href="{{ path('app_contract_show', {'id': contract.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">mostrar</a>
+                    <a href="{{ path('app_contract_edit', {'id': contract.id}) }}" class="btn btn-sm" style="background-color:#FE4700">editar</a>
                 </td>
             </tr>
         {% else %}
@@ -31,5 +36,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_contract_new') }}">Create new</a>
+    <a href="{{ path('app_contract_new') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">Crear nuevo</a>
 {% endblock %}

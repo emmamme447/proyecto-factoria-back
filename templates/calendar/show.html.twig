@@ -3,36 +3,38 @@
 {% block title %}Calendar{% endblock %}
 
 {% block body %}
-    <h1>Calendar</h1>
+<body >
+<header>
+   {{ parent() }}
+</header>
+    <section style="padding:60px">
+        <div class="container-fluid" >
+        <h5>Eventos calendario</h5>
 
-    <table class="table">
+    <table class="table table-bordered table-sm" style="border: 2px solid #E8550F" >
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ calendar.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
+            <tr class="table" style="background-color: #FFA37E; border: 2px solid #E8550F">
+                <th>Asunto</th>
                 <td>{{ calendar.title }}</td>
             </tr>
             <tr>
-                <th>StartDate</th>
+                <th>Fecha de inicio</th>
                 <td>{{ calendar.startDate ? calendar.startDate|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>FinishDate</th>
+                <th>Fecha fin</th>
                 <td>{{ calendar.finishDate ? calendar.finishDate|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>Recipient</th>
+                <th>Destinatario</th>
                 <td>{{ calendar.recipient }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_calendar_index') }}">back to list</a>
+    <a href="{{ path('app_calendar_index') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">volver a la lista</a>
 
-    <a href="{{ path('app_calendar_edit', {'id': calendar.id}) }}">edit</a>
+    <a href="{{ path('app_calendar_edit', {'id': calendar.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">editar</a>
 
     {{ include('calendar/_delete_form.html.twig') }}
 {% endblock %}

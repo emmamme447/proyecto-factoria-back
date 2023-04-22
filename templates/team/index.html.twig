@@ -3,24 +3,27 @@
 {% block title %}Team index{% endblock %}
 
 {% block body %}
-    <h1>Team index</h1>
+<body >
+    <header>
+    {{ parent() }}
+    </header>
+     <div class="container-fluid" style="padding:60px" >
+    <h5>Equipos</h5>
 
-    <table class="table">
+    <table class="table table-bordered table-sm table-hover" style="border: 2px solid #E8550F">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>actions</th>
+            <tr class="table" style="background-color: #FFA37E; border: 2px solid #E8550F">
+                <th>Título</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
         {% for team in teams %}
             <tr>
-                <td>{{ team.id }}</td>
                 <td>{{ team.title }}</td>
                 <td>
-                    <a href="{{ path('app_team_show', {'id': team.id}) }}">show</a>
-                    <a href="{{ path('app_team_edit', {'id': team.id}) }}">edit</a>
+                    <a href="{{ path('app_team_show', {'id': team.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">Mostrar</a>
+                    <a href="{{ path('app_team_edit', {'id': team.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">Editar</a>
                 </td>
             </tr>
         {% else %}
@@ -30,6 +33,7 @@
         {% endfor %}
         </tbody>
     </table>
+</div>
 
-    <a href="{{ path('app_team_new') }}">Create new</a>
+    <a href="{{ path('app_team_new') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff; --bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" >Crear Nuevo</a>
 {% endblock %}

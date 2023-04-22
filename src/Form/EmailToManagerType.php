@@ -18,11 +18,17 @@ class EmailToManagerType extends AbstractType
             ->add('email', EmailType::class, [
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Por favor, introduce una dirección de correo electrónico.',
+                        'message' => 'Please, you should use a valid email.',
                     ]),
                 ],
             ])
-            ->add('send_email', SubmitType::class)
+            ->add('send_email', SubmitType::class, [
+                'label' => 'Enviar email',
+                'attr' => [
+                    'class' => 'btn btn-rounded',
+                    'style' => 'background-color: #020100; color: #ffffff;'
+                ],
+            ])
         ;
     }
 

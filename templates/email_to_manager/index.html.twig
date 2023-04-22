@@ -1,44 +1,15 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 {% extends 'base.html.twig' %}
-=======
-{# {% extends 'base.html.twig' %} 
->>>>>>> feature/emma
-=======
-{% extends 'base.html.twig' %} 
->>>>>>> dc1d1634116b997d494b45b961dda408cc64138b
 
-{% block title %}Envío de evaluación final al Responsable{% endblock %}
+{% block title %}Envío correo electrónico{% endblock %}
 
 {% block body %}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-{{ form_start(form) }}
-    {{ form_row(form.email)}}
-    {{ form_row(form.send_email)}}
-
-    {% for label, messages in app.flashes %}
-      {% for message in messages %}
-          <div class="alert alert-{{ label }}">
-              {{ message }}
-          </div>
-      {% endfor %}
-    {% endfor %}
-
-{{ form_end(form) }}
-
-{% endblock %}
-=======
-{# {{ parent() }} #}
-=======
 {{ parent() }}
->>>>>>> dc1d1634116b997d494b45b961dda408cc64138b
 
-    <div class="col-sm-6-">
-        <div class="card position-absolute top-50 start-50 translate-middle">
+    <div class="col-sm-6 position-absolute top-50 start-50 translate-middle rounded" style="background-color: #ffa37f;>
+        <div class="card">
             <div class="card-body">
-                <h5 class="card-title">EVALUACIÓN FINAL RESPONSABLE</h5>
+                <h3 class="card-title h3 mb-3 font-weight-normal">CORREO EVALUACIÓN FINAL RESPONSABLE</h5>
                     <p class="card-text">Por favor, introduce la dirección de correo electrónico para enviar un correo al responsable con un link para la evaluación final:</p>
                         
                         {{ form_start(form) }}
@@ -59,12 +30,8 @@
         </div>
     </div>
 
-<<<<<<< HEAD
-{% endblock %}  #}
->>>>>>> feature/emma
-=======
 {% endblock %}  
->>>>>>> dc1d1634116b997d494b45b961dda408cc64138b
+
 
 
 

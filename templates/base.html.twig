@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,99 +23,13 @@
 
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
-            <script src="{{ asset('js/navbar.js')}}"></script>
+            <script src="{{ asset('js/bootstrap.min.js')}}"></script>
+            <script src="{{ asset('js/jquery.min.js')}}"></script>
         {% endblock %}
     </head>
     <body>
 
         {% block body %}
-
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">
-                        <img src={{ asset('assets/logo_sinfondo.png')}} height="60" width="70" alt="logo" loading="lazy"/>
-                    </a>
-                    <div class="collapse navbar-collapse" id="navbarRightAlignExample">
-                    <!-- Left links -->
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Página principal</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Trabajadores</a>
-                            </li>
-                            <!-- Navbar dropdown -->
-                            <li class="nav-item dropdown">
-                            <a
-                            class="nav-link dropdown-toggle"
-                            href="#"
-                            id="navbarDropdown"
-                            role="button"
-                            data-mdb-toggle="dropdown"
-                            aria-expanded="false"
-                            >
-                            Enlaces modificación datos
-                            </a>
-                            <!-- Dropdown menu -->
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li>
-                                        <a class="dropdown-item" href="#">Datos calendario</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">Datos empleado</a>
-                                    </li>
-                                    <li><hr class="dropdown-divider" /></li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">Datos periodo</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">Datos posición</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">Datos rol</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">Datos status</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">Datos equipo</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">Datos contrato</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">Datos área</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                            <a
-                            class="nav-link dropdown-toggle"
-                            href="#"
-                            id="navbarDropdown"
-                            role="button"
-                            data-mdb-toggle="dropdown"
-                            aria-expanded="false"
-                            >
-                            Envío de correos
-                            </a>
-                            <!-- Dropdown menu -->
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li>
-                                        <a class="dropdown-item" href="http://127.0.0.1:8000/email">Correo al trabajador</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="http://127.0.0.1:8000/email/to/manager">Correo al responsable</a>
-                                    </li>
-                                    <li><hr class="dropdown-divider" /></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <!-- Left links -->
-                    </div>
-                    <!-- Collapsible wrapper -->
-                </div>
-            </nav>
 
         {% endblock %}
         <!-- Bootstrap JavaScript Libraries -->

@@ -43,7 +43,7 @@ class RegistrationController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Te has registrado correctamente.');
+            $this->addFlash('success', '¡Te has registrado correctamente!');
 
             // generate a signed url and email it to the user
             //$this->emailVerifier->sendEmailConfirmation('verify_email', $user,

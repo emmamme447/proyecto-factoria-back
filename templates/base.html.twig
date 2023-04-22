@@ -85,10 +85,10 @@
                   <!-- Dropdown menu Entidades-->
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li>
-                        <a class="dropdown-item" href="{{ path('app_rol_index') }}">Correo al trabajador</a>
+                        <a class="dropdown-item" href="{{ path('email') }}">Correo al trabajador</a>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="{{ path('app_area_index') }}">Correo al responsable</a>
+                        <a class="dropdown-item" href="{{ path('email_to_manager') }}">Correo al responsable</a>
                       </li>
                   </ul>
                 </li>
@@ -166,7 +166,7 @@
                 aria-labelledby="navbarDropdownMenuAvatar"
               >
                 <li>
-                  <a class="dropdown-item" href="#">Logout</a>
+                  <a class="dropdown-item" href="{{ path('logout') }}">Logout</a>
                 </li>
               </ul>
             </div>
@@ -177,6 +177,7 @@
       </nav>
       <!-- Navbar -->  
     {% endblock %}
+    
     {{ encore_entry_script_tags('app') }}
    
     {% block javascripts %}

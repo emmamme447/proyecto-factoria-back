@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Calendar;
 use App\Form\CalendarType;
 use App\Repository\CalendarRepository;
+use App\Repository\EmployeeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,7 +17,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class ApiCalendarController extends AbstractController
 {
     #[Route('/', name: 'app_apicalendar_index', methods: ['GET'])]
-    public function index(CalendarRepository $calendarRepository): Response
+    public function index(CalendarRepository $calendarRepository, EmployeeRepository $employeeRepository): Response
     {
         $calendar = $calendarRepository->findAll();
 
@@ -29,6 +30,7 @@ class ApiCalendarController extends AbstractController
                 'startDate' => $p->getStartDate(),
                 'finishDate' => $p->getFinishDate(),
                 'recipient' => $p->getRecipient(),
+                'name' => $employeeRepository->formatData($employeeRepository->filterEmployeeByEmail($p->getRecipient()))
             ];
         }
 

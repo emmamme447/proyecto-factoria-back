@@ -8,9 +8,10 @@ class ProjectTest extends PantherTestCase
 {
     public function testSomething(): void
     {
-        $client = static::createPantherClient();
-        $crawler = $client->request('GET', '/email');
+    $client = static::createPantherClient();
+    $crawler = $client->request('GET', '/email');
 
-        $this->assertSelectorTextContains('label', 'Email');
+    $this->assertSelectorExists('h1');
+    $this->assertSelectorTextContains('h1', '¡Hola Bienvenid@!');
     }
-}
+}    

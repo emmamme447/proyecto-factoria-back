@@ -1,18 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Manager{% endblock %}
+{% block title %}Responsables{% endblock %}
 
 {% block body %}
-   <body >
     <header>
     {{ parent() }}
     </header>
-    <div class="container-fluid" style="padding:60px" >
-    <h5>Manager</h5>
 
+    <h5 class="m-4" >Responsables</h5>
+
+    <div class="container-fluid" style="padding:30px" >
+    
     <table class="table table-bordered" style="border: 2px solid #E8550F">
         <tbody>
-            <tr>
+            <tr >
                 <th style="background-color: #FFA37E">Nombre</th>
                 <td>{{ manager.title }}</td>
             </tr>
@@ -23,9 +24,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_manager_index') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">volver a la lista</a>
+    <a href="{{ path('app_manager_index') }}" class="btn btn-md m-2" style="background-color: #020100; color: #ffffff">volver a la lista</a>
 
-    <a href="{{ path('app_manager_edit', {'id': manager.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">editar</a>
+    <a href="{{ path('app_manager_edit', {'id': manager.id}) }}" class="btn btn-md m-2" style="background-color: #020100; color: #ffffff">editar</a>
 
     {{ include('manager/_delete_form.html.twig') }}
 {% endblock %}

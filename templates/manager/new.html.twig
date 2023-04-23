@@ -3,9 +3,15 @@
 {% block title %}New Manager{% endblock %}
 
 {% block body %}
-    <h1>Create new Manager</h1>
+<header>
+    {{ parent() }}
+</header>
+<h5 class="m-4">Crear nuevo responsable</h5>
+
+<div class="m-5" style="border: 2px solid #E8550F">
 
     {{ include('manager/_form.html.twig') }}
+</div>
 
-    <a href="{{ path('app_manager_index') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">back to list</a>
+    <a href="{{ path('app_manager_index') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">back to list</a>
 {% endblock %}

@@ -11,22 +11,21 @@
 
     <div class="container-fluid text-center" style="padding:30px" >
 
-    <table class="table table-bordered table-sm" style="border: 2px solid #E8550F">
+    <table class="table table-bordered table-md" style="border: 2px solid #E8550F">
         <thead>
             <tr class="table" style="background-color: #FFA37E; border: 2px solid #E8550F">
-                <th>ID</th>
                 <th>Tipo contrato</th>
                 <th></th>
             </tr>
         </thead>
 
         {% for contract in contracts %}
-            <tr>
-                <td>{{ contract.id }}</td>
+            <tr class="bg-white">
+
                 <td>{{ contract.title }}</td>
                 <td>
                     <a href="{{ path('app_contract_show', {'id': contract.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">mostrar</a>
-                    <a href="{{ path('app_contract_edit', {'id': contract.id}) }}" class="btn btn-sm" style="background-color: #020100; color: #ffffff">editar</a>
+                    <a href="{{ path('app_contract_edit', {'id': contract.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">editar</a>
                 </td>
             </tr>
         {% else %}

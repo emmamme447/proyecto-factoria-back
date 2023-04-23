@@ -208,16 +208,6 @@ class ApiEmployeeController extends AbstractController
             // Almacenamos el estado
             $status = $statusRepository->find($data->status);
             $employee->setStatus($status);
-            // dump("Me estas jodiendo???");
-            // dump($data->fourthPeriod);
-            // dump($period1);
-            // dump($period2);
-            // dump($period3);
-            // dump($period4);
-            // dump($period5);
-            // dump($events);
-            // dump($data->fourthPeriod);
-            // die;
 
             foreach ($events as $evnt) {
                 $entityManager->persist($evnt);

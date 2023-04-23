@@ -1,13 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Status{% endblock %}
+{% block title %}Editar estado{% endblock %}
 
 {% block body %}
-   
+<header>
+    {{ parent() }}
+</header>
 
-    {{ include('status/_form.html.twig', {'button_label': 'Guardar'}) }}
+<h5 class="m-4">Editar estado</h5>
 
-    <a href="{{ path('app_status_index') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff" >volver a la lista</a>
+    <div class="container-fluid container-sm m-4" style="border: 2px solid #E8550F">
+
+        {{ include('status/_form.html.twig', {'button_label': 'Guardar'}) }}
+
+    </div>    
+
+    <a href="{{ path('app_status_index') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff" >Volver a la lista</a>
 
     {{ include('status/_delete_form.html.twig') }}
+    
 {% endblock %}

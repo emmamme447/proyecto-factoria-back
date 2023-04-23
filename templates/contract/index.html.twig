@@ -9,7 +9,7 @@
 
 <h5 class="m-4">Tipo de Contrato</h5>
 
-    <div class="container-fluid text-center" style="padding:30px" >
+    <div class="container-fluid container-sm text-center" style="padding:30px" >
 
     <table class="table table-bordered table-md" style="border: 2px solid #E8550F">
         <thead>
@@ -34,7 +34,10 @@
             </tr>
         {% endfor %}
         
-    </table>
+        </table>
 
-    <a href="{{ path('app_contract_new') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">Crear nuevo tipo de contrato</a>
+    <a href="{{ path('app_contract_new') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Crear nuevo tipo de contrato</a>
+
+    </div>  
+
 {% endblock %}

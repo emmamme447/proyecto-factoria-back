@@ -1,21 +1,5 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
-    <header>
-        {{ parent() }}
-    </header>
-
-    <div class="m-4">
-
-        <h5> Añadir Nuevo Empleado</h5>
-
-        <form class="container-md my-4" style="border: 2px solid #E8550F">
-            {{ form_start(form) }}
-            {{ form_widget(form) }}
-                <button class="btn btn-md" style="background-color: #020100; color: #ffffff">{{ button_label|default('Guardar') }}</button>
-            {{ form_end(form) }}
-        </form>
-
-    </div>
-
-{% endblock %}
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn btn-sm m-4" style="background-color: #020100; color: #ffffff">{{ button_label|default('Guardar') }}</button>
+{{ form_end(form) }}
+        

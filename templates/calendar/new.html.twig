@@ -3,18 +3,18 @@
 {% block title %}Nuevo evento{% endblock %}
 
 {% block body %}
-
 <header>
    {{ parent() }}
 </header>
 
-    <h5 class="m-4">Crear nuevo evento</h5>
+<h5 class="m-4">Crear nuevo evento</h5>
 
-    <div class="m-5" style="border: 2px solid #E8550F">
+    <div class="container-fluid container-sm m-4" style="border: 2px solid #E8550F">
 
         {{ include('calendar/_form.html.twig') }}
 
     </div>
 
     <a href="{{ path('app_calendar_index') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">volver a la lista</a>
+
 {% endblock %}

@@ -3,18 +3,17 @@
 {% block title %}Nuevo tipo de contrato{% endblock %}
 
 {% block body %}
-
 <header>
     {{ parent() }}
 </header>
 
 <h5 class="m-4">Crear nuevo tipo de contrato</h5>
 
-<div class="m-5" style="border: 2px solid #E8550F">
+    <div class="container-fluid container-sm m-4" style="border: 2px solid #E8550F">
 
-    {{ include('contract/_form.html.twig') }}
+        {{ include('contract/_form.html.twig') }}
 
-</div>    
+    </div>    
 
     <a href="{{ path('app_contract_index') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Volver a la lista</a>
 

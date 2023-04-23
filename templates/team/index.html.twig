@@ -3,16 +3,13 @@
 {% block title %}Equipos{% endblock %}
 
 {% block body %}
-
 <header>
     {{ parent() }}
 </header>
 
- <h5 class="m-4">Equipos</h5>
- 
-    <body>
+<h5 class="m-4">Equipos</h5>
 
-        <div class="container-fluid text-center" style="padding:30px">
+    <div class="container-fluid text-center container-sm" style="padding:30px">
             
         <table class="table table-bordered table-sm table-hover" style="border: 2px solid #E8550F">
             <thead>
@@ -21,27 +18,25 @@
                     <th></th>
                 </tr>
             </thead>
-        
-        {% for team in teams %}
-            <tr>
-                <td>{{ team.title }}</td>
-                <td>
-                    <a href="{{ path('app_team_show', {'id': team.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">Mostrar</a>
-                    <a href="{{ path('app_team_edit', {'id': team.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">Editar</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">No se encontraron registros</td>
-            </tr>
-        {% endfor %}
-        
+            <tbody>
+            {% for team in teams %}
+                <tr>
+                    <td>{{ team.title }}</td>
+                    <td>
+                        <a href="{{ path('app_team_show', {'id': team.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">Mostrar</a>
+                        <a href="{{ path('app_team_edit', {'id': team.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">Editar</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">No se encontraron registros</td>
+                </tr>
+            {% endfor %}
+            </tbody>
         </table>   
 
         <a href="{{ path('app_team_new') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff; --bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" >Crear nuevo equipo</a>
 
-        </div>
-
-</tbody> 
+    </div> 
 
 {% endblock %}

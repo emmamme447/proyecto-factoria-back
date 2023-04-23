@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Manager index{% endblock %}
+{% block title %}Responsables{% endblock %}
 
 {% block body %}
     <header>
@@ -22,19 +22,19 @@
 							<td>{{ manager.title }}</td>
 							<td>{{ manager.identifying }}</td>
 							<td>
-									<a href="{{ path('app_manager_show', {'id': manager.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">mostrar</a>
-									<a href="{{ path('app_manager_edit', {'id': manager.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">editar</a>
+								<a href="{{ path('app_manager_show', {'id': manager.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">mostrar</a>
+								<a href="{{ path('app_manager_edit', {'id': manager.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">editar</a>
 							</td>
 					</tr>
 				{% else %}
 						<tr>
-							<td colspan="3">no records found</td>
+							<td colspan="3">No se encontraron registros</td>
 						</tr>
 				{% endfor %}
 				</tbody>
 			</table>
 
-				<a href="{{ path('app_manager_new') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">Crear nuevo</a>
-		</div>
-</body>
+			<a href="{{ path('app_manager_new') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Crear nuevo responsable</a>
+	</div>
+
 {% endblock %}

@@ -55,8 +55,8 @@ class ApiEmployeeController extends AbstractController
             return $response;
         }
 
-    #[Route('/create/employee', name: 'app_apiemployeecreate_index', methods: ['POST'])]
-        public function create(Request $request, EntityManagerInterface $entityManager, PositionRepository $positionRepository, TeamRepository $teamRepository, RolRepository $rolRepository, AreaRepository $areaRepository, ContractRepository $contractRepository, StatusRepository $statusRepository, ManagerRepository $managerRepository, PeriodRepository $periodRepository ): JsonResponse
+    #[Route('/employee/new', name: 'app_apiemployeecreate_new', methods: ['POST'])]
+        public function new(Request $request, EntityManagerInterface $entityManager, PositionRepository $positionRepository, TeamRepository $teamRepository, RolRepository $rolRepository, AreaRepository $areaRepository, ContractRepository $contractRepository, StatusRepository $statusRepository, ManagerRepository $managerRepository, PeriodRepository $periodRepository ): JsonResponse
         {   
             // Creamos una instancia a la entidad Employee
             $employee = new Employee();
@@ -170,10 +170,6 @@ class ApiEmployeeController extends AbstractController
                 $events[] = $period3;
             }
             if ($data->fourthPeriod) {
-                dump("aquiiiiiiiiiiiiiiiiiii");
-                dump($data->fourthPeriod);
-                // dump($data->fourthPeriod);
-                die;
                 // Convertir la cadena de texto en un objeto DateTime
                 $fourthPeriod = new \DateTime($data->fourthPeriod);
                 // Actualizamos el campo cuarto periodo de la variable employee que hace referencia a la entidad employee
@@ -225,7 +221,6 @@ class ApiEmployeeController extends AbstractController
 
             foreach ($events as $evnt) {
                 $entityManager->persist($evnt);
-                $entityManager->flush();
             }
             // Guardar el objeto Employee en la base de datos
             $entityManager->persist($employee);
@@ -271,7 +266,7 @@ class ApiEmployeeController extends AbstractController
             return $this->json($data, $status = 200, $headers = ['Access-Control-Allow-Origin'=>'*']);
         }
 
-        #[Route('/employee/filter/manager/{identifying}', name: 'app_apiemployeefiltermanager_filtermanager', methods: ['GET'])]
+    #[Route('/employee/filter/manager/{identifying}', name: 'app_apiemployeefiltermanager_filtermanager', methods: ['GET'])]
         public function filtermanager(EmployeeRepository $employeeRepository, $identifying)
         {
             // Filtramos los empleados por el identificador del manager enviado en el parametro de la ruta
@@ -282,7 +277,7 @@ class ApiEmployeeController extends AbstractController
             return $this->json($data, $status = 200, $headers = ['Access-Control-Allow-Origin'=>'*']);
         }
 
-        #[Route('/employee/filter/email/{email}', name: 'app_apiemployeefilteremail_filteremail', methods: ['GET'])]
+    #[Route('/employee/filter/email/{email}', name: 'app_apiemployeefilteremail_filteremail', methods: ['GET'])]
         public function filteremail(EmployeeRepository $employeeRepository, $email)
         {
             // Filtramos los empleados por el email enviado en el parametro de la ruta
@@ -292,6 +287,4 @@ class ApiEmployeeController extends AbstractController
             // Retornamos la data
             return $this->json($data, $status = 200, $headers = ['Access-Control-Allow-Origin'=>'*']);
         }
-
-
     }

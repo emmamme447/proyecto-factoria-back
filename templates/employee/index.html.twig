@@ -4,13 +4,13 @@
 
 
 {% block body %}
-<body >
+< >
 <header>
    {{ parent() }}
 </header>
-    <section style="padding:60px">
-        <div class="container-fluid" >
-        <h5>Tabla Empleados</h5>
+<h5 class="m-4">Tabla Empleados</h5>
+<section style="padding:30px">
+    <div class="container-fluid text-center">
         <table class="table table-bordered table-sm" style="border: 2px solid #E8550F" >
             <thead "table-employee">
                 <tr class="table" style="background-color: #FFA37E; border: 2px solid #E8550F" >
@@ -46,11 +46,9 @@
                 </tr>
             {% endfor %}
             </tbody>
-            </table>
-
+        </table>
             <a href="{{ path('app_employee_new') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">Crear nuevo</a>
-        </div>
-        </section>
-    </body>
+    </div>
+</section>
 
 {% endblock %}

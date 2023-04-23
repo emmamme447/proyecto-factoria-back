@@ -1,11 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Contract{% endblock %}
+{% block title %}Nuevo tipo de contrato{% endblock %}
 
 {% block body %}
-    <h1>Create new Contract</h1>
+
+<header>
+    {{ parent() }}
+</header>
+
+<h5 class="m-4">Crear nuevo tipo de contrato</h5>
+
+<div class="m-5" style="border: 2px solid #E8550F">
 
     {{ include('contract/_form.html.twig') }}
 
-    <a href="{{ path('app_contract_index') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">volve a la lista</a>
+</div>    
+
+    <a href="{{ path('app_contract_index') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Volver a la lista</a>
+
 {% endblock %}

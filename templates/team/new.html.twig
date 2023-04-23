@@ -1,11 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Team{% endblock %}
+{% block title %}Nuevo equipo{% endblock %}
 
 {% block body %}
-   
 
-    {{ include('team/_form.html.twig') }}
+<header>
+     {{ parent() }}
+</header>
 
-    <a href="{{ path('app_team_index') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">back to list</a>
+    <div class="m-4" style="border: 2px solid #E8550F">
+
+        {{ include('team/_form.html.twig') }}
+
+    </div>
+
+    <a href="{{ path('app_team_index') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Volver a la lista</a>
+    
 {% endblock %}

@@ -1,12 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Team{% endblock %}
+{% block title %}Editar equipo{% endblock %}
 
 {% block body %}
 
-    {{ include('team/_form.html.twig', {'button_label': 'Actualizar'}) }}
+<header>
+    {{ parent() }}
+</header>
 
-    <a href="{{ path('app_team_index') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">Volver</a>
+<h5 class="m-4">Editar título</h5>
+    
+    <div class="m-4" style="border: 2px solid #E8550F">
+
+        {{ include('team/_form.html.twig', {'button_label': 'Actualizar'}) }}
+
+    </div>    
+
+    <a href="{{ path('app_team_index') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Volver</a>
 
     {{ include('team/_delete_form.html.twig') }}
+
 {% endblock %}

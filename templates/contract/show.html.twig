@@ -1,29 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contract{% endblock %}
+{% block title %}Contrato{% endblock %}
 
 {% block body %}
-<body >
-    <header>
+<header>
     {{ parent() }}
 </header>
-    <div class="container-fluid" style="padding:60px" >
-        <h5>Tipo de Contrato</h5>
+
+<h5 class="m-4">Tipo de Contrato</h5>
+
+    <div class="container-fluid" style="padding:30px" >
 
         <table class="table table-bordered" style="border: 2px solid #E8550F">
-            <tbody>
-                <tr style="background-color: #FFA37E">
-                    <th>Title</th>
+            <thead>
+                <tr>
+                    <th style="background-color: #FFA37E">Tipo de contrato</th>
                     <td>{{ contract.title }}</td>
-                </tr>
-            </tbody>
+                </tr> 
+            </thead>
         </table>
         
 
-        <a href="{{ path('app_contract_index') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">volver a la lista</a>
+        <a href="{{ path('app_contract_index') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Volver a la lista</a>
 
-        <a href="{{ path('app_contract_edit', {'id': contract.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">editar</a>
+        <a href="{{ path('app_contract_edit', {'id': contract.id}) }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Editar</a>
 
         {{ include('contract/_delete_form.html.twig') }}
+
     </div>
+
 {% endblock %}

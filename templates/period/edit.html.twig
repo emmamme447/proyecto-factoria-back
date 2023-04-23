@@ -1,13 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Period{% endblock %}
+{% block title %}Editar periodo de prueba{% endblock %}
 
 {% block body %}
+<header>
+    {{ parent() }}
+</header>
 
+<h5 class="m-4">Editar periodo de prueba</h5>
 
-    {{ include('period/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="m-4" style="border: 2px solid #E8550F">
 
-    <a href="{{ path('app_period_index') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">volver a la lista</a>
+        {{ include('period/_form.html.twig', {'button_label': 'Update'}) }}
+
+    </div>
+
+    <a href="{{ path('app_period_index') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Volver a la lista</a>
 
     {{ include('period/_delete_form.html.twig') }}
+
 {% endblock %}

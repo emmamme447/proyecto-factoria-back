@@ -1,16 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Contract{% endblock %}
+{% block title %}Editar contrato{% endblock %}
 
 {% block body %}
-
 <header>
     {{ parent() }}
 </header>
 
 <h5 class="m-4">Editar tipo de contrato</h5>
 
-    <div class="m-4" style="border: 2px solid #E8550F">
+    <div class="container-fluid container-sm m-4" style="border: 2px solid #E8550F">
     
         {{ include('contract/_form.html.twig', {'button_label': 'Guardar'}) }}
 

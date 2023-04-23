@@ -1,14 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Manager index{% endblock %}
+{% block title %}Responsables{% endblock %}
 
 {% block body %}
-    <header>
-       {{ parent() }}
-    </header>		
-		<div class="container-fluid" style="padding:60px" >
-			<h5>Tabla de Responsables</h5>
-			<table class="table table-bordered table-sm" >
+<header>
+    {{ parent() }}
+</header>	
+
+<h5 class="m-4">Tabla de Responsables</h5>
+
+	<div class="container-fluid text-center container-sm" style="padding:30px">
+			
+			<table class="table table-bordered table-sm">
 				<thead>
 					<tr class="table" style="background-color: #FFA37F">
 						<th>Nombre</th>
@@ -22,19 +25,19 @@
 							<td>{{ manager.title }}</td>
 							<td>{{ manager.identifying }}</td>
 							<td>
-									<a href="{{ path('app_manager_show', {'id': manager.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">mostrar</a>
-									<a href="{{ path('app_manager_edit', {'id': manager.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">editar</a>
+								<a href="{{ path('app_manager_show', {'id': manager.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">mostrar</a>
+								<a href="{{ path('app_manager_edit', {'id': manager.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">editar</a>
 							</td>
 					</tr>
 				{% else %}
 						<tr>
-							<td colspan="3">no records found</td>
+							<td colspan="3">No se encontraron registros</td>
 						</tr>
 				{% endfor %}
 				</tbody>
 			</table>
 
-				<a href="{{ path('app_manager_new') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">Crear nuevo</a>
-		</div>
-</body>
+			<a href="{{ path('app_manager_new') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Crear nuevo responsable</a>
+	</div>
+
 {% endblock %}

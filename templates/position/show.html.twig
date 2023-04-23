@@ -1,27 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Position{% endblock %}
+{% block title %}Posición{% endblock %}
 
 {% block body %}
-<body >
-    <header>
+<header>
     {{ parent() }}
-    </header>
-    <div class="container-fluid" style="padding:60px" >
-    <h5>Position</h5>
+</header>
 
-    <table class="table table-bordered" style="border: 2px solid #E8550F">
-        <tbody>
-            <tr>
-                <th  style="background-color: #FFA37E">Puesto</th>
-                <td>{{ position.title }}</td>
-            </tr>
-        </tbody>
-    </table>
+ <h5 class="m-4">Posición</h5>
 
-    <a href="{{ path('app_position_index') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">volver a la lista</a>
+    <div class="container-fluid container-sm m-4" style="padding:30px" >
 
-    <a href="{{ path('app_position_edit', {'id': position.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">editar</a>
+        <table class="table table-bordered table-sm" style="border: 2px solid #E8550F">
+            <tbody>
+                <tr>
+                    <th  style="background-color: #FFA37E">Posición</th>
+                    <td>{{ position.title }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>    
+
+    <a href="{{ path('app_position_index') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Volver a la lista</a>
+
+    <a href="{{ path('app_position_edit', {'id': position.id}) }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Editar</a>
 
     {{ include('position/_delete_form.html.twig') }}
+    
 {% endblock %}

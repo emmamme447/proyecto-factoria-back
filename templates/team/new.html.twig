@@ -3,12 +3,13 @@
 {% block title %}Nuevo equipo{% endblock %}
 
 {% block body %}
-
 <header>
-     {{ parent() }}
+    {{ parent() }}
 </header>
 
-    <div class="m-4" style="border: 2px solid #E8550F">
+<h5 class="m-4">Crear nuevo equipo</h5>
+
+    <div class="container-fluid container-sm m-4" style="border: 2px solid #E8550F">
 
         {{ include('team/_form.html.twig') }}
 

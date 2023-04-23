@@ -1,11 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Manager{% endblock %}
+{% block title %}Nuevo responsable{% endblock %}
 
 {% block body %}
-    <h1>Create new Manager</h1>
+<header>
+    {{ parent() }}
+</header>	
 
-    {{ include('manager/_form.html.twig') }}
+<h5 class="m-4">Crear nuevo responsable</h5>
 
-    <a href="{{ path('app_manager_index') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">back to list</a>
+    <div class="container-fluid container-sm m-4" style="border: 2px solid #E8550F">
+
+        {{ include('manager/_form.html.twig') }}
+
+    </div>    
+
+    <a href="{{ path('app_manager_index') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Volver a la lista</a>
+
 {% endblock %}

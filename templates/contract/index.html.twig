@@ -9,33 +9,36 @@
 
 <h5 class="m-4">Tipo de Contrato</h5>
 
-    <div class="container-fluid text-center" style="padding:30px" >
+    <div class="container-fluid container-sm text-center" style="padding:30px" >
 
-    <table class="table table-bordered table-sm" style="border: 2px solid #E8550F">
-        <thead>
-            <tr class="table" style="background-color: #FFA37E; border: 2px solid #E8550F">
-                <th>ID</th>
-                <th>Tipo contrato</th>
-                <th></th>
-            </tr>
-        </thead>
+        <table class="table table-bordered table-sm" style="border: 2px solid #E8550F">
+            <thead>
+                <tr class="table" style="background-color: #FFA37E; border: 2px solid #E8550F">
+                    <th>ID</th>
+                    <th>Tipo contrato</th>
+                    <th></th>
+                </tr>
+            </thead>
 
-        {% for contract in contracts %}
-            <tr>
-                <td>{{ contract.id }}</td>
-                <td>{{ contract.title }}</td>
-                <td>
-                    <a href="{{ path('app_contract_show', {'id': contract.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">mostrar</a>
-                    <a href="{{ path('app_contract_edit', {'id': contract.id}) }}" class="btn btn-sm" style="background-color: #020100; color: #ffffff">editar</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">No se encontraron registros</td>
-            </tr>
-        {% endfor %}
+            {% for contract in contracts %}
+                <tr>
+                    <td>{{ contract.id }}</td>
+                    <td>{{ contract.title }}</td>
+                    <td>
+                        <a href="{{ path('app_contract_show', {'id': contract.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">mostrar</a>
+                        <a href="{{ path('app_contract_edit', {'id': contract.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">editar</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">No se encontraron registros</td>
+                </tr>
+            {% endfor %}
         
-    </table>
+        </table>
 
-    <a href="{{ path('app_contract_new') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">Crear nuevo tipo de contrato</a>
+    <a href="{{ path('app_contract_new') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Crear nuevo tipo de contrato</a>
+
+    </div>  
+
 {% endblock %}

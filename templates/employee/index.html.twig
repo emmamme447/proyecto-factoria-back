@@ -1,54 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Employee index{% endblock %}
-
+{% block title %}Empleado{% endblock %}
 
 {% block body %}
-< >
 <header>
    {{ parent() }}
 </header>
+
 <h5 class="m-4">Tabla Empleados</h5>
-<section style="padding:30px">
-    <div class="container-fluid text-center">
-        <table class="table table-bordered table-sm" style="border: 2px solid #E8550F" >
-            <thead "table-employee">
-                <tr class="table" style="background-color: #FFA37E; border: 2px solid #E8550F" >
-                    <th>Foto</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Nº de identificador</th>
-                    <th>Rol</th>
-                    <th>Estados</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for employee in employees %}
-                <tr style="border: 2px solid #E8550F">
-                    <td>
-                        <img src= "{{ asset('uploads/photo/'~ employee.photo) }}" alt="{{ employee.name }}" width='30'>
-                    </td>
-                    <td>{{ employee.name }}</td>
-                    <td>{{ employee.lastname }}</td>
-                    <td>{{ employee.identifying }}</td>
-                    <td>{{ employee.rol }}</td>
-                    <td>{{ employee.status }}</td>
 
-                    <td>
-                        <a href="{{ path('app_employee_show', {'id': employee.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">mostrar</a>
-                        <a href="{{ path('app_employee_edit', {'id': employee.id})  }}"  class="btn btn-md" style="background-color: #020100; color: #ffffff">editar</a>
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="10">no records found</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-            <a href="{{ path('app_employee_new') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">Crear nuevo</a>
-    </div>
-</section>
+    <section style="padding:30px">
+        <div class="container-fluid text-center">
+            <table class="table table-bordered table-sm" style="border: 2px solid #E8550F" >
+                <thead "table-employee">
+                    <tr class="table" style="background-color: #FFA37E; border: 2px solid #E8550F" >
+                        <th>Foto</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Nº de identificador</th>
+                        <th>Rol</th>
+                        <th>Estados</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for employee in employees %}
+                    <tr style="border: 2px solid #E8550F">
+                        <td>
+                            <img src= "{{ asset('uploads/photo/'~ employee.photo) }}" alt="{{ employee.name }}" width='30'>
+                        </td>
+                        <td>{{ employee.name }}</td>
+                        <td>{{ employee.lastname }}</td>
+                        <td>{{ employee.identifying }}</td>
+                        <td>{{ employee.rol }}</td>
+                        <td>{{ employee.status }}</td>
+                        <td>
+                            <a href="{{ path('app_employee_show', {'id': employee.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">mostrar</a>
+                            <a href="{{ path('app_employee_edit', {'id': employee.id})  }}"  class="btn btn-md" style="background-color: #020100; color: #ffffff">editar</a>
+                        </td>
+                    </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="10">No se han encontrado registros</td>
+                        </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <a href="{{ path('app_employee_new') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Crear nuevo</a>
+        </div>
 
+    </section>
+    
 {% endblock %}

@@ -36,7 +36,7 @@ class EmployeeType extends AbstractType
             ->add('identifying', TextType::class, [
                 'label' => 'Nº de Identificador',
                 'attr' => [
-                    'placeholder' => 'Introduce numero de identificador',
+                    'placeholder' => 'Introduce número de identificador',
                     'class' => 'form-control'
                 ]])
             ->add('startDate', DateType::class,[
@@ -59,7 +59,7 @@ class EmployeeType extends AbstractType
                     'class' => 'form-select'
                 ]])
             ->add('area' , null, [
-                'label' => 'Area',
+                'label' => 'Área',
                 'attr' => [
                     'class' => 'form-select'
                 ]])

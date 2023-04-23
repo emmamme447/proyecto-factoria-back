@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Editar periodo de prueba{% endblock %}
+{% block title %}Editar período de prueba{% endblock %}
 
 {% block body %}
 <header>
     {{ parent() }}
 </header>
 
-<h5 class="m-4">Editar periodo de prueba</h5>
+<h5 class="m-4">Editar período de prueba</h5>
 
-    <div class="m-4" style="border: 2px solid #E8550F">
+    <div class="container-fluid container-sm m-4" style="border: 2px solid #E8550F">
 
-        {{ include('period/_form.html.twig', {'button_label': 'Update'}) }}
+        {{ include('period/_form.html.twig', {'button_label': 'Guardar'}) }}
 
     </div>
 

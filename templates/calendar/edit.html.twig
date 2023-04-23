@@ -3,14 +3,13 @@
 {% block title %}Editar evento calendario{% endblock %}
 
 {% block body %}
-
 <header>
    {{ parent() }}
 </header>
 
 <h5 class="m-4">Modificar evento del calendario</h5>
 
-    <div class="m-4" style="border: 2px solid #E8550F">
+    <div class="container-fluid container-sm m-4" style="border: 2px solid #E8550F">
 
         {{ include('calendar/_form.html.twig', {'button_label': 'Guardar'}) }}
 
@@ -19,7 +18,5 @@
         <a href="{{ path('app_calendar_index') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Volver a la lista</a>
 
         {{ include('calendar/_delete_form.html.twig') }}
-
-        
 
 {% endblock %}

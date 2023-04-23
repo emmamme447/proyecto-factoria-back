@@ -1,11 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Position{% endblock %}
+{% block title %}Nueva posición{% endblock %}
 
 {% block body %}
-    <h1>Create new Position</h1>
+<header>
+    {{ parent() }}
+</header>	
 
-    {{ include('position/_form.html.twig') }}
+<h5 class="m-4">Crear nueva posición/h5>
 
-    <a href="{{ path('app_position_index') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">volver a la lista</a>
+    <div class="container-fluid container-sm m-4" style="border: 2px solid #E8550F">
+
+        {{ include('position/_form.html.twig') }}
+
+    </div>
+
+    <a href="{{ path('app_position_index') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Volver a la lista</a>
+
 {% endblock %}

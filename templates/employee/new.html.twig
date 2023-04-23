@@ -1,10 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Employee{% endblock %}
+{% block title %}Nuevo empleado{% endblock %}
 
 {% block body %}
+<header>
+    {{ parent() }}
+</header>
 
-    {{ include('employee/_form.html.twig') }}
+<h5 class="m-4">Crear nuevo empleado</h5>
 
-    <a href="{{ path('app_employee_index') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">volver a la lista</a>
+    <div class="container-fluid container-sm m-4" style="border: 2px solid #E8550F">
+
+        {{ include('employee/_form.html.twig') }}
+
+    </div>
+
+    <a href="{{ path('app_employee_index') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Volver a la lista</a>
+
 {% endblock %}

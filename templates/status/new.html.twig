@@ -1,11 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Status{% endblock %}
+{% block title %}Nuevo estado{% endblock %}
 
 {% block body %}
-    <h1>Create new Status</h1>
+<header>
+    {{ parent() }}
+</header>
 
-    {{ include('status/_form.html.twig') }}
+<h5 class="m-4">Crear nuevo estado</h5>
 
-    <a href="{{ path('app_status_index') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">volver a la lista</a>
+    <div class="container-fluid container-sm m-4" style="border: 2px solid #E8550F">
+
+        {{ include('status/_form.html.twig') }}
+
+    </div>    
+
+    <a href="{{ path('app_status_index') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Volver a la lista</a>
+
 {% endblock %}

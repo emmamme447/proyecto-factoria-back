@@ -7,21 +7,20 @@
     {{ parent() }}
 </header>
 
-<header>
-    {{ parent() }}
-</header>
 
     <h5 class="m-4">Editar responsable</h5>
     
-        <div class="m-4" style="border: 2px solid #E8550F">
 
+    <div class="container-fluid container-sm m-4" style="border: 2px solid #E8550F; width: 40%; position: relative; left: 25%">
 
-    <div class="container-fluid container-sm m-4" style="border: 2px solid #E8550F">
+        {{ include('manager/_form.html.twig') }}
 
     </div>
+    <div style="display: flex; justify-content: center; width: 90%;"> 
 
     <a href="{{ path('app_manager_index') }}" class="btn btn-md m-3" style="background-color: #020100; color: #ffffff">volver a la lista</a>
-
-    {{ include('manager/_delete_form.html.twig') }}
+    
+        {{ include('manager/_delete_form.html.twig') }}
+    </div>
     
 {% endblock %}

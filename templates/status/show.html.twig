@@ -7,25 +7,27 @@
     {{ parent() }}
 </header>
 
- <h5 class="m-4">Estados</h5>
+    <h5 class="m-4">Estados</h5>
 
     <div class="container-fluid container-sm m-4" style="padding:30px" >
+        <div style="display: flex; justify-content: center; margin-left:15%">
+            <table class="table table-bordered" style="border: 2px solid #E8550F; width: 50%">
+                <tbody>
+                    <tr>
+                        <th style="background-color: #FFA37E">Tipo de estado</th>
+                        <td>{{ status.title }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div style="display: flex; justify-content: center; width: 100%">
+        <a href="{{ path('app_status_index') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Volver a la lista</a>
 
-        <table class="table table-bordered table-sm" style="border: 2px solid #E8550F">
-            <tbody>
-                <tr>
-                    <th style="background-color: #FFA37E">Tipo de estado</th>
-                    <td>{{ status.title }}</td>
-                </tr>
-            </tbody>
-        </table>
-
+        <a href="{{ path('app_status_edit', {'id': status.id}) }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Editar</a>
     </div>
 
-    <a href="{{ path('app_status_index') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Volver a la lista</a>
-
-    <a href="{{ path('app_status_edit', {'id': status.id}) }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Editar</a>
-
-    {{ include('status/_delete_form.html.twig') }}
-
+    <div style="justify-content: center; margin-top:10px; display: flex">
+        {{ include('status/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

@@ -9,14 +9,18 @@
 
 <h5 class="m-4">Editar período de prueba</h5>
 
-    <div class="container-fluid container-sm m-4" style="border: 2px solid #E8550F">
+    <div class="container-fluid container-sm m-4" style="border: 2px solid #E8550F; width: 40%; position: relative; left: 25%">
 
         {{ include('period/_form.html.twig', {'button_label': 'Guardar'}) }}
 
     </div>
 
+    <div style="display: flex; justify-content: center; width: 90%;"> 
+
     <a href="{{ path('app_period_index') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Volver a la lista</a>
 
     {{ include('period/_delete_form.html.twig') }}
+
+    </div>
 
 {% endblock %}

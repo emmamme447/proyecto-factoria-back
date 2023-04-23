@@ -40,9 +40,9 @@ table-employee > th{
   width: 20%;
 }
 
-form {
+/* form {
   padding: 20px;
-}
+} */
 
 form >input{
   width: 10%;

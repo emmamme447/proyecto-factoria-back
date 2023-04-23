@@ -9,12 +9,12 @@
 
 <h5 class="m-4">Períodos de prueba</h5>
 
-<div class="container-fluid container-sm text-center" style="padding:30px" >
-    
-    <table class="table table-bordered table-sm" style="border: 2px solid #E8550F">
+<div class="container-fluid  text-center" style="padding:30px" >
+    <div style="display: flex; justify-content: center; margin-bottom: 50px">
+    <table class="table table-bordered table-sm" style="border: 2px solid #E8550F; width: 50%">
         <thead>
             <tr class="table" style="background-color: #FFA37E; border: 2px solid #E8550F">
-                <th>Duración del período</th>
+                <th class="col-2">Duración del período</th>
                 <th></th>
             </tr>
         </thead>
@@ -22,7 +22,7 @@
         {% for period in periods %}
             <tr>
                 <td>{{ period.title }}</td>
-                <td>
+                <td class="col-2">
                     <a href="{{ path('app_period_show', {'id': period.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">mostrar</a>
                     <a href="{{ path('app_period_edit', {'id': period.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">editar</a>
                 </td>
@@ -34,7 +34,7 @@
         {% endfor %}
         </tbody>
     </table>
-
+    </div>
     <a href="{{ path('app_period_new') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Crear nuevo período</a>
 
 </div>

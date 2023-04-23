@@ -10,7 +10,7 @@
 <h5 class="m-4">Tabla Empleados</h5>
 
     <section style="padding:30px">
-        <div class="container-fluid text-center">
+        <div class="container-fluid container-sm text-center">
             <table class="table table-bordered table-sm" style="border: 2px solid #E8550F" >
                 <thead "table-employee">
                     <tr class="table" style="background-color: #FFA37E; border: 2px solid #E8550F" >
@@ -35,8 +35,8 @@
                         <td>{{ employee.rol }}</td>
                         <td>{{ employee.status }}</td>
                         <td>
-                            <a href="{{ path('app_employee_show', {'id': employee.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">mostrar</a>
-                            <a href="{{ path('app_employee_edit', {'id': employee.id})  }}"  class="btn btn-md" style="background-color: #020100; color: #ffffff">editar</a>
+                            <a href="{{ path('app_employee_show', {'id': employee.id}) }}" class="btn btn-sm" style="background-color: #020100; color: #ffffff">mostrar</a>
+                            <a href="{{ path('app_employee_edit', {'id': employee.id})  }}"  class="btn btn-sm" style="background-color: #020100; color: #ffffff">editar</a>
                         </td>
                     </tr>
                     {% else %}
@@ -46,7 +46,7 @@
                 {% endfor %}
                 </tbody>
             </table>
-            <a href="{{ path('app_employee_new') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Crear nuevo</a>
+            <a href="{{ path('app_employee_new') }}" class="btn btn-sm m-4" style="background-color: #020100; color: #ffffff">Crear nuevo</a>
         </div>
 
     </section>

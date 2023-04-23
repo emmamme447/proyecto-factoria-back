@@ -22,25 +22,22 @@ table-employee > th{
   background-color: #FFA37F;
 }
 
-
-
 /* Form */
-
-.container-md {
+.container-sm {
   padding: 20px;
 }
 
-.container-md > div:first-child {
+.container-sm > div:first-child {
   display: flex;
   justify-content: space-around;
 }
 
-.container-md > div > div{
-  width: 40%;
+.container-sm > div > div{
+  width: 20%;
 }
 
-.container-md > div > fieldset {
-  width: 40%;
+.container-sm > div > fieldset {
+  width: 20%;
 }
 
 form {
@@ -48,7 +45,7 @@ form {
 }
 
 form >input{
-  width: 30%;
+  width: 10%;
 }
 
 legend {
@@ -57,7 +54,6 @@ legend {
   margin-bottom: 5px;
 
 }
-
 
 label {
   display: block;

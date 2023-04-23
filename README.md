@@ -3,7 +3,18 @@
 <p>This is a proyect developed for Factoria F5 as final proyect of femcoders bootcamp.
 The company Factoría F5 is hiring new people and as a consequence they have asked us to develop a platform to manage the trial periods.
 On this website there will be two possible accesses, one for HR who will have access to all the data of the applicants, and another for those responsible for each school, who will only be able to access the data of their applicants.</p>
-<h2>User Stories</h2>
+
+## Table of contents
+- [User Stories](#user-stories)
+- [Fullstack Developer Team](#fullstack-developer-team)
+- [Stacks and technologies](#stacks-and-technologies)
+- [Other Tools](#other-tools)
+- [Methodology](#methodology)
+- [Installation](#installation)
+
+
+<h2><span class="emoji">📝</span>
+User Stories</h2> (#User-Stories)
 <h4>HR Manager</h4>
 <ul>
   <li>As an HR manager, I want to be able to create a user account for employees in their probationary period, so that they can access the platform and view their evaluations and comments.</li>
@@ -18,7 +29,9 @@ On this website there will be two possible accesses, one for HR who will have ac
 
 
 
-## Fullstack Developer Team and GitHub Links
+
+## :woman_technologist: Fullstack Developer Team and GitHub Links (#Fullstack-Developer-Team)
+
 | Name                       | Role                    | Link                                     |
 | --------------------------|------------------------| ---------------------------------------- |
 | Hilda Da Conceicao         | Scrum Master          | https://github.com/Hildacaro             |
@@ -29,7 +42,8 @@ On this website there will be two possible accesses, one for HR who will have ac
 | Nerea Pascual Picazo    | Developer               | https://github.com/Npicazo12               |
 
 
-<h2>Stacks and technologies</h2>
+<h2>
+<span class="emoji">:wrench:</span>Stacks and technologies</h2> (#Stacks-and-technologies)
 
 <span style="border-radius: 30px; background-color: #E34F26; padding: 5px;">
     <img height="30" src="https://img.shields.io/badge/-HTML5-orange?style=flat-square&logo=html5&logoColor=white"/>
@@ -60,7 +74,8 @@ On this website there will be two possible accesses, one for HR who will have ac
 </span>
 
 
-<h2>Other Tools</h2>
+<h2><span class="emoji">:hammer:</span>
+Other Tools</h2> (#Other-Tools)
 <span style="border-radius: 3px; background-color: #007ACC; padding: 5px;">
     <img height="30" src="https://img.shields.io/badge/-Visual%20Studio%20Code-007ACC?style=flat-square&logo=visual-studio-code&logoColor=white"/>
 </span>
@@ -71,36 +86,41 @@ On this website there will be two possible accesses, one for HR who will have ac
     <img height="30" src="https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white"/>
 
 
-<h2>Methodology</h2>
+<h2><span class="emoji">📊</span>
+Methodology</h2> (#Methodology)
 <ul>
-  <li>Scrum</li>
+  <li>Agile with scrum</li>
+  <li>Mob, pair and solo programming</>
+  <li>Testing</li>
+  </ul>
 
 
 
 
 
-<h2>Installation</h2>
-<ol>
+<h2><span class="emoji">:book:</span>
+Installation</h2> (#Installation)
+<ul>
   <li>Clone the GitHub repository</li>
   <li>Install PHP dependencies with <code>composer install</code></li>
   <li>Set environment variables in the <code>.env</code> file</li>
   <li>Create the database with <code>php bin/console doctrine:database:create</code></li>
   <li>Run the migrations with <code>php bin/console doctrine:migrations:migrate</code></li>
   <li>Start the web server with <code>symfony server:start</code></li>
-</ol>
+</ul>
 <h2>Usage</h2>
 <p>To access the API, use the following URL: <code>http://localhost:8000/api</code></p>
 <h3>Endpoints</h3>
 <p>List of all available endpoints in the API.</p>
 <h2>Contributing</h2>
 <p>If you want to contribute to the project, please follow these steps:</p>
-<ol>
+<ul>
   <li>Fork the repository</li>
   <li>Create a new branch for your contribution (<code>git checkout -b feature/MyFeature</code>)</li>
   <li>Make your changes and commit them (<code>git commit -am 'Adding MyFeature'</code>)</li>
   <li>Push your branch (<code>git push origin feature/MyFeature</code>)</li>
   <li>Create a pull request on GitHub</li>
-</ol>
+</ul>
 <h2>License</h2>
 <p>This project is licensed under the MIT License.</p>
 

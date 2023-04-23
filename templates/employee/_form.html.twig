@@ -5,12 +5,17 @@
         {{ parent() }}
     </header>
 
-    <h5> Añadir Nuevo Empleado</h5>
+    <div class="m-4">
 
-<form class="container-md my-4" style="border: 2px solid #E8550F">
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn btn-md" style="background-color: #020100; color: #ffffff">{{ button_label|default('Guardar') }}</button>
-{{ form_end(form) }}
-</form>
+        <h5> Añadir Nuevo Empleado</h5>
+
+        <form class="container-md my-4" style="border: 2px solid #E8550F">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+                <button class="btn btn-md" style="background-color: #020100; color: #ffffff">{{ button_label|default('Guardar') }}</button>
+            {{ form_end(form) }}
+        </form>
+
+    </div>
+
 {% endblock %}

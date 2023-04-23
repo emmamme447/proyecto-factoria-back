@@ -25,7 +25,7 @@ class EmailtoType extends AbstractType
             ->add('send_email', SubmitType::class, [
                 'label' => 'Enviar email',
                 'attr' => [
-                    'class' => 'btn btn-rounded',
+                    'class' => 'btn rounded',
                     'style' => 'background-color: #020100; color: #ffffff;'
                 ],
             ])

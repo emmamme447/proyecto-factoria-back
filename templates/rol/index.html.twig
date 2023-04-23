@@ -1,21 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Rol index{% endblock %}
+{% block title %}Roles{% endblock %}
 
 {% block body %}
-<body >
-    <header>
+<header>
     {{ parent() }}
-    </header>
+</header>
 
-    
-    <div class="container-fluid" style="padding:60px" >
-        <h5>Roles</h5>
+<h5 class="m-4">Roles</h5>
+<body>
+    <div class="container-fluid text-center" style="padding:30px" >
         <table class="table table-bordered table-sm" style="border: 2px solid #E8550F">
             <thead>
                 <tr  class="table" style="background-color: #FFA37E; border: 2px solid #E8550F">
                     <th>Tipo de Rol</th>
-                    <th>Acciones</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -29,13 +28,13 @@
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="3">no records found</td>
+                    <td colspan="3">No se encontraron registros</td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
 
-        <a href="{{ path('app_rol_new') }}"  class="btn btn-md" style="background-color: #020100; color: #ffffff">Crear Nuevo</a>
-        </div>  
-    </body>
+        <a href="{{ path('app_rol_new') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Crear nuevo rol</a>
+    </div>  
+</body>
 {% endblock %}

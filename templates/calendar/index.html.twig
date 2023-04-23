@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Calendar index{% endblock %}
+{% block title %}Calendario{% endblock %}
 
 {% block body %}
 <header>
    {{ parent() }}
 </header>
-    <section style="padding:60px">
-        <div class="container-fluid" >
-            <h5>Eventos del calendario</h5>
+<h5 class="m-4">Eventos del calendario</h5>
+    <section style="padding:30px">
+        <div class="container-fluid text-center">
                 <table class="table table-bordered table-sm" style="border: 2px solid #E8550F">
                     <thead>
                         <tr class="table" style="background-color: #FFA37E; border: 2px solid #E8550F">
@@ -39,7 +39,7 @@
                     </tbody>
                 </table>
 
-            <a href="{{ path('app_calendar_new') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff" >Crear nuevo</a>
+            <a href="{{ path('app_calendar_new') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff" >Crear nuevo evento</a>
         </div>
      </section>   
 {% endblock %}

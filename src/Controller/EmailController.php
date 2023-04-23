@@ -15,7 +15,7 @@ use Symfony\Component\Mime\Email;
 
 class EmailController extends AbstractController
 {
-    #[Route('/email', name: 'email')]
+    #[Route('/email', name: '/email')]
 
     public function index(Request $request, MailerInterface $mailer): Response
     {

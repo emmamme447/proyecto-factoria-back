@@ -1,4 +1,4 @@
 <form method="post" action="{{ path('app_period_delete', {'id': period.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ period.id) }}">
-    <button class="btn btn-md" style="background-color:#FE4700">Borrar</button>
+    <button class="btn btn-md m-4" style="background-color:#FE4700">Eliminar</button>
 </form>

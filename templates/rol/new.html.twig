@@ -1,10 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Rol{% endblock %}
+{% block title %}Nuevo Rol{% endblock %}
 
 {% block body %}
+<header>
+    {{ parent() }}
+</header>
+
+<h5 class="m-4">Nuevo rol</h5>
+
+<div class="m-4" style="border: 2px solid #E8550F">
 
     {{ include('rol/_form.html.twig') }}
 
+</div>    
+
     <a href="{{ path('app_rol_index') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">Volver a la lista</a>
+
 {% endblock %}

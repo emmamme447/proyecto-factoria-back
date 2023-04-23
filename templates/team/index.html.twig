@@ -1,23 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Team index{% endblock %}
+{% block title %}Equipos{% endblock %}
 
 {% block body %}
-<body >
-    <header>
-    {{ parent() }}
-    </header>
-     <div class="container-fluid" style="padding:60px" >
-    <h5>Equipos</h5>
 
-    <table class="table table-bordered table-sm table-hover" style="border: 2px solid #E8550F">
-        <thead>
-            <tr class="table" style="background-color: #FFA37E; border: 2px solid #E8550F">
-                <th>Título</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
+<header>
+    {{ parent() }}
+</header>
+
+ <h5 class="m-4">Equipos</h5>
+ 
+    <body>
+
+        <div class="container-fluid text-center" style="padding:30px">
+            
+        <table class="table table-bordered table-sm table-hover" style="border: 2px solid #E8550F">
+            <thead>
+                <tr class="table" style="background-color: #FFA37E; border: 2px solid #E8550F">
+                    <th>Título</th>
+                    <th></th>
+                </tr>
+            </thead>
+        
         {% for team in teams %}
             <tr>
                 <td>{{ team.title }}</td>
@@ -28,12 +32,16 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">No se encontraron registros</td>
             </tr>
         {% endfor %}
-        </tbody>
-    </table>
-</div>
+        
+        </table>   
 
-    <a href="{{ path('app_team_new') }}" class="btn btn-md" style="background-color: #020100; color: #ffffff; --bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" >Crear Nuevo</a>
+        <a href="{{ path('app_team_new') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff; --bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" >Crear nuevo equipo</a>
+
+        </div>
+
+</tbody> 
+
 {% endblock %}

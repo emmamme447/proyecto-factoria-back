@@ -21,7 +21,8 @@
 
     <div class="position-absolute top-50 start-50 translate-middle p-5 rounded" style="background-color: #ffa37f;">
 
-        <h3 class="h3 mb-3 font-weight-normal">Registro para empleados en periodo de prueba y sus responsables</h3>
+        <h1 class="h3 mb-3 font-weight-normal text-center"><strong>Registro de empleados en período de prueba</strong></h1>
+        {# <p class=" mb-3  text-center">Registro para empleados en periodo de prueba y sus responsables</p> #}
 
         <div class="form-group">
             {{ form_label(registrationForm.email, 'Email') }}
@@ -43,12 +44,12 @@
                 <div class="flash-success">
                     {{ message }}
                 </div>
-{% endfor %}
-    </div>    
-
-    <div class="position-absolute bottom-0 start-50">
+        {% endfor %}
+        <hr>    
+        <div class="text-center">
         <h4 class="h6 mt-5 mb-3 font-weight-normal">Si estás registrad@, por favor, accede a la página de Inicio:</h4>
         <a href="http://127.0.0.1:8000/" target="_blank" rel="noopener noreferrer" class="btn mb-3" style="background-color: #020100; color: #ffffff">Registro</a>
+    </div>
     </div>
 
     {{ form_end(registrationForm) }}

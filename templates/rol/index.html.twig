@@ -13,7 +13,7 @@
             <table class="table table-bordered table-sm" style="border: 2px solid #E8550F; width: 50%">
                 <thead>
                     <tr class="table" style="background-color: #FFA37E; border: 2px solid #E8550F">
-                        <th class="col-2">Tipo de Rol</th>
+                        <th class="col-4">Tipo de Rol</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -22,8 +22,8 @@
                     <tr class="col-2">
                         <td>{{ rol.title }}</td>
                         <td >
-                            <a href="{{ path('app_rol_show', {'id': rol.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">mostrar</a>
-                            <a href="{{ path('app_rol_edit', {'id': rol.id}) }}" class="btn  btn-md" style="background-color: #020100; color: #ffffff">editar</a>
+                            <a href="{{ path('app_rol_show', {'id': rol.id}) }}" class="btn btn-sm" style="background-color: #020100; color: #ffffff">mostrar</a>
+                            <a href="{{ path('app_rol_edit', {'id': rol.id}) }}" class="btn  btn-sm" style="background-color: #020100; color: #ffffff">editar</a>
                         </td>
                     </tr>
                 {% else %}
@@ -34,7 +34,7 @@
             </tbody>
         </table>
         </div>
-        <a href="{{ path('app_rol_new') }}" class="btn btn-md " style="background-color: #020100; color: #ffffff">Crear nuevo rol</a>
+        <a href="{{ path('app_rol_new') }}" class="btn btn-sm" style="background-color: #020100; color: #ffffff">Crear nuevo rol</a>
     </div>  
 
 {% endblock %}

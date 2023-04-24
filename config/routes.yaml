@@ -10,4 +10,7 @@ email:
 
 email_to_manager:
     path: /email/to/manager
-    controller: App\src\Controller\EmailToManagerController     
+    controller: App\src\Controller\EmailToManagerController 
+
+app_logout:
+    path: /logout    

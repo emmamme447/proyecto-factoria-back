@@ -22,8 +22,8 @@
                     <tr>
                         <td>{{ status.title }}</td>
                         <td>
-                            <a href="{{ path('app_status_show', {'id': status.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">mostrar</a>
-                            <a href="{{ path('app_status_edit', {'id': status.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">editar</a>
+                            <a href="{{ path('app_status_show', {'id': status.id}) }}" class="btn btn-sm" style="background-color: #020100; color: #ffffff">mostrar</a>
+                            <a href="{{ path('app_status_edit', {'id': status.id}) }}" class="btn btn-sm" style="background-color: #020100; color: #ffffff">editar</a>
                         </td>
                     </tr>
                 {% else %}
@@ -35,7 +35,7 @@
             </table>
         
         </div>
-        <a href="{{ path('app_status_new') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff" >Crear nuevo estado</a>
+        <a href="{{ path('app_status_new') }}" class="btn btn-sm m-4" style="background-color: #020100; color: #ffffff" >Crear nuevo estado</a>
     </div>
 
 {% endblock %}

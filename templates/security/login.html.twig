@@ -9,11 +9,11 @@
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    {# {% if app.user %}
-        <div class="mb-3">
+    {% if app.user %}
+        <div class="mb-3" style="margin-right:10px">
             Estás conectad@ como {{ app.user.userIdentifier }}, <a href="{{ path('logout') }}">Cerrar sesión</a>
         </div>
-    {% endif %} #}
+    {% endif %}
 
     <img src={{ asset('assets/logo_sinfondo.svg')}} height="150" width="190" alt="logo" loading="lazy" class="text-center ms-50"/>
 

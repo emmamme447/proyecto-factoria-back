@@ -14,7 +14,7 @@
                 <thead>
                     <tr class="table" style="background-color: #FFA37E; border: 2px solid #E8550F">
                         <th class="col-2">Título</th>
-                        <th></th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,8 +22,8 @@
                     <tr class="col-2">
                         <td>{{ team.title }}</td>
                         <td>
-                            <a href="{{ path('app_team_show', {'id': team.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">Mostrar</a>
-                            <a href="{{ path('app_team_edit', {'id': team.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">Editar</a>
+                            <a href="{{ path('app_team_show', {'id': team.id}) }}" class="btn btn-sm" style="background-color: #020100; color: #ffffff">Mostrar</a>
+                            <a href="{{ path('app_team_edit', {'id': team.id}) }}" class="btn btn-sm" style="background-color: #020100; color: #ffffff">Editar</a>
                         </td>
                     </tr>
                 {% else %}
@@ -34,7 +34,7 @@
                 </tbody>
             </table>   
         </div>
-        <a href="{{ path('app_team_new') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff; --bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" >Crear nuevo equipo</a>
+        <a href="{{ path('app_team_new') }}" class="btn btn-sm m-4" style="background-color: #020100; color: #ffffff; --bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" >Crear nuevo equipo</a>
 
     </div> 
 

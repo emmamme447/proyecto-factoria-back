@@ -15,7 +15,7 @@
         <thead>
             <tr class="table" style="background-color: #FFA37E; border: 2px solid #E8550F">
                 <th class="col-2">Duración del período</th>
-                <th></th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -23,8 +23,8 @@
             <tr>
                 <td>{{ period.title }}</td>
                 <td class="col-2">
-                    <a href="{{ path('app_period_show', {'id': period.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">mostrar</a>
-                    <a href="{{ path('app_period_edit', {'id': period.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">editar</a>
+                    <a href="{{ path('app_period_show', {'id': period.id}) }}" class="btn btn-sm" style="background-color: #020100; color: #ffffff">mostrar</a>
+                    <a href="{{ path('app_period_edit', {'id': period.id}) }}" class="btn btn-sm" style="background-color: #020100; color: #ffffff">editar</a>
                 </td>
             </tr>
         {% else %}
@@ -35,7 +35,7 @@
         </tbody>
     </table>
     </div>
-    <a href="{{ path('app_period_new') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Crear nuevo período</a>
+    <a href="{{ path('app_period_new') }}" class="btn btn-sm m-4" style="background-color: #020100; color: #ffffff">Crear nuevo período</a>
 
 </div>
 

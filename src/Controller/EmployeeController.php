@@ -64,7 +64,7 @@ class EmployeeController extends AbstractController
         $newFilename
           );
         } catch (FileException $e) {
-        throw new \Exception (message: 'UPs! ha courrido un error, sorry');
+        throw new \Exception (message: 'UPs! ha ocurrido un error, sorry');
         // ... handle exception if something happens during file upload
         }
 
@@ -131,7 +131,7 @@ class EmployeeController extends AbstractController
             $newFilename
               );
             } catch (FileException $e) {
-            throw new \Exception (message: 'UPs! ha courrido un error, sorry');
+            throw new \Exception (message: 'UPs! ha ocurrido un error, sorry');
             // ... handle exception if something happens during file upload
             }
         

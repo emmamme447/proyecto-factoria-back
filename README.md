@@ -30,18 +30,49 @@ User Stories</h2>
 
 
 
-## :woman_technologist: Fullstack Developer Team and GitHub Links (#Fullstack-Developer-Team)
+<h2 id="Fullstack-Developer-Team"><span class="emoji">👩‍💻</span> Fullstack Developer Team and GitHub Links</h2>
 
-
-
-| Name                       | Role                    | Link                                     |
-| --------------------------|------------------------| ---------------------------------------- |
-| Hilda Da Conceicao         | Scrum Master          | https://github.com/Hildacaro             |
-| Emma Raquel Rentero Plaza    | Product Owner      | https://github.com/emmamme447         |
-| Andrea Villegas Tirado| Developer     | https://github.com/CodeMincer                |
-| Válery Paola Suárez Bernal  | Developer         | https://github.com/ValerySuarez22            |
-| Áurea Gutiérrez Huertas       | Developer               | https://github.com/Auri78         |
-| Nerea Pascual Picazo    | Developer               | https://github.com/Npicazo12               |
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Role</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Hilda Da Conceicao</td>
+      <td>Scrum Master</td>
+      <td><a href="https://github.com/Hildacaro">https://github.com/Hildacaro</a></td>
+    </tr>
+    <tr>
+      <td>Emma Raquel Rentero Plaza</td>
+      <td>Product Owner</td>
+      <td><a href="https://github.com/emmamme447">https://github.com/emmamme447</a></td>
+    </tr>
+    <tr>
+      <td>Andrea Villegas Tirado</td>
+      <td>Developer</td>
+      <td><a href="https://github.com/CodeMincer">https://github.com/CodeMincer</a></td>
+    </tr>
+    <tr>
+      <td>Válery Paola Suárez Bernal</td>
+      <td>Developer</td>
+      <td><a href="https://github.com/ValerySuarez22">https://github.com/ValerySuarez22</a></td>
+    </tr>
+    <tr>
+      <td>Áurea Gutiérrez Huertas</td>
+      <td>Developer</td>
+      <td><a href="https://github.com/Auri78">https://github.com/Auri78</a></td>
+    </tr>
+    <tr>
+      <td>Nerea Pascual Picazo</td>
+      <td>Developer</td>
+      <td><a href="https://github.com/Npicazo12">https://github.com/Npicazo12</a></td>
+    </tr>
+  </tbody>
+</table>
 
 
 <h2 id="Stacks-and-technologies">

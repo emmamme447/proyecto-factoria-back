@@ -1,3 +1,4 @@
+<img src="/public/assets/logo.png" alt="Logo de mi proyecto">
 
 <h1>Final Proyect Factoria F5 - Backend</h1>
 <p>This is a proyect developed for Factoria F5 as final proyect of femcoders bootcamp.

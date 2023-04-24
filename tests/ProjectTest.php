@@ -11,7 +11,6 @@ class ProjectTest extends PantherTestCase
     $client = static::createPantherClient();
     $crawler = $client->request('GET', '/email');
 
-    $this->assertSelectorExists('h1');
-    $this->assertSelectorTextContains('h1', '¡Hola Bienvenid@!');
+    $this->assertSelectorTextContains('h3', 'CORREO DE AUTOEVALUACIÓN PARA TRABAJADOR');
     }
 }    

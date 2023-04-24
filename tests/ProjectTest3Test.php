@@ -11,7 +11,7 @@ class ProjectTest3Test extends PantherTestCase
         $client = static::createPantherClient();
         $crawler = $client->request('GET', '/email/to/manager');
 
-        $this->assertSelectorTextContains('label', 'link');
+        $this->assertSelectorTextContains('p', 'Por favor, introduce la dirección de correo electrónico para enviar un correo al responsable con un link para la evaluación final:');
     }
 }
 

@@ -9,12 +9,12 @@
 
 <h5 class="m-4">Crear nuevo evento</h5>
 
-    <div class="container-fluid container-sm m-4" style="border: 2px solid #E8550F">
+    <div class="container-fluid container-sm m-4" style="border: 2px solid #E8550F; width: 50%; position: relative; left: 25%">
 
         {{ include('calendar/_form.html.twig') }}
 
     </div>
-
+<div  style="justify-content: center; margin-top:50px; display: flex">
     <a href="{{ path('app_calendar_index') }}" class="btn btn-sm m-4" style="background-color: #020100; color: #ffffff">volver a la lista</a>
-
+</div>
 {% endblock %}

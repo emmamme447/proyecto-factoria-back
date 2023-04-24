@@ -63,16 +63,9 @@ label {
 
 form > div
 {
-  /* display: flex; */
   flex-wrap: wrap;
-  /* align-content: center; */
-  /* justify-content: space-between; */
-  /* align-items: flex-start; */
 }
 
-/* form .btn{
-  padding: .15em .5em;
-} */
 
 /* Details employee */
 .detailForm {
@@ -80,6 +73,19 @@ form > div
     align-items: center;
     justify-content: space-evenly;
     
+}
+
+.navbar-brand img {
+  position: absolute;
+  width: 150px;
+}
+
+.navbar{
+  height: 85px;
+}
+
+h5{
+  text-align: center;
 }
 
 

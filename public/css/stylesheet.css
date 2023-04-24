@@ -88,4 +88,31 @@ h5{
   text-align: center;
 }
 
+#employee {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#employee > div {
+  width: 45%;
+}
+
+#employee > fieldset {
+  width: 45%;
+}
+
+#calendar1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#calendar1 > div {
+  width: 45%;
+}
+
+#calendar1 > fieldset {
+  width: 45%;
+}
 

@@ -19,15 +19,15 @@ class Calendar1Type extends AbstractType
                 'attr' => [
                 'class' => 'form-control'
             ]])
-            ->add('startDate', DateType::class,[
-                'label' => 'Fecha de inicio'])
-            ->add('finishDate', DateType::class,[
-                'label' => 'Fecha fin'])
             ->add('recipient',TextType::class, [
                 'label' => 'Responsable',
                 'attr' => [
                 'class' => 'form-control'
             ]])
+            ->add('startDate', DateType::class,[
+                'label' => 'Fecha de inicio'])
+            ->add('finishDate', DateType::class,[
+                'label' => 'Fecha fin'])
         ;
     }
 

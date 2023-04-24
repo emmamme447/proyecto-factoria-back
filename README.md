@@ -106,6 +106,9 @@ User Stories</h2>
 <span style="border-radius: 5px; background-color: #007FFF; padding: 5px;">
     <img height="30" src="https://img.shields.io/badge/-PHPMyAdmin-9cf?style=flat-square&logo=php&logoColor=white"/>
 </span>
+<span class="badge badge-primary" style="border-radius: 5px;">
+    <img height="30" src="https://img.shields.io/badge/-Bootstrap-563D7C?style=flat-square&logo=bootstrap&logoColor=white"/>
+</span>
 
 
 <h2 id="Other-Tools"><span class="emoji">:hammer:</span>

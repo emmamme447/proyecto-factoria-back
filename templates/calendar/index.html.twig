@@ -28,8 +28,8 @@
                                 <td>{{ calendar.finishDate ? calendar.finishDate|date('Y-m-d H:i:s') : '' }}</td>
                                 <td>{{ calendar.recipient }}</td>
                                 <td>
-                                    <a href="{{ path('app_calendar_show', {'id': calendar.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">mostrar</a>
-                                    <a href="{{ path('app_calendar_edit', {'id': calendar.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">editar</a>
+                                    <a href="{{ path('app_calendar_show', {'id': calendar.id}) }}" class="btn btn-sm" style="background-color: #020100; color: #ffffff">mostrar</a>
+                                    <a href="{{ path('app_calendar_edit', {'id': calendar.id}) }}" class="btn btn-sm" style="background-color: #020100; color: #ffffff">editar</a>
                                 </td>
                             </tr>
                         {% else %}
@@ -40,7 +40,7 @@
                     </tbody>
                 </table>
 
-            <a href="{{ path('app_calendar_new') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff" >Crear nuevo evento</a>
+            <a href="{{ path('app_calendar_new') }}" class="btn btn-sm m-4" style="background-color: #020100; color: #ffffff" >Crear nuevo evento</a>
         
         </div>
         

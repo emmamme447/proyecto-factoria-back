@@ -3,41 +3,39 @@
 {% block title %}Responsables{% endblock %}
 
 {% block body %}
-<header>
-    {{ parent() }}
-</header>	
-
-<h5 class="m-4">Tabla de Responsables</h5>
-
-	<div class="container-fluid text-center container-sm" style="padding:30px">
-			
-			<table class="table table-bordered table-sm">
+    <header>
+       {{ parent() }}
+    </header>
+	<h5 class="m-4">Tabla de Responsables</h5>		
+	<div class="container-fluid text-center container-sm" style="padding:30px" >
+		<div style="display: flex; justify-content: center; margin-bottom: 50px">
+			<table class="table table-bordered table-sm" style="border: 2px solid #E8550F; width: 50%">
 				<thead>
-					<tr class="table" style="background-color: #FFA37F">
+					<tr class="table" style="background-color: #FFA37F; border: 2px solid #E8550F">
 						<th>Nombre</th>
 						<th>Nº de identificador</th>
-						<th>actions</th>
+						<th>Acciones</th>
 					</tr>
 				</thead>
 				<tbody>
 				{% for manager in managers %}
-						<tr class="bg-white">
-							<td>{{ manager.title }}</td>
-							<td>{{ manager.identifying }}</td>
-							<td>
-								<a href="{{ path('app_manager_show', {'id': manager.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">mostrar</a>
-								<a href="{{ path('app_manager_edit', {'id': manager.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">editar</a>
-							</td>
+					<tr class="col">
+						<td>{{ manager.title }}</td>
+						<td>{{ manager.identifying }}</td>
+						<td>
+							<a href="{{ path('app_manager_show', {'id': manager.id}) }}" class="btn btn-sm" style="background-color: #020100; color: #ffffff">mostrar</a>
+							<a href="{{ path('app_manager_edit', {'id': manager.id}) }}" class="btn btn-sm" style="background-color: #020100; color: #ffffff">editar</a>
+						</td>
 					</tr>
-				{% else %}
+					{% else %}
 						<tr>
 							<td colspan="3">No se encontraron registros</td>
 						</tr>
-				{% endfor %}
+					{% endfor %}
 				</tbody>
 			</table>
-
-			<a href="{{ path('app_manager_new') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Crear nuevo responsable</a>
+		</div>
+		<a href="{{ path('app_manager_new') }}" class="btn btn-sm m-4" style="background-color: #020100; color: #ffffff">Crear nuevo responsable</a>
 	</div>
 
 {% endblock %}

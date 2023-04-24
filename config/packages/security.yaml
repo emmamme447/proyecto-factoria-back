@@ -49,7 +49,25 @@ when@test:
             ROLE_ADMIN: [ROLE_USER]
         access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
-        - { path: ^/user, roles: ROLE_USER }
+        # - { path: ^/user, roles: ROLE_USER }
+        - { path: ^/dashboard, roles: ROLE_ADMIN}
+        - { path: ^/employee, roles: ROLE_ADMIN }
+        - { path: ^/calendar, roles: ROLE_ADMIN }
+        - { path: ^/mail, roles: ROLE_ADMIN }
+        - { path: ^/email/to/manager, roles: ROLE_ADMIN }
+        - { path: ^/rol, roles: ROLE_ADMIN }
+        - { path: ^/area, roles: ROLE_ADMIN }
+        - { path: ^/status, roles: ROLE_ADMIN }
+        - { path: ^/team, roles: ROLE_ADMIN }
+        - { path: ^/position, roles: ROLE_ADMIN }
+        - { path: ^/period, roles: ROLE_ADMIN }
+        - { path: ^/manager, roles: ROLE_ADMIN }
+        - { path: ^/contract, roles: ROLE_ADMIN }
+        - { path: ^/register, roles: ROLE_ADMIN }
+        - { path: ^/login, roles: PUBLIC_ACCESS }
+        - { path: ^/logout, roles: ROLE_ADMIN }
+        - { path: ^/api/resgister, roles: IS_AUTHENTICATED_FULLY }
+        
         password_hashers:
             # By default, password hashers are resource intensive and take time. This is
             # important to generate secure password hashes. In tests however, secure hashes

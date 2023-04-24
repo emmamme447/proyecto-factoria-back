@@ -30,11 +30,15 @@ class SecurityController extends AbstractController
     #[Route(path: '/logout', name: 'logout')]
     public function logout (RequestStack $requestStack, AuthenticationUtils $authenticationUtils, TokenStorageInterface $tokenStorage): Response
     {
-        $tokenStorage->setToken(null);
-        $request = $requestStack->getCurrentRequest();
-        $request->getSession()->invalidate();
-        //return $this->redirectToRoute('login');
-        //throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
+        
+            // throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
+        
+        // $tokenStorage->setToken(null);
+        // $request = $requestStack->getCurrentRequest();
+        // $request->getSession()->invalidate();
+        // return $this->redirectToRoute('logout');
+        // throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
+        return $this->redirectToRoute('login');
     
 
         return $this->render('security/logout.html.twig');

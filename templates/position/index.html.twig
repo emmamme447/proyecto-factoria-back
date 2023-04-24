@@ -7,24 +7,23 @@
     {{ parent() }}
 </header>
 
-<h5 class="m-4">Posición</h5>
-
-    <div class="container-fluid text-center container-sm" style="padding:30px" >
-    
-        <table class="table table-bordered table-sm" style="border: 2px solid #E8550F">
+    <h5 class="m-4">Posición</h5>
+    <div class="container-fluid text-center" style="padding:30px" >
+        <div style="display: flex; justify-content: center; margin-bottom: 50px">
+        <table class="table table-bordered table-sm" style="border: 2px solid #E8550F; width: 50%">
             <thead>
                 <tr class="table" style="background-color: #FFA37E; border: 2px solid #E8550F">
-                    <th>Puesto</th>
-                    <th></th>
+                    <th class="col-2">Título</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
             {% for position in positions %}
                 <tr>
                     <td>{{ position.title }}</td>
-                    <td>
-                        <a href="{{ path('app_position_show', {'id': position.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">mostrar</a>
-                        <a href="{{ path('app_position_edit', {'id': position.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">editar</a>
+                    <td class="col-2">
+                        <a href="{{ path('app_position_show', {'id': position.id}) }}" class="btn btn-sm" style="background-color: #020100; color: #ffffff">mostrar</a>
+                        <a href="{{ path('app_position_edit', {'id': position.id}) }}" class="btn btn-sm" style="background-color: #020100; color: #ffffff">editar</a>
                     </td>
                 </tr>
             {% else %}
@@ -34,8 +33,8 @@
             {% endfor %}
             </tbody>
         </table>
-
-    <a href="{{ path('app_position_new') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Crear nueva posición</a>
+    </div>
+    <a href="{{ path('app_position_new') }}" class="btn btn-sm m-4" style="background-color: #020100; color: #ffffff">Crear nueva posición</a>
 
     </div>
 

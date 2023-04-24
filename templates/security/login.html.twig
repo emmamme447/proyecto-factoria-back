@@ -10,7 +10,7 @@
     {% endif %}
 
     {% if app.user %}
-        <div class="mb-3">
+        <div class="mb-3" style="margin-right:10px">
             Estás conectad@ como {{ app.user.userIdentifier }}, <a href="{{ path('logout') }}">Cerrar sesión</a>
         </div>
     {% endif %}
@@ -19,8 +19,8 @@
 
     <div class="position-absolute top-50 start-50 translate-middle p-5 rounded" style="background-color: #ffa37f;">
 
-        <h3 class="h3 mb-3 font-weight-normal">Bienvenid@ a la web de Factoria F5 para RRHH.</h3>
-        <h3 class="h3 mb-3 font-weight-normal">Por favor, introduce tus claves:</h3>
+        <h3 class=" mb-3 font-weight-normal text-center">Bienvenid@ a la web de Factoria F5 para RRHH!</h3>
+        <h5 class="mb-3 ">Por favor, introduce tus claves:</h5>
             <label for="inputEmail">Email</label>
             <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
             
@@ -32,17 +32,16 @@
             <label for="remember_me">
                 <input type="checkbox" id="remember_me" name="_remember_me" checked/> Remember me
             </label>
-        </div>
-
-        <button class="btn btn rounded" style="background-color: #020100; color: #ffffff" type="submit" onclick="this.disabled=true;this.form.submit();">
+    </div>
+   
+        <button class="btn btn rounded " style="background-color: #020100; color: #ffffff; text-align:center" type="submit" onclick="this.disabled=true;this.form.submit();">
         Entra
         </button>
+        <hr>
     
-    </div>
-
-    <div class="position-absolute bottom-0 start-50">
-        <h4 class="h6 mt-5 mb-3 font-weight-normal">Si no estás registrad@, por favor, pulsa aquí:</h4>
-        <a href="http://127.0.0.1:8000/register" target="_blank" rel="noopener noreferrer" class="btn mb-3" style="background-color: #020100; color: #ffffff">Registro</a>
+     <div class="text-center">
+        <h4 class="h6 mb-3 font-weight-normal">Si no estás registrad@, por favor, pulsa aquí:</h4>
+        <a href="http://127.0.0.1:8000/register" rel="noopener noreferrer" class="btn mb-3" style="background-color: #020100; color: #ffffff">Registro</a>
     </div>
 </form>
 {% endblock %}

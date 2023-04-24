@@ -7,35 +7,34 @@
     {{ parent() }}
 </header>
 
-<h5 class="m-4">Equipos</h5>
-
-    <div class="container-fluid text-center container-sm" style="padding:30px">
-            
-        <table class="table table-bordered table-sm table-hover" style="border: 2px solid #E8550F">
-            <thead>
-                <tr class="table" style="background-color: #FFA37E; border: 2px solid #E8550F">
-                    <th>Título</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for team in teams %}
-                <tr>
-                    <td>{{ team.title }}</td>
-                    <td>
-                        <a href="{{ path('app_team_show', {'id': team.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">Mostrar</a>
-                        <a href="{{ path('app_team_edit', {'id': team.id}) }}" class="btn btn-md" style="background-color: #020100; color: #ffffff">Editar</a>
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="3">No se encontraron registros</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>   
-
-        <a href="{{ path('app_team_new') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff; --bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" >Crear nuevo equipo</a>
+    <h5 class="m-4">Equipos</h5>
+    <div class="container-fluid text-center" style="padding:30px" >
+            <div style="display: flex; justify-content: center; margin-bottom: 50px"> 
+            <table class="table table-bordered table-sm" style="border: 2px solid #E8550F; width: 50%">
+                <thead>
+                    <tr class="table" style="background-color: #FFA37E; border: 2px solid #E8550F">
+                        <th class="col-2">Título</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for team in teams %}
+                    <tr class="col-2">
+                        <td>{{ team.title }}</td>
+                        <td>
+                            <a href="{{ path('app_team_show', {'id': team.id}) }}" class="btn btn-sm" style="background-color: #020100; color: #ffffff">Mostrar</a>
+                            <a href="{{ path('app_team_edit', {'id': team.id}) }}" class="btn btn-sm" style="background-color: #020100; color: #ffffff">Editar</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3">No se encontraron registros</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>   
+        </div>
+        <a href="{{ path('app_team_new') }}" class="btn btn-sm m-4" style="background-color: #020100; color: #ffffff; --bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" >Crear nuevo equipo</a>
 
     </div> 
 

@@ -5,16 +5,13 @@
 {% block body %}
 <header>
     {{ parent() }}
-</header>	
-
+</header>
 <h5 class="m-4">Crear nuevo responsable</h5>
 
     <div class="container-fluid container-sm m-4" style="border: 2px solid #E8550F">
 
         {{ include('manager/_form.html.twig') }}
+    </div>
 
-    </div>    
-
-    <a href="{{ path('app_manager_index') }}" class="btn btn-md m-4" style="background-color: #020100; color: #ffffff">Volver a la lista</a>
-
+    <a href="{{ path('app_manager_index') }}" class="btn btn-sm m-4" style="background-color: #020100; color: #ffffff">back to list</a>
 {% endblock %}

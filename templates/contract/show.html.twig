@@ -1,26 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contract{% endblock %}
+{% block title %}Contrato{% endblock %}
 
 {% block body %}
-    <h1>Contract</h1>
+<header>
+    {{ parent() }}
+</header>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ contract.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ contract.title }}</td>
-            </tr>
-        </tbody>
-    </table>
+<h5 class="m-4">Tipo de Contrato</h5>
 
-    <a href="{{ path('app_contract_index') }}">back to list</a>
+    <div class="container-fluid container-md m-4" style="padding:30px" >
+        <div style="display: flex; justify-content: center; margin-left:10%">
+            <table class="table table-bordered table-sm" style="border: 2px solid #E8550F; width: 50%">
+                <thead>
+                    <tr>
+                        <th style="background-color: #FFA37E">Tipo de contrato</th>
+                        <td>{{ contract.title }}</td>
+                    </tr> 
+                </thead>
+            </table>
+        </div>
+    </div>    
+    <div style="display: flex; justify-content: center; width: 100%">
+        <a href="{{ path('app_contract_index') }}" class="btn btn-sm m-4" style="background-color: #020100; color: #ffffff">Volver a la lista</a>
 
-    <a href="{{ path('app_contract_edit', {'id': contract.id}) }}">edit</a>
+        <a href="{{ path('app_contract_edit', {'id': contract.id}) }}" class="btn btn-sm m-4" style="background-color: #020100; color: #ffffff">Editar</a>
+    </div>
 
-    {{ include('contract/_delete_form.html.twig') }}
+    <div style="justify-content: center; margin-top:10px; display: flex">
+        {{ include('contract/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

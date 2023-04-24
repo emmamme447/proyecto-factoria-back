@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Envío correo electrónico{% endblock %}
+
+{% block body %}
+
+{{ parent() }}
+
+    <div class="col-sm-6 position-absolute top-50 start-50 translate-middle p-5 rounded" style="background-color: #ffa37f;>
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title h3 mb-3 font-weight-normal">CORREO EVALUACIÓN FINAL RESPONSABLE</h5>
+                    <p class="card-text">Por favor, introduce la dirección de correo electrónico para enviar un correo al responsable con un link para la evaluación final:</p>
+                        
+                        {{ form_start(form) }}
+
+                            {{ form_row(form.email)}}
+                            {{ form_row(form.send_email)}}
+
+                                {% for label, messages in app.flashes %}
+                                    {% for message in messages %}
+                                        <div class="alert alert-{{ label }}">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                {% endfor %}
+
+                        {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}  
+
+
+
+

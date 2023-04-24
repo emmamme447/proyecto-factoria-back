@@ -1,13 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Calendar{% endblock %}
+{% block title %}Editar evento calendario{% endblock %}
 
 {% block body %}
-    <h1>Edit Calendar</h1>
+<header>
+   {{ parent() }}
+</header>
 
-    {{ include('calendar/_form.html.twig', {'button_label': 'Update'}) }}
+<h5 class="m-4">Modificar evento del calendario</h5>
 
-    <a href="{{ path('app_calendar_index') }}">back to list</a>
+    <div class="container-fluid container-sm m-4" style="border: 2px solid #E8550F">
 
-    {{ include('calendar/_delete_form.html.twig') }}
+        {{ include('calendar/_form.html.twig', {'button_label': 'Guardar'}) }}
+
+    </div>
+
+        <a href="{{ path('app_calendar_index') }}" class="btn btn-sm m-4" style="background-color: #020100; color: #ffffff">Volver a la lista</a>
+
+        {{ include('calendar/_delete_form.html.twig') }}
+
 {% endblock %}

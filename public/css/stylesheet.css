@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&display=swap');
+
+body {
+    background-color: #ffffff;
+    font-family: Poppins;
+    /*background-image: url(../assets/home.png);*/
+}
+
+
+h1,h2,h3,h4,h5,h6{
+    font-family: Poppins;
+    color: #020100;
+}
+
+table-employee > th{
+  font-size: smaller;
+}
+
+/* Show */
+
+.caption{
+  background-color: #FFA37F;
+}
+
+/* Form */
+.container-sm {
+  padding: 20px;
+}
+
+.container-sm > div:first-child {
+  display: flex;
+  justify-content: space-around;
+}
+
+.container-sm > div > div{
+  width: 20%;
+}
+
+.container-sm > div > fieldset {
+  width: 20%;
+}
+
+/* form {
+  padding: 20px;
+} */
+
+form >input{
+  width: 10%;
+}
+
+legend {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+form > div
+{
+  flex-wrap: wrap;
+}
+
+
+/* Details employee */
+.detailForm {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+
+.navbar-brand img {
+  position: absolute;
+  width: 150px;
+}
+
+.navbar{
+  height: 85px;
+}
+
+h5{
+  text-align: center;
+}
+
+#employee {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#employee > div {
+  width: 45%;
+}
+
+#employee > fieldset {
+  width: 45%;
+}
+
+#calendar1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#calendar1 > div {
+  width: 45%;
+}
+
+#calendar1 > fieldset {
+  width: 45%;
+}
+

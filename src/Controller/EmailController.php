@@ -2,42 +2,22 @@
 
 namespace App\Controller;
 
-use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Mime\Email;
 use App\Form\EmailtoType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\Transport;
 use Symfony\Component\Mailer\Mailer;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Mime\Email;
 
 
 class EmailController extends AbstractController
 {
-    #[Route('/email', name: 'email')]
+    #[Route('/email', name: '/email')]
 
-    /**
-    * @param string $username
-    * @param string $email
-    */
-    public function getAutoPass($username, $email)
-    {
-        $autopass = strtolower(chr(64 + rand(1, 26)) . strtolower($username[2] . $email[1] . rand(1, 99) . $username[1] . $email[0]));
-        return $autopass;
-    }
-
-    /**
-    * @Route("/email", name="email")
-    * @param Request $request
-    * @param MailerInterface $mailer
-    * @param UserPasswordHasherInterface $userPasswordHasher
-    * @param ManagerRegistry $managerRegistry
-    */
-    public function index(Request $request, MailerInterface $mailer, UserPasswordHasherInterface $userPasswordHasher, ManagerRegistry $managerRegistry): Response
+    public function index(Request $request, MailerInterface $mailer): Response
     {
         
         $form = $this->createForm(EmailtoType::class);
@@ -45,25 +25,12 @@ class EmailController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-            $data = $form->getData();
-            $username = $data->getUsername();
-            $email = $data->getEmail();
             
-            $password = $this->getAutoPass($username, $email);
-
-            $user = new User();
-            $user->setEmail($email);
-            $user->setPassword($userPasswordHasher->hashPassword($user, $password));
-
-            $entityManager = $managerRegistry->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
-
-            $transport = Transport::fromDsn('smtp://emmarentero@gmail.com:tsqqgksxiyoiyijx@smtp.gmail.com:587');
+            $transport = Transport::fromDsn('smtp://emmarentero@gmail.com:gdmjziwrhmmsrbkd@smtp.gmail.com:587');
 
             $mailer = new Mailer($transport);
 
+            
             $email = (new Email())
 
             ->from('emmarentero@gmail.com')
@@ -73,22 +40,41 @@ class EmailController extends AbstractController
             //->bcc('bcc@example.com')
             //->replyTo('fabien@example.com')
             //->priority(Email::PRIORITY_HIGH)
-            ->subject('Email de bienvenida a FactoríaF5')
-            ->text('
+            ->subject('Autoevaluación FactoríaF5')
 
-            <div style="color: #020100; background-color: #ffa37f; width: 100%; padding: 16px 0; text-align: center; ">
+            ->text('¡Hola Bienvenid@!
 
-            <h1>¡¡¡¡Bienvenida compañer@!!!!</h1>
+            Estamos muy content@s que seas parte del equipo de Factoría F5, contigo seguimos creciendo y creando oportunidades a nuestr@s Coders.
+                
+            Verás que te adjuntamos un link con una autoevaluación. Para nosotr@s es muy importante tener tu feedback durante tu periodo de prueba. Confiamos que para llegar lejos debemos ser capaces de ser críticos con nosotros mismos y tener espacios para seguir creciendo y aprendiendo.
 
-            <H5>TU CONTRASEÑA ES:{{ $password }} </H5>
+            En caso de cualquier duda, estamos a tu disposición.
+
+            FACTORIA F5
+
+            ')
+
+            ->html('
             
-            <h4>Por favor, procede a modificar tu contraseña accediendo al enlace que te indicamos a continuación:</h4>
+            <div style="color: #020100; background-color: #FFA37F; width: 100%; padding: 16px 0; text-align: center; color-padding: #FD3903">
+  
+                <h1>¡Hola Bienvenid@!</h1>
+  
+                <h4>Estamos muy content@s que seas parte del equipo de Factoría F5, contigo seguimos creciendo y creando oportunidades a nuestr@s Coders.</h4>
 
-        </div>
-            
-            ');
+                <h4>Verás que te adjuntamos un link con una autoevaluación. Para nosotr@s es muy importante tener tu feedback durante tu periodo de prueba. Confiamos que para llegar lejos debemos ser capaces de ser críticos con nosotros mismos y tener espacios para seguir creciendo y aprendiendo.</h4>
+
+                    <a href="https://forms.gle/xuiYspLRaWWTxcWi9">Enlace al formulario de autoevaluación</a>
+  
+                <h4>En caso de cualquier duda, estamos a tu disposición.</h4>
+  
+                <h2>People & Culture</H2>
+  
+        ');
 
         $mailer->send($email);
+
+        $this->addFlash('success', 'El correo electrónico se ha enviado correctamente.');
 
         }
 

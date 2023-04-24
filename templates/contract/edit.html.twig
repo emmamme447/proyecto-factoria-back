@@ -1,13 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Contract{% endblock %}
+{% block title %}Editar contrato{% endblock %}
 
 {% block body %}
-    <h1>Edit Contract</h1>
+<header>
+    {{ parent() }}
+</header>
 
-    {{ include('contract/_form.html.twig', {'button_label': 'Update'}) }}
+<h5 class="m-4">Editar tipo de contrato</h5>
 
-    <a href="{{ path('app_contract_index') }}">back to list</a>
+    <div class="container-fluid container-sm m-4" style="border: 2px solid #E8550F; width: 40%; position: relative; left: 25%">
+    
+        {{ include('contract/_form.html.twig', {'button_label': 'Guardar'}) }}
 
-    {{ include('contract/_delete_form.html.twig') }}
+    </div>
+
+    <div style="display: flex; justify-content: center; width: 90%;"> 
+
+        <a href="{{ path('app_contract_index') }}" class="btn btn-sm m-4" style="background-color: #020100; color: #ffffff">Volver a la lista</a>
+
+        {{ include('contract/_delete_form.html.twig') }}
+    
+    </div>
+
 {% endblock %}

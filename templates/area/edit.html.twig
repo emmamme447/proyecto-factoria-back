@@ -1,13 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Area{% endblock %}
+{% block title %}Modificar área{% endblock %}
 
 {% block body %}
-    <h1>Edit Area</h1>
+<header>
+    {{ parent() }}
+</header>
 
-    {{ include('area/_form.html.twig', {'button_label': 'Update'}) }}
+<h5 class="m-4">Modificar área</h5>
 
-    <a href="{{ path('app_area_index') }}">back to list</a>
+<div class="container-sm m-4" style="border: 2px solid #E8550F; width: 40%; position: relative; left: 25%">
+
+    {{ include('area/_form.html.twig', {'button_label': 'Guardar'}) }}
+
+</div> 
+
+<div style="display: flex; justify-content: center; width: 90%;"> 
+
+    <a href="{{ path('app_area_index') }}" class="btn btn-sm m-4" style="background-color: #020100; color: #ffffff">Volver a la lista</a>
 
     {{ include('area/_delete_form.html.twig') }}
+
+</div>
+
 {% endblock %}

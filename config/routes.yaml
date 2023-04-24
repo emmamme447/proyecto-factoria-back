@@ -3,3 +3,15 @@
 #    controller: App\Controller\DefaultController::index
 api_login_check:
     path: /api/login_check
+
+email:
+    path: /email
+    controller: App\src\Controller\EmailController    
+
+email_to_manager:
+    path: /email/to/manager
+    controller: App\src\Controller\EmailToManagerController
+
+app_logout:
+    path: /logout
+    controller: App\src\Security\AppCustomAuthenticator         

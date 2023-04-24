@@ -1,38 +1,47 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Calendar{% endblock %}
+{% block title %}Calendario{% endblock %}
 
 {% block body %}
-    <h1>Calendar</h1>
+<body >
+<header>
+   {{ parent() }}
+</header>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ calendar.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ calendar.title }}</td>
-            </tr>
-            <tr>
-                <th>StartDate</th>
-                <td>{{ calendar.startDate ? calendar.startDate|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>FinishDate</th>
-                <td>{{ calendar.finishDate ? calendar.finishDate|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Recipient</th>
-                <td>{{ calendar.recipient }}</td>
-            </tr>
-        </tbody>
-    </table>
+<h5 class="m-4">Eventos calendario</h5>
 
-    <a href="{{ path('app_calendar_index') }}">back to list</a>
+    <section style="padding:30px">
+        <div class="container-fluid container-sm" >
+            <div style="display: flex; justify-content: center; margin-left:10%">
+                <table class="table table-bordered table-sm" style="border: 2px solid #E8550F; width: 50%" >
+                    <tbody>
+                        <tr class="table" style=" border: 2px solid #E8550F">
+                            <th style="background-color: #FFA37E">Asunto</th>
+                            <td>{{ calendar.title }}</td>
+                        </tr>
+                        <tr>
+                            <th style="background-color: #FFA37E">Fecha de inicio</th>
+                            <td>{{ calendar.startDate ? calendar.startDate|date('Y-m-d H:i:s') : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th style="background-color: #FFA37E">Fecha fin</th>
+                            <td>{{ calendar.finishDate ? calendar.finishDate|date('Y-m-d H:i:s') : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th style="background-color: #FFA37E">Destinatario</th>
+                            <td>{{ calendar.recipient }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>    
+    </section>    
+    <div style="display: flex; justify-content: center; width: 100%">
+    <a href="{{ path('app_calendar_index') }}" class="btn btn-sm m-4" style="background-color: #020100; color: #ffffff">Volver a la lista</a>
 
-    <a href="{{ path('app_calendar_edit', {'id': calendar.id}) }}">edit</a>
-
-    {{ include('calendar/_delete_form.html.twig') }}
+    <a href="{{ path('app_calendar_edit', {'id': calendar.id}) }}" class="btn btn-sm m-4" style="background-color: #020100; color: #ffffff">Editar</a>
+    </div>
+    <div style="justify-content: center; display: flex">
+    {{ include('calendar/_delete_form.html.twig') }}    
+    </div>
 {% endblock %}

@@ -3,24 +3,34 @@
 {% block title %}Rol{% endblock %}
 
 {% block body %}
-    <h1>Rol</h1>
+<header>
+    {{ parent() }}
+</header>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ rol.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ rol.title }}</td>
-            </tr>
-        </tbody>
-    </table>
+<h5 class="m-4">Rol</h5>
 
-    <a href="{{ path('app_rol_index') }}">back to list</a>
+    <div class="container-fluid container-sm m-4" style="padding:30px">
+        <div style="display: flex; justify-content: center; margin-bottom: 20px">
+            <table class="table table-bordered" style="border: 2px solid #E8550F; width: 50%">
+                <tbody>
+                    <tr>
+                        <th style="background-color:#FFA37E ">Tipo de Rol</th>
+                        <td>{{ rol.title }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div style="display: flex; justify-content: center; width: 100%">
+        <a href="{{ path('app_rol_index') }}" class="btn btn-sm" style="background-color: #020100; color: #ffffff; margin-right: 80px;">Volver a la lista</a>
 
-    <a href="{{ path('app_rol_edit', {'id': rol.id}) }}">edit</a>
+        
+        <a href="{{ path('app_rol_edit', {'id': rol.id}) }}" class="btn btn-sm" style="background-color: #020100; color: #ffffff; margin-right: 80px;">Editar</a>
 
-    {{ include('rol/_delete_form.html.twig') }}
+    </div>
+
+    <div style="justify-content: center; margin-top:50px; display: flex">
+        {{ include('rol/_delete_form.html.twig') }}
+    </div>
+
 {% endblock %}

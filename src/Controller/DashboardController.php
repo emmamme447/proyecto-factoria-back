@@ -2,17 +2,17 @@
 
 namespace App\Controller;
 
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DashboardController extends AbstractController
 {
-    #[Route('/dashboard', name: 'dashboard')]
-    public function index(): Response
+    #[Route('/dashboard', name: 'home')]
+    public function register(Request $request): Response
     {
-        return $this->render('dashboard/index.html.twig', [
-            'controller_name' => 'Dashboard de Factoria F5',
-        ]);
+        return $this->render('dashboard/index.html.twig');
     }
 }

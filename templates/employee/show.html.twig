@@ -2,77 +2,117 @@
 
 {% block title %}Employee{% endblock %}
 
+
 {% block body %}
-    <h1>Employee</h1>
+<header>
+	{{ parent() }}
+</header>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ employee.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ employee.name }}</td>
-            </tr>
-            <tr>
-                <th>Lastname</th>
-                <td>{{ employee.lastname }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ employee.email }}</td>
-            </tr>
-            <tr>
-                <th>Rol</th>
-                <td>{{ employee.rol }}</td>
-            </tr>
-            <tr>
-                <th>Identifying</th>
-                <td>{{ employee.identifying }}</td>
-            </tr>
-            <tr>
-                <th>Team</th>
-                <td>{{ employee.team }}</td>
-            </tr>
-            <tr>
-                <th>Position</th>
-                <td>{{ employee.position }}</td>
-            </tr>
-            <tr>
-                <th>Area</th>
-                <td>{{ employee.area }}</td>
-            </tr>
-            <tr>
-                <th>TypeOfDate</th>
-                <td>{{ employee.typeOfContract }}</td>
-            </tr>
-            <tr>
-                <th>StartDate</th>
-                <td>{{ employee.startDate ? employee.startDate|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>FinishDate</th>
-                <td>{{ employee.finishDate ? employee.finishDate|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Manager</th>
-                <td>{{ employee.manager }}</td>
-            </tr>
-            <tr>
-                <th>Photo</th>
-                <td>{{ employee.photo }}</td>
-            </tr>
-              <tr>
-                <th>Status</th>
-                <td>{{ employee.status }}</td>
-            </tr>
-        </tbody>
-    </table>
+<h5 class="m-4">Detalle Empleado</h5>
 
-    <a href="{{ path('app_employee_index') }}">back to list</a>
+	<section class="body-page">
+					
+		<div class="content-page detailForm">
+			<div style="margin-bottom:10%">
+				<img src= "{{ asset('uploads/photo/'~ employee.photo) }}" alt="{{ employee.name }}" width='400'>
+			</div>
+            <div>
+			<table class="table-responsive table-bordered table-md" style="border: 2px solid #E8550F">
 
-    <a href="{{ path('app_employee_edit', {'id': employee.id}) }}">edit</a>
+					<tbody class="bg-white">
+						<div>
+							<tr>
+								<th class="caption" scope="col">Nombre</th>
+								<td>{{ employee.name }}</td>
+							</tr>
+							<tr>
+								<th class="caption" scope="col">Apellido</th>
+								<td>{{ employee.lastname }}</td>
+							</tr>
+							<tr>
+								<th class="caption" scope="col">Nº de Identificador</th>
+								<td>{{ employee.identifying }}</td>
+							</tr>
+							<tr>
+								<th class="caption" scope="col">Email</th>
+								<td>{{ employee.email }}</td>
+							</tr>
+							<tr>
+								<th class="caption" scope="col">Tipo de Rol</th>
+								<td>{{ employee.rol }}</td>
+							</tr>
+							<tr>
+								<th class="caption" scope="col">Equipo</th>
+								<td>{{ employee.team }}</td>
+							</tr>
+							<tr>
+								<th class="caption" scope="col">Puesto</th>
+								<td>{{ employee.position }}</td>
+							</tr>
+							<tr>
+								<th class="caption" scope="col">Àrea</th>
+								<td>{{ employee.area }}</td>
+							</tr>
+							<tr>
+								<th class="caption" scope="col">Tipo de Contrato</th>
+								<td>{{ employee.typeOfContract }}</td>
+							</tr>
+							<tr>
+							<th class="caption" scope="col">Responsable</th>
+								<td>{{ employee.manager }}</td>
+							</tr>
+							<tr>
+								<th class="caption" scope="col">Periodo</th>
+								<td>{{ employee.period }}</td>
+							</tr>
+							<tr>
+								<th class="caption" scope="col">Fecha de inicio</th>
+								<td>{{ employee.startDate ? employee.startDate|date('d-m-y') : '' }}</td>
+							</tr>
+							<tr>
+								<th class="caption" scope="col">Fecha de Fin</th>
+								<td>{{ employee.finishDate ? employee.finishDate|date('d-m-y') : '' }}</td>
+							</tr>
+							<tr>
+								<th class="caption" scope="col">Primer Seguimiento</th>
+								<td>{{ employee.firstPeriod ? employee.firstPeriod|date('d-m-y') : '' }}</td>
+							</tr>
+							<tr>
+								<th class="caption" scope="col">Segundo Seguimiento</th>
+								<td>{{ employee.secondPeriod ? employee.secondPeriod|date('d-m-y') : '' }}</td>
+							</tr>
+							<tr>
+								<th class="caption" scope="col">Tercer Seguimiento</th>
+								<td>{{ employee.thirdPeriod ? employee.thirdPeriod|date('d-m-y') : '' }}</td>
+							</tr>
+							<tr>
+								<th class="caption" scope="col">Cuarto Seguimiento</th>
+								<td>{{ employee.fourthPeriod ? employee.fourthPeriod|date('d-m-y') : '' }}</td>
+							</tr>
+							<tr>
+								<th class="caption"scope="col">Quinto Seguimiento</th>
+								<td>{{ employee.fifthPeriod ? employee.fifthPeriod|date('d-m-y') : '' }}</td>
+							</tr>
+							<tr>
+								<th class="caption" scope="col">Estado</th>
+								<td>{{ employee.status }}</td>
+							</tr>
+						</div>
+					</tbody>
+				</table>
+				<div style="display: flex; justify-content: center; width: 100%">
+					<a href="{{ path('app_employee_index') }}" class="btn btn-sm m-4" style="background-color: #020100; color: #ffffff">Volver a la lista</a>
 
-    {{ include('employee/_delete_form.html.twig') }}
+					<a href="{{ path('app_employee_edit', {'id': employee.id}) }}" class="btn btn-sm m-4" style="background-color: #020100; color: #ffffff">Editar</a>
+				</div>
+                <div style="justify-content: center; display: flex; margin-bottom:10%">
+					{{ include('employee/_delete_form.html.twig')}}
+				</div>
+						
+           		 </div>
+			</div>
+
+		</section>
+
+	
 {% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Período de prueba{% endblock %}
+
+{% block body %}
+<header>
+    {{ parent() }}
+</header>
+
+<h5 class="m-4">Período de prueba</h5>
+
+    <div class="container-fluid container-sm m-4" style="padding:30px" >
+        <div style="display: flex; justify-content: center; margin-left:10%">
+            <table class="table table-bordered table-sm" style="border: 2px solid #E8550F; width: 50%">
+                <tbody>
+                    <tr >
+                        <th style="background-color: #FFA37E">Duración del período</th>
+                        <td>{{ period.title }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div style="display: flex; justify-content: center; width: 100%">
+
+        <a href="{{ path('app_period_index') }}" class="btn btn-sm m-4" style="background-color: #020100; color: #ffffff">Volver a la lista</a>
+
+        <a href="{{ path('app_period_edit', {'id': period.id}) }}" class="btn btn-sm m-4" style="background-color: #020100; color: #ffffff">Editar</a>
+    
+    </div>
+    <div style="justify-content: center; display: flex">
+
+        {{ include('period/_delete_form.html.twig') }}
+
+    </div>
+    
+{% endblock %}

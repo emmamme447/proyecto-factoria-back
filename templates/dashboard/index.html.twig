@@ -1,20 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello DashboardController!{% endblock %}
+{% block title %}
+
+{{ parent()}} - Página principal
+
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+
+{{ parent() }}
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/emmar/Documents/proyectos_emma_femcoders/pruebaFactoriaF5/src/Controller/DashboardController.php'|file_link(0) }}">src/Controller/DashboardController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/emmar/Documents/proyectos_emma_femcoders/pruebaFactoriaF5/templates/dashboard/index.html.twig'|file_link(0) }}">templates/dashboard/index.html.twig</a></code></li>
-    </ul>
+    <h1 class="text-center mt-5">¡¡Bienvenid@ a la página para períodos de prueba de Factoría F5!!</h1>
+    <img class="object-cover w-40 position-absolute top-50 start-50 translate-middle" style="height: 40%"src={{ asset('assets/image_2.png')}} alt="logo" loading="lazy" />
 </div>
 {% endblock %}

@@ -44,7 +44,6 @@ class RolController extends AbstractController
     #[Route('/list', name: 'app_rol_list', methods: ['GET'])]
     public function listRol(Request $request, RolRepository $rolRepository): JsonResponse
     { 
-
         // Obtenemos todos los datos del repositorio de area
         $listRol = $rolRepository->findAll(); 
 

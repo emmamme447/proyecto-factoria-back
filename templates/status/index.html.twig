@@ -1,35 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Status index{% endblock %}
+{% block title %}Estado{% endblock %}
 
 {% block body %}
-    <h1>Status index</h1>
+<header>
+    {{ parent() }}
+</header>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for status in statuses %}
-            <tr>
-                <td>{{ status.id }}</td>
-                <td>{{ status.title }}</td>
-                <td>
-                    <a href="{{ path('app_status_show', {'id': status.id}) }}">show</a>
-                    <a href="{{ path('app_status_edit', {'id': status.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+<h5 class="m-4">Estado</h5>
+    <div class="container-fluid text-center container-sm" style="padding:30px" >
+        <div style="display: flex; justify-content: center; margin-bottom: 50px">
+            <table class="table table-bordered table-sm" style="border: 2px solid #E8550F; width: 50%">
+                <thead>
+                    <tr class="table" style="background-color: #FFA37E; border: 2px solid #E8550F">
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for status in statuses %}
+                    <tr>
+                        <td>{{ status.title }}</td>
+                        <td>
+                            <a href="{{ path('app_status_show', {'id': status.id}) }}" class="btn btn-sm" style="background-color: #020100; color: #ffffff">mostrar</a>
+                            <a href="{{ path('app_status_edit', {'id': status.id}) }}" class="btn btn-sm" style="background-color: #020100; color: #ffffff">editar</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3" style="text-align: center;">No se encontraron registros</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        
+        </div>
+        <a href="{{ path('app_status_new') }}" class="btn btn-sm m-4" style="background-color: #020100; color: #ffffff" >Crear nuevo estado</a>
+    </div>
 
-    <a href="{{ path('app_status_new') }}">Create new</a>
 {% endblock %}

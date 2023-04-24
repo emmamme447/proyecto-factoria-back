@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <img src={{ asset('assets/logo_sinfondo.svg')}} height="150" width="190" alt="logo" loading="lazy" class="text-center ms-50"/>
+
+    <div class="position-absolute top-50 start-50 translate-middle p-5 rounded text-center" style="background-color: #ffa37f;">
+
+        <h3 class="h3 mb-3 font-weight-normal">Desconectad@.</h3>
+
+        <p>Has cerrado sesión correctamente, por favor, vuelve cuando quieras.</p>
+
+        <a href="https://factoriaf5.org/" target="_blank" rel="noopener noreferrer" class="badge text-wrap text-decoration-underline" style="color: #020100;">Web de Factoría F5</a>
+
+        <p class="mt-5">Si quieres volver a la página de inicio, por favor, pulsa aquí:</p>
+
+        <a href="http://127.0.0.1:8000/" rel="noopener noreferrer" class="badge text-wrap text-decoration-underline" style="color: #020100;">Página de inicio</a>
+
+    </div>
+
+{% endblock %}

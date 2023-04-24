@@ -14,7 +14,7 @@ class PositionType extends AbstractType
     {
         $builder
             ->add('title' , TextType::class, [
-                'label' => 'Titulo',
+                'label' => 'Título',
                 'attr' => [
                 'class' => 'form-control'
            ]]);

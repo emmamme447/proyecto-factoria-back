@@ -30,7 +30,7 @@ class EmailController extends AbstractController
 
             $mailer = new Mailer($transport);
 
-
+            
             $email = (new Email())
 
             ->from('emmarentero@gmail.com')

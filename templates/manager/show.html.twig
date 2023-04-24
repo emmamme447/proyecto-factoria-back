@@ -3,11 +3,11 @@
 {% block title %}Responsables{% endblock %}
 
 {% block body %}
-    <header>
+<header>
     {{ parent() }}
-    </header>
+</header>
 
-    <h5 class="m-4" >Responsables</h5>
+<h5 class="m-4" >Responsables</h5>
 
     <div class="container-fluid" style="padding:30px" >
         <div style="display: flex; justify-content: center; margin-left:10%">
@@ -24,14 +24,17 @@
                 </tbody>
             </table>
         </div>
-    </div>       
+    </div>
+    
     <div style="display: flex; justify-content: center; width: 100%">
-    <a href="{{ path('app_manager_index') }}" class="btn btn-sm m-2" style="background-color: #020100; color: #ffffff">volver a la lista</a>
+    
+        <a href="{{ path('app_manager_index') }}" class="btn btn-sm m-2" style="background-color: #020100; color: #ffffff">volver a la lista</a>
 
-    <a href="{{ path('app_manager_edit', {'id': manager.id}) }}" class="btn btn-sm m-2" style="background-color: #020100; color: #ffffff">editar</a>
+        <a href="{{ path('app_manager_edit', {'id': manager.id}) }}" class="btn btn-sm m-2" style="background-color: #020100; color: #ffffff">editar</a>
     </div>
 
     <div style="justify-content: center; display: flex">
-    {{ include('manager/_delete_form.html.twig') }}
+
+        {{ include('manager/_delete_form.html.twig') }}
     </div>
 {% endblock %}

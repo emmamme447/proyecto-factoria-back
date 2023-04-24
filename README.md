@@ -6,15 +6,15 @@ On this website there will be two possible accesses, one for HR who will have ac
 
 ## Table of contents
 - [User Stories](#user-stories)
-- [Fullstack Developer Team](#fullstack-developer-team)
+- [Fullstack Developer Team](#Fullstack-Developer-Team)
 - [Stacks and technologies](#stacks-and-technologies)
 - [Other Tools](#other-tools)
 - [Methodology](#methodology)
 - [Installation](#installation)
 
 
-<h2><span class="emoji">📝</span>
-User Stories</h2> (#User-Stories)
+<h2 id="User-Stories"><span class="emoji">📝</span>
+User Stories</h2> 
 <h4>HR Manager</h4>
 <ul>
   <li>As an HR manager, I want to be able to create a user account for employees in their probationary period, so that they can access the platform and view their evaluations and comments.</li>
@@ -32,6 +32,8 @@ User Stories</h2> (#User-Stories)
 
 ## :woman_technologist: Fullstack Developer Team and GitHub Links (#Fullstack-Developer-Team)
 
+
+
 | Name                       | Role                    | Link                                     |
 | --------------------------|------------------------| ---------------------------------------- |
 | Hilda Da Conceicao         | Scrum Master          | https://github.com/Hildacaro             |
@@ -42,8 +44,8 @@ User Stories</h2> (#User-Stories)
 | Nerea Pascual Picazo    | Developer               | https://github.com/Npicazo12               |
 
 
-<h2>
-<span class="emoji">:wrench:</span>Stacks and technologies</h2> (#Stacks-and-technologies)
+<h2 id="Stacks-and-technologies">
+<span class="emoji">:wrench:</span>Stacks and technologies</h2> 
 
 <span style="border-radius: 30px; background-color: #E34F26; padding: 5px;">
     <img height="30" src="https://img.shields.io/badge/-HTML5-orange?style=flat-square&logo=html5&logoColor=white"/>
@@ -74,8 +76,8 @@ User Stories</h2> (#User-Stories)
 </span>
 
 
-<h2><span class="emoji">:hammer:</span>
-Other Tools</h2> (#Other-Tools)
+<h2 id="Other-Tools"><span class="emoji">:hammer:</span>
+Other Tools</h2> 
 <span style="border-radius: 3px; background-color: #007ACC; padding: 5px;">
     <img height="30" src="https://img.shields.io/badge/-Visual%20Studio%20Code-007ACC?style=flat-square&logo=visual-studio-code&logoColor=white"/>
 </span>
@@ -86,8 +88,8 @@ Other Tools</h2> (#Other-Tools)
     <img height="30" src="https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white"/>
 
 
-<h2><span class="emoji">📊</span>
-Methodology</h2> (#Methodology)
+<h2 id="Methodology"><span class="emoji">📊</span>
+Methodology</h2>
 <ul>
   <li>Agile with scrum</li>
   <li>Mob, pair and solo programming</>
@@ -98,8 +100,8 @@ Methodology</h2> (#Methodology)
 
 
 
-<h2><span class="emoji">:book:</span>
-Installation</h2> (#Installation)
+<h2 id="Installation"><span class="emoji">:book:</span>
+Installation</h2> 
 <ul>
   <li>Clone the GitHub repository</li>
   <li>Install PHP dependencies with <code>composer install</code></li>

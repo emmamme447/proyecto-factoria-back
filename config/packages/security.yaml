@@ -49,7 +49,6 @@ when@test:
             ROLE_ADMIN: [ROLE_USER]
         access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/user, roles: ROLE_USER }
         - { path: ^/dashboard, roles: ROLE_ADMIN}
         - { path: ^/employee, roles: ROLE_ADMIN }
         - { path: ^/calendar, roles: ROLE_ADMIN }

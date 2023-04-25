@@ -34,12 +34,8 @@ class ChecktokenController extends AbstractController
         $jwtHeader = json_decode($tokenHeader);
         $jwtPayload = json_decode($tokenPayload);
 
-        //dump($jwtPayload);die;
-
         $user = $userRepository->findOneByEmail($jwtPayload->username);
         
-        //dump($user->getRoles());die;
-
         if(!$user) {
             return $this->redirectToRoute('login');
         }

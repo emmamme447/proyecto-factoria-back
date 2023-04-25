@@ -1,4 +1,4 @@
-<img src="/public/assets/logo.png" alt="Logo de mi proyecto">
+<img src="/public/assets/image_1.png" alt="Logo de mi proyecto">
 
 <h1>Final Proyect Factoria F5 - Backend</h1>
 <p>This is a proyect developed for Factoria F5 as final proyect of femcoders bootcamp.
@@ -11,6 +11,7 @@ On this website there will be two possible accesses, one for HR who will have ac
 - [Stacks and technologies](#stacks-and-technologies)
 - [Other Tools](#other-tools)
 - [Methodology](#methodology)
+-[Screenshots](#Screenshots)
 - [Installation](#installation)
 
 
@@ -133,6 +134,7 @@ Methodology</h2>
 
 
 
+<h2 id="Screenshots"><span class="emoji">:camera:</span>Screenshots</h2>
 
 
 <h2 id="Installation"><span class="emoji">:book:</span>

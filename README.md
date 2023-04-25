@@ -11,7 +11,7 @@ On this website there will be two possible accesses, one for HR who will have ac
 - [Stacks and technologies](#stacks-and-technologies)
 - [Other Tools](#other-tools)
 - [Methodology](#methodology)
--[Screenshots](#Screenshots)
+- [Screenshots](#Screenshots)
 - [Installation](#installation)
 
 

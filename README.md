@@ -135,7 +135,7 @@ Methodology</h2>
 
 
 <h2 id="Screenshots"><span class="emoji">:camera:</span>Screenshots</h2>
-<img src="/public/assets/Back1.png" alt="screenshot back">
+<img src="/public/assets/back1.png" alt="screenshot back">
 <img src="/public/assets/back2.png" alt="screenshot back">
 <img src="/public/assets/back3png" alt="screenshot back">
 

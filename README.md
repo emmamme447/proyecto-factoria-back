@@ -135,9 +135,9 @@ Methodology</h2>
 
 
 <h2 id="Screenshots"><span class="emoji">:camera:</span>Screenshots</h2>
-<img src="/public/assets/back1.png" alt="screenshot back">
-<img src="/public/assets/back2.png" alt="screenshot back">
-<img src="/public/assets/back3png" alt="screenshot back">
+<img src="/public/assets/back1.jpeg" alt="screenshot back">
+<img src="/public/assets/back2.jpeg" alt="screenshot back">
+<img src="/public/assets/back3.jpeg" alt="screenshot back">
 
 <h2 id="Installation"><span class="emoji">:book:</span>
 Installation</h2> 

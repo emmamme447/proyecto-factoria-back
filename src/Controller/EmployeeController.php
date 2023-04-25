@@ -43,9 +43,6 @@ class EmployeeController extends AbstractController
     if ($form->isSubmitted() && $form->isValid()) {
       /** @var UploadedFile $foto */
       $photo = $form->get('photo')->getData();
-      // dump($form);
-      // die;
-      // dump($photo)
     
       // this condition is needed because the 'brochure' field is not required
       // so the PDF file must be processed only when a file is uploaded
@@ -72,8 +69,6 @@ class EmployeeController extends AbstractController
       // updates the 'brochureFilename' property to store the PDF file name
       // instead of its contents
         $employee->setPhoto($newFilename);
-          // dump($usuario);
-        // die;
       }    
 
       $employeeRepository->save($employee, true);
@@ -100,10 +95,6 @@ class EmployeeController extends AbstractController
     public function edit(Request $request, SluggerInterface $slugger, Employee $employee, EmployeeRepository $employeeRepository, PositionRepository $positionRepository, TeamRepository $teamRepository, RolRepository $rolRepository, AreaRepository $areaRepository, ContractRepository $contractRepository, StatusRepository $statusRepository, ManagerRepository $managerRepository, PeriodRepository $periodRepository): Response
     { 
       $form = $this->createForm(EmployeeType::class, $employee);
-      // dump($form);
-      // dump($request->files->get('employee')['photo']);
-      // dump($request->isMethod('POST'));
-      // die;
       
       if ($request->isMethod('POST') && $request->files->get('employee')['photo']){
         $form->handleRequest($request);
@@ -111,8 +102,6 @@ class EmployeeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
            /** @var UploadedFile $foto */
           $photo = $form->get('photo')->getData();
-          // dump($photo);
-          // die;
           
           // this condition is needed because the 'brochure' field is not required
           // so the PDF file must be processed only when a file is uploaded
@@ -139,8 +128,6 @@ class EmployeeController extends AbstractController
           // updates the 'brochureFilename' property to store the PDF file name
             // instead of its contents
             $employee->setPhoto($newFilename);
-              // dump($usuario);
-              // die;
           }    
       
         $employeeRepository->save($employee, true);
@@ -150,10 +137,7 @@ class EmployeeController extends AbstractController
         return $this->redirectToRoute('app_employee_index', [], Response::HTTP_SEE_OTHER);
         }
       } else if ($request->isMethod('POST')) {
-        // dump($request->files->has('photo'));
         $data = $request->request->get('employee');
-        // dump($data);
-        // dump($data['lastname']);
         
 
         // Almacenamos el nombre

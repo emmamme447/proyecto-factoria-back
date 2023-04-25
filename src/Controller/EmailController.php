@@ -26,7 +26,7 @@ class EmailController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             
-            $transport = Transport::fromDsn('smtp://emmarentero@gmail.com:gdmjziwrhmmsrbkd@smtp.gmail.com:587');
+            //$transport = Transport::fromDsn();
 
             $mailer = new Mailer($transport);
 
